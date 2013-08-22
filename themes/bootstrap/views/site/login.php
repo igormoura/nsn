@@ -1,7 +1,5 @@
 <?php
-/* @var $this UserController */
-/* @var $model User */
-/* @var $form CActiveForm  */
+
 
 $this->pageTitle=Yii::app()->name . ' - Login';
 $this->breadcrumbs=array(
@@ -31,9 +29,6 @@ $this->breadcrumbs=array(
     <?php echo $form->passwordFieldRow($model, 'password', array('class'=>'span3')); ?>
     <?php echo $form->error($model,'password'); ?>
 
-    <p class="hint">
-            Hint: You may login with  <kbd>admin</kbd>/<kbd>admin</kbd>.
-    </p>
     <?php echo $form->checkboxRow($model, 'rememberMe'); ?>
 
     <?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'type'=>'primary', 'label'=>'Login')); ?>

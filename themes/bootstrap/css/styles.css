@@ -33,10 +33,53 @@
     float: none;
     margin-right: -148px;
 }
-
+.search-form-vertical form {
+    width: 194px;
+}
 .advanced-search { 
     float: right;
    margin-right: -147px;
    margin-top: 21px;
 }
 
+
+/* .navbar */
+
+.navbar-inner {
+    background-color: #006699;
+    background-image: linear-gradient(to bottom, #66CCFF, #006699);
+    background-repeat: repeat-x;
+    border: 1px solid #D4D4D4;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+    min-height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+table.detail-view{
+    border-radius: 4px;
+}
+
+.visao-geral .table th {
+    text-align: right !important; 
+    border-top: 0 !important;
+}
+.visao-geral .table td {
+    text-align: left !important; 
+    border-top: none !important; 
+}
+
+
+.accordion-inner {
+    padding: 0 !important;
+}
+
+.modal-footer {
+    margin-bottom: -20px !important;
+}
+
+.accordion-heading .accordion-toggle {
+display: block;
+padding: 8px 23px !important;
+}
