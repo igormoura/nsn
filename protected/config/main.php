@@ -92,24 +92,7 @@ return array(
 		/*'db'=>array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 		),*/
-            
-                 'secondb'=>array(
-                    'class'=>'system.db.CDbConnection',
-                    'connectionString' => 'sqlsrv:Server=192.168.2.239; Database=SNETD-TESTE;',
-                    'username' => 'nsnPhpYii',
-                    'password' => 'n0v0-snetd',
-                    'charset' => 'GB2312'
-                 ),
-            
-                  /*'db'=>array(
-                    'class'=>'CDbConnection',
-                    'connectionString'=>'pgsql:host=localhost;port=5432;dbname=nsn',
-                    'username'=>'postgres',
-                    'password'=>'postgres',
-                    'emulatePrepare'=>true,  // necessário em algumas instalações do MySQL
-                  ),*/
-                            
-                 'db'=>array(
+                'db'=>array(
                     'class'=>'system.db.CDbConnection',
                     'connectionString' => 'sqlsrv:Server=192.168.2.239; Database=NSN',
                     'username' => 'nsnPhpYii',
@@ -117,6 +100,28 @@ return array(
                     'charset' => 'GB2312',
                     'tablePrefix' => 'tbl_'
                  ),
+                'secondb'=>array(
+                   'class'=>'system.db.CDbConnection',
+                   'connectionString' => 'sqlsrv:Server=192.168.2.239; Database=SNETD-TESTE;',
+                   'username' => 'nsnPhpYii',
+                   'password' => 'n0v0-snetd',
+                   'charset' => 'GB2312'
+                ),
+                /*'db'=>array(
+                  'class'=>'CDbConnection',
+                  'connectionString'=>'pgsql:host=localhost;port=5432;dbname=nsn',
+                  'username'=>'postgres',
+                  'password'=>'postgres',
+                  'emulatePrepare'=>true,  // necessário em algumas instalações do MySQL
+                ),*/
+                /*'db'=>array(
+                      'connectionString' => 'mysql:host=localhost;dbname=nsn',
+                      'emulatePrepare' => true,
+                      'username' => 'root',
+                      'password' => 'mysql',
+                      'charset' => 'utf8',
+                ),*/       
+                
                 
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
