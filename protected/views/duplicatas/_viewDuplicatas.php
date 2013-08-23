@@ -6,7 +6,7 @@
         'fixedHeader' => true,
         'type'=>'striped bordered',
         'responsiveTable' => true,
-	'dataProvider'=>$model->search(),
+	'dataProvider'=>$model->Duplicatas,
         'filter' => $model,
 	'columns'=>array(
             /*array(
@@ -18,23 +18,23 @@
             ),*/
             array(
                 'name' => 'Duplicatas.NumeroDup',
-                'value' => '$data->Duplicatas->NumeroDup', 
+                'value' => '$data->NumeroDup', 
             ),
             array(
                 'name' => 'Duplicatas.NumeroLote',
-                'value' => '$data->Duplicatas->NumeroLote', 
+                'value' => '$data->NumeroLote', 
             ),
             array(
                 'name' => 'Duplicatas.BaixaDup',
-                'value' => '$data->Duplicatas->BaixaDup', 
+                'value' => '$data->BaixaDup', 
             ),
             array(
                 'name' => 'Duplicatas.FormaPaga',
-                'value' => '$data->Duplicatas->FormaPaga', 
+                'value' => '$data->FormaPaga', 
             ),
             array(
                 'name' => 'Duplicatas.ValorDup',
-                'value' => '$data->Duplicatas->ValorDup', 
+                'value' => '$data->ValorDup', 
             ), 
             /*array(
                 'name'=>'Duplicatas.DataEmisDup','htmlOptions'=>array('style'=>'width: 12%'),
