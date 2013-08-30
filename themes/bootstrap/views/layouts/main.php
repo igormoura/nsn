@@ -7,6 +7,7 @@
         
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/styles.css" />
         <script type="text/javascript" src="/nsn/assets/c5f5426e/js/date.min.js"></script>
+        <script type="text/javascript" src="/nsn/assets/c5f5426e/js/jquery.min.js"></script>
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 
 	<?php Yii::app()->bootstrap->register(); ?>
@@ -15,7 +16,7 @@
 <body>
 
 <?php $this->widget('bootstrap.widgets.TbNavbar',array(
-    'type'=>'',
+    'type'=>'', //inversr
     'collapse'=>true,
       'fixed' => 'top',
       'items'=>array(

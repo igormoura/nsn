@@ -104,8 +104,8 @@ class Cliente extends CActiveRecord
 		return array(
 			'SoftwareMicrosoftContratos' => array(self::HAS_MANY, 'SoftwareMicrosoftContrato', 'noContrato'),
 			'ClienteEndCobr' => array(self::HAS_ONE, 'ClienteEndCobr', 'NoCliente'),
-                        'Contrato' => array(self::HAS_ONE, 'Contrato', 'NoContrato'),
-                        'Duplicatas' => array(self::HAS_MANY, 'Duplicatas', 'NumeroDup'),
+            'Contrato' => array(self::HAS_ONE, 'Contrato', 'NoContrato'),
+            'Duplicatas' => array(self::HAS_MANY, 'Duplicatas', 'NoCliente'),
 		);
 	}
 

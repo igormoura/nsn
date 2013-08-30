@@ -192,9 +192,8 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
     <?php
     $this->widget('bootstrap.widgets.TbButton', array(
         'type' => 'primary',
+        'buttonType' => 'submit',
         'label' => $model->isNewRecord ? 'Criar' : 'Salvar',
-        'url' => '#',
-        'htmlOptions' => array('data-dismiss' => 'modal'),
     ));
     ?>
     <?php

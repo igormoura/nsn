@@ -1,7 +1,6 @@
 <?php include_once '_editFormEc.php' ?>
 <?php include_once '_editForm.php' ?>
 
-
 <?php $this->widget('bootstrap.widgets.TbDetailView', array(
             'data'=>$model,
             'attributes'=>array(
@@ -148,8 +147,6 @@
     </div>
 </div>
 <?php $this->endWidget();?>
-
-
 
 
 <?php $this->widget('bootstrap.widgets.TbButton', array(

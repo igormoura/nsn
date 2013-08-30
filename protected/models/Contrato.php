@@ -132,6 +132,9 @@ class Contrato extends CActiveRecord
                 'TipoCobranca' => array(self::BELONGS_TO, 'TipoCobranca', 'CodigoTipoCobr'),
                 'NomesEmpresas' => array(self::BELONGS_TO, 'NomesEmpresas', 'Empresa'),
                 'Cliente' => array(self::BELONGS_TO, 'Cliente', 'NoCliente'),
+                'CobrAdic' => array(self::HAS_MANY, 'CobrAdic', 'NoContrato'),
+                'NetAcessos' => array(self::HAS_MANY, 'NetAcessos', 'NoContrato'),
+                'Ocorrencia' => array(self::HAS_MANY, 'Ocorrencia', 'NoContrato'),
             );
 	}
         
@@ -306,7 +309,7 @@ class Contrato extends CActiveRecord
         {
              
             for($i=1;$i<=31;$i++){
-                echo $i;
+                //echo $i;
             }
             
             return array(

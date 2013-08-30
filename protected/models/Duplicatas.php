@@ -113,39 +113,37 @@ class Duplicatas extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'NumeroDup' => 'Duplicata',
-			'NumeroConta' => 'Conta',
-			'FormaPaga' => 'Pagamento',
-			'NumeroLote' => 'Lote',
-			'CodigoVendedor' => 'Cod. Vendedor',
-			'NoContrato' => 'Cod. Contrato',
-			'NoCliente' => 'Cod. Cliente',
-			'CodigoColegio' => 'Codigo Colegio',
-			'DataEmisDup' => 'Emissão',
-			'DataVencDup' => 'Vencimento',
-			'AgenciaDup' => 'Agência',
-			'PagamentoDup' => 'Pagamento',
-			'BaixaDup' => 'Baixa',
-			'ValorDup' => 'Valor',
-			'ValorJurosDup' => 'Valor Juros',
-			'ValorMultaDup' => 'Valor Multa',
-			'ValorDespDup' => 'Valor Desp',
-			'ValorDescDup' => 'Valor Desc Dup',
-			'ValorAdicDup' => 'Valor Adic Dup',
-			'Observacao' => 'Observacao',
-			'NFEmitida' => 'Nfemitida',
-			'NoCobr' => 'No Cobr',
-			'CH_Banco' => 'Ch Banco',
-			'CH_No' => 'Ch No',
-			'NoNF' => 'No Nf',
-			'localpag' => 'Localpag',
-			'DataAutentPag' => 'Data Autent Pag',
-			'DataEfetivacaoPagam' => 'Efetivação',
-			'VencOriginal' => 'Venc Original',
-			'FlagOrigem' => 'Flag Origem',
-			'NoNf2' => 'No Nf2',
-			'SerieNF' => 'Serie Nf',
-			'EmpNF' => 'Emp Nf',
+			'NumeroDup' =>          Yii::t('main', 'duplicatas.NumeroDup'),
+			'NumeroConta' =>        Yii::t('main', 'duplicatas.NumeroConta'),
+			'FormaPaga' =>          Yii::t('main', 'duplicatas.FormaPaga'),
+			'NumeroLote' =>         Yii::t('main', 'duplicatas.NumeroLote'),
+			'CodigoVendedor' =>     Yii::t('main', 'duplicatas.CodigoVendedor'),
+			'NoContrato' =>         Yii::t('main', 'duplicatas.NoContrato'),
+			'NoCliente' =>          Yii::t('main', 'duplicatas.NoCliente'),
+			'CodigoColegio' =>      Yii::t('main', 'duplicatas.CodigoColegio'),
+			'DataEmisDup' =>        Yii::t('main', 'duplicatas.DataEmisDup'),
+			'DataVencDup' =>        Yii::t('main', 'duplicatas.DataVencDup'),
+			'AgenciaDup' =>         Yii::t('main', 'duplicatas.AgenciaDup'),
+			'BaixaDup' =>           Yii::t('main', 'duplicatas.BaixaDup'),
+			'ValorJurosDup' =>      Yii::t('main', 'duplicatas.ValorJurosDup'),
+			'ValorMultaDup' =>      Yii::t('main', 'duplicatas.ValorMultaDup'),
+			'ValorDespDup' =>       Yii::t('main', 'duplicatas.ValorDespDup'),
+			'ValorDescDup' =>       Yii::t('main', 'duplicatas.ValorDescDup'),
+			'ValorAdicDup' =>       Yii::t('main', 'duplicatas.ValorAdicDup'),
+			'Observacao' =>         Yii::t('main', 'duplicatas.Observacao'),
+			'NFEmitida' =>          Yii::t('main', 'duplicatas.NFEmitida'),
+			'NoCobr' =>             Yii::t('main', 'duplicatas.NoCobr'),
+			'CH_Banco' =>           Yii::t('main', 'duplicatas.CH_Banco'),
+			'CH_No' =>              Yii::t('main', 'duplicatas.CH_No'),
+			'NoNF' =>               Yii::t('main', 'duplicatas.NoNF'),
+			'localpag' =>           Yii::t('main', 'duplicatas.localpag'),
+			'DataAutentPag' =>      Yii::t('main', 'duplicatas.DataAutentPag'),
+			'DataEfetivacaoPagam' =>Yii::t('main', 'duplicatas.DataEfetivacaoPagam'),
+			'VencOriginal' =>       Yii::t('main', 'duplicatas.VencOriginal'),
+			'FlagOrigem' =>         Yii::t('main', 'duplicatas.FlagOrigem'),
+			'NoNf2' =>              Yii::t('main', 'duplicatas.NoNf2'),
+			'SerieNF' =>            Yii::t('main', 'duplicatas.SerieNF'),
+			'EmpNF' =>              Yii::t('main', 'duplicatas.EmpNF'),
 		);
 	}
 
@@ -198,11 +196,7 @@ class Duplicatas extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+
         
-        public function numeroDup(){
-            $model = new Cliente;
-            
-            foreach($model->NumeroDup as $numeroDup) 
-            $numeroDup[]=$numeroDup->NumeroDup; 
-        }
 }

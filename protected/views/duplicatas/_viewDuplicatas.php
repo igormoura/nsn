@@ -2,56 +2,60 @@
     
 <?php $this->widget('bootstrap.widgets.TbExtendedGridView', array(
 	'id'=>'contrato-grid',
-       //'headerOffset' => 51,
         'fixedHeader' => true,
         'type'=>'striped bordered',
         'responsiveTable' => true,
-	'dataProvider'=>$model->Duplicatas,
-        //'filter' => $model,
-	'columns'=>array(
-            /*array(
-                'name' => 'Contrato.NoContrato',
-               // 'value' => '$data->NumeroDup', 
-                //'value'=> array($model->Duplicatas, 'NumeroDup')
-                //'value'=>'$data->NumeroDup',
-                //'value'=> $model->numeroDup(),
-            ),*/
+        'dataProvider' => new CArrayDataProvider(
+            $model->Duplicatas, 
             array(
-                'name' => 'NumeroDup',
-                'value' => '$data->NumeroDup', 
+                'keyField'=>'NumeroDup',
+                'sort'=>array('defaultOrder'=>'DataVencDup DESC'))
             ),
+    
+        'columns' => array_merge(array(
             array(
-                'name' => 'NumeroLote',
+                'class'=>'bootstrap.widgets.TbRelationalColumn',
+                'name' => Yii::t('main', 'duplicatas.NumeroDup'),
+                            'url' => $this->createUrl('cliente/relational'),
+                'value' => '$data->NumeroDup', 
+                'afterAjaxUpdate'=>'js:function(tr,rowid, data){ console.log(rowid); }',
+                    ),
+            array(
+                'name' => Yii::t('main', 'duplicatas.NumeroLote'),
                 'value' => '$data->NumeroLote', 
             ),
             array(
-                'name' => 'BaixaDup',
-                'value' => '$data->BaixaDup', 
-            ),
-            array(
-                'name' => 'FormaPaga',
-                'value' => '$data->FormaPaga', 
-            ),
-            array(
-                'name' => 'ValorDup',
-                'value' => '$data->ValorDup', 
-            ), 
-            /*array(
-                'name'=>'DataEmisDup','htmlOptions'=>array('style'=>'width: 12%'),
+                'name'=>Yii::t('main', 'duplicatas.DataEmisDup'),
+                'htmlOptions'=>array('style'=>'width: 12%'),
                 'value'=>'date("d/m/Y",strtotime($data->DataEmisDup))',
              ),
              array(
-                'name'=>'DataVencDup','htmlOptions'=>array('style'=>'width: 12%'),
+                'name'=>Yii::t('main', 'duplicatas.DataVencDup'),
+                'htmlOptions'=>array('style'=>'width: 12%'),
                 'value'=>'date("d/m/Y",strtotime($data->DataVencDup))',
              ),
              array(
-                'name'=>'DataEfetivacaoPagam','htmlOptions'=>array('style'=>'width: 12%'),
+                'name'=>Yii::t('main', 'duplicatas.DataEfetivacaoPagam'),
+                'htmlOptions'=>array('style'=>'width: 12%'),
                 'value'=>'date("d/m/Y",strtotime($data->DataEfetivacaoPagam))',
-             ),*/
-
+             ),
+            array(
+                'name' => Yii::t('main', 'duplicatas.BaixaDup'),
+                'value' => '$data->BaixaDup', 
+            ),
+            array(
+                'name' => Yii::t('main', 'duplicatas.FormaPaga'),
+                'value' => '$data->FormaPaga', 
+            ),
+            array(
+                'name' => Yii::t('main', 'duplicatas.ValorDup'),
+                'value' => '$data->ValorDup', 
+            ), 
              array('class'=>'bootstrap.widgets.TbButtonColumn',
-                 'template' => '{view}'),
-     ),
+                 'template' => '{view}')
+        )),    
+    
+   
 )); ?>
     
 </div>
