@@ -26,7 +26,7 @@
         <?php echo $form->errorSummary($model); ?>
 
         <div class="row span9" style="margin-left:-8px;">   
-            <div class="span6" style="margin-left:-10px;">
+            <div class="span6" style="">
                 <?php echo $form->textFieldRow($model, 'NomeCliente', array('class' => 'span7')) ?>
                 <?php echo $form->error($model, 'NomeCliente'); ?>
             </div>
@@ -167,7 +167,6 @@
         'label' => $model->isNewRecord ? 'Criar Contrato' : 'Salvar',
     ));
     ?>
-    <?php echo CHtml::submitButton($model->isNewRecord ? 'Criar Contrato' : 'Save'); ?>
 <?php $this->endWidget(); ?>
 
 

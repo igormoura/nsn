@@ -7,7 +7,7 @@
             $model->Contrato->NetAcessos, 
             array(
                 'keyField'=>'LoginUsuario',
-                'sort'=>array('defaultOrder'=>'LoginUsuario ASC')
+                'sort'=>array('defaultOrder'=>'DataOcorrencia ASC')
             )),
     
         'columns' =>  array_merge(array(
@@ -33,7 +33,7 @@
             ),
             array(
                 'name' => Yii::t('main', 'netAcessos.DataCancAces'),
-                'value'=>'date("d/m/Y",strtotime($data->DataCancAces))',
+                'value'=>'date("d/m/Y" ,strtotime($data->DataCancAces))',
             ),
         )),    
     

@@ -13,9 +13,9 @@ class ClienteController extends RController
 	 */
 	
     public function filters()
-	{
-    	return array( 'rights' );
-	}
+		{
+		  	return array( 'rights' );
+		}
         
     public function allowedActions() { 
         return 'index, suggestedTags'; 
@@ -27,10 +27,16 @@ class ClienteController extends RController
 	 *
 	 */
 	public function actionView($id)
-	{
-        $this->render('view',array(
-                'model'=>$this->loadModel($id),
-        ));
+	{	
+		/* FUNCTION UPDATE*/
+		$this->actionUpdate($id);
+
+		$this->actionUpdateContrato($id);
+		
+    $this->render('view',array(
+            'model'=>$this->loadModel($id),
+    ));
+
 	}
 
 	/**
@@ -72,12 +78,29 @@ class ClienteController extends RController
 		{
 			$model->attributes=$_POST['Cliente'];
 			if($model->save())
+				// Mensagem de sucesso 
+				Yii::app()->user->setFlash('success', Yii::t('main', 'Atualização realizada com sucesso !'));
+				// Redirecionamento apos execução do método
 				$this->redirect(array('view','id'=>$model->NoCliente));
 		}
+	}
 
-		$this->render('update',array(
-			'model'=>$model,
-		));
+	public function actionUpdateContrato($id)
+	{
+		$model=$this->loadModelContrato($id);
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['Contrato']))
+		{
+			$model->attributes=$_POST['Contrato'];
+			if($model->save()){
+				// Mensagem de sucesso 
+				Yii::app()->user->setFlash('success', Yii::t('main', 'Atualização realizada com sucesso !'));
+
+			}
+		}
 	}
 
 	/**
@@ -111,9 +134,18 @@ class ClienteController extends RController
 	public function actionAdmin()
 	{
 		$model=new Cliente('search');
+		$contrato   = new Contrato('search');
+
 		$model->unsetAttributes();  // clear any default values
+		$contrato->unsetAttributes();
+
 		if(isset($_GET['Cliente']))
 			$model->attributes=$_GET['Cliente'];
+
+		if (isset($_GET['Contrato']))
+            $contrato->attributes = $_GET['Contrato'];
+
+    $model->searchContrato = $contrato;
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -129,10 +161,18 @@ class ClienteController extends RController
 	 */
 	public function loadModel($id)
 	{
-            $model=Cliente::model()->findByPk($id);
-            if($model===null)
-                    throw new CHttpException(404,'The requested page does not exist.');
-            return $model;
+    $model=Cliente::model()->findByPk($id);
+    if($model===null)
+            throw new CHttpException(404,'The requested page does not exist.');
+    return $model;
+	}
+
+	public function loadModelContrato($id)
+	{
+    $model=Contrato::model()->findByPk($id);
+    if($model===null)
+            throw new CHttpException(404,'The requested page does not exist.');
+    return $model;
 	}
 
 	/**
@@ -149,12 +189,17 @@ class ClienteController extends RController
 	}
         
         
-        public function actionRelational()
-        {
-            $this->renderPartial('_relationalDuplicatas', array(
-                    'id' => Yii::app()->getRequest()->getParam('id'),
-                    //'gridDataProvider' => $this->getGridDataProvider(),
-                    //'data' => $this->getGridDataProvider(),
-            ));
-        }
+  public function actionRelational()
+  {
+      $this->renderPartial('_relationalDuplicatas', array(
+              'id' => Yii::app()->getRequest()->getParam('id'),
+              //'gridDataProvider' => $this->getGridDataProvider(),
+              //'data' => $this->getGridDataProvider(),
+      ));
+  }
+
+
+
+
+
 }

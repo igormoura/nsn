@@ -1,16 +1,23 @@
 <?php /* @var $this Controller */ ?>
 <?php $this->beginContent('//layouts/main'); ?>
-<div class="row">
-    <div class="span9">
+<?php $this->renderPartial('/components/_TbNavbarModules') ?>
+<?php if(isset($this->breadcrumbs)):?>
+    <?php $this->widget('bootstrap.widgets.TbBreadcrumbs', array(
+        'links'=>$this->breadcrumbs,
+    )); ?><!-- breadcrumbs -->
+<?php endif?>
+<?php $this->renderPartial('/components/_flashMessages'); ?>     
+<div class="row center">
+    <div class="span9 margin-left-none">
         <div id="content">
             <?php echo $content; ?>
         </div><!-- content -->
     </div>
-    <div class="span3">
+    <div class="span3 operation">
         <div id="sidebar">
         <?php
             $this->beginWidget('zii.widgets.CPortlet', array(
-                'title'=>'Operations',
+                'title'=>Yii::t('main', 'helper.operations'),
             ));
             
             $this->widget('bootstrap.widgets.TbMenu', array(
@@ -19,11 +26,8 @@
                 'items'=>$this->menu,
                 'htmlOptions'=>array('class'=>'operations'),
             ));
+        $this->endWidget();?>
             
-            $this->endWidget();
-            
-        ?>
-         
         </div><!-- sidebar -->
     </div>
 

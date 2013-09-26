@@ -5,7 +5,13 @@
 ?>
 <?php include_once '_editFormEc.php'; ?>
 
-<?php $this->beginWidget('bootstrap.widgets.TbModal', array('id' => 'editCliente', 'htmlOptions' => array('style' => 'width: 922px; margin-left: -457px; overflow:hidden;'))); ?>
+<?php $this->beginWidget('bootstrap.widgets.TbModal',
+    array(
+        'id' => 'editCliente', 
+        'htmlOptions' =>
+            array('style' =>'width: 922px; margin-left: -457px; overflow:hidden;')
+          ));
+ ?>
 
 <?php
 /** @var BootActiveForm $form */
@@ -23,6 +29,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
        };
     });
 </script>
+
 <fieldset>
     <div class="modal-header">
         <a class="close" data-dismiss="modal">&times;</a>
@@ -171,11 +178,11 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
                     array('style' => 'width: 220px'));
                 ?>
             </div>
-            
         </div>
 
     </div>
 </fieldset>
+
 <div class="modal-footer">
     <?php $this->widget('bootstrap.widgets.TbButton', array(
                 'buttonType'=>'submit',
@@ -183,12 +190,14 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
                 'label'=>'Editar Endereço de Cobrança', 
                 'icon'=>'icon-edit',
                 'htmlOptions' => array(
-                        'data-toggle' => 'modal',
-                        'data-target' => '#editEc',
-                        'class' => 'pull-left'
+                    'style' => 'margin-top:20px;',
+                    'data-toggle' => 'modal',
+                    'data-target' => '#editClienteEc',
+                    'class' => 'pull-left'
                 ),
     ));?> 
     
+    <!-- BOTÃO DE EDIÇÃO DO CLIENTE -->
     <?php
     $this->widget('bootstrap.widgets.TbButton', array(
         'type' => 'primary',
@@ -196,6 +205,8 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
         'label' => $model->isNewRecord ? 'Criar' : 'Salvar',
     ));
     ?>
+
+    <!-- BOTÃO DE CANCELAMENTO EDIÇÃO DO CLIENTE -->
     <?php
     $this->widget('bootstrap.widgets.TbButton', array(
         'label' => 'Cancelar',

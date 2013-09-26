@@ -47,26 +47,26 @@ $('.search-form form').submit(function(){
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-                'NoCliente',
-		'NumeroDup',
-                'NumeroLote',
-                array(
-                   'name'=>'DataEmisDup','htmlOptions'=>array('style'=>'width: 11%'),
-                   'value'=>'date("d/m/Y",strtotime($data->DataEmisDup))',
-                ),
-                array(
-                   'name'=>'DataVencDup','htmlOptions'=>array('style'=>'width: 12%'),
-                   'value'=>'date("d/m/Y",strtotime($data->DataVencDup))',
-                ),
-                array(
-                   'name'=>'DataEfetivacaoPagam','htmlOptions'=>array('style'=>'width: 12%'),
-                   'value'=>'date("d/m/Y",strtotime($data->DataEfetivacaoPagam))',
-                ),
-                'BaixaDup',
-		'FormaPaga',
-                'ValorDup',
-		array(
-                    'class'=>'bootstrap.widgets.TbButtonColumn',
-		),
+    'NoCliente',
+    'NumeroDup',
+    'NumeroLote',
+    array(
+       'name'=>'DataEmisDup','htmlOptions'=>array('style'=>'width: 11%'),
+       'value'=>'date("d/m/Y",strtotime($data->DataEmisDup))',
+    ),
+    array(
+       'name'=>'DataVencDup','htmlOptions'=>array('style'=>'width: 12%'),
+       'value'=>'date("d/m/Y",strtotime($data->DataVencDup))',
+    ),
+    array(
+       'name'=>'DataEfetivacaoPagam','htmlOptions'=>array('style'=>'width: 12%'),
+       'value'=>'date("d/m/Y",strtotime($data->DataEfetivacaoPagam))',
+    ),
+    'BaixaDup',
+    'FormaPaga',
+    'ValorDup',
+    array(
+      'class'=>'bootstrap.widgets.TbButtonColumn',
+    ),
 	),
 )); ?>

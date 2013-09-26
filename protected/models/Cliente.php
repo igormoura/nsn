@@ -41,7 +41,7 @@
  */
 class Cliente extends CActiveRecord
 {
-   
+   public $searchContrato;
         
 	/**
 	 * Returns the static model of the specified AR class.
@@ -90,7 +90,7 @@ class Cliente extends CActiveRecord
 			array('InscricaoMunicipal', 'length', 'max'=>16),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('NoCliente, NomeCliente, Endereco, Bairro, Cidade, Estado, CEP, CGF, CGC, CPF, Identidade, FoneResidencia, FoneComerical, FAX, Telex, Contato, Pager, Celular, EMail, PF_PJ, ECNomeCliente, ECEndereco, ECBairro, ECCidade, ECEstado, ECCEP, EmailCobr, ViaECT, InscricaoMunicipal, EmailFinanceiro', 'safe', 'on'=>'search'),
+			array('searchContrato, NoCliente, NomeCliente, Endereco, Bairro, Cidade, Estado, CEP, CGF, CGC, CPF, Identidade, FoneResidencia, FoneComerical, FAX, Telex, Contato, Pager, Celular, EMail, PF_PJ, ECNomeCliente, ECEndereco, ECBairro, ECCidade, ECEstado, ECCEP, EmailCobr, ViaECT, InscricaoMunicipal, EmailFinanceiro', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -102,10 +102,10 @@ class Cliente extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'SoftwareMicrosoftContratos' => array(self::HAS_MANY, 'SoftwareMicrosoftContrato', 'noContrato'),
-			'ClienteEndCobr' => array(self::HAS_ONE, 'ClienteEndCobr', 'NoCliente'),
-            'Contrato' => array(self::HAS_ONE, 'Contrato', 'NoContrato'),
-            'Duplicatas' => array(self::HAS_MANY, 'Duplicatas', 'NoCliente'),
+						'SoftwareMicrosoftContratos' => array(self::HAS_MANY, 'SoftwareMicrosoftContrato', 'noContrato'),
+						'ClienteEndCobr' => array(self::HAS_ONE, 'ClienteEndCobr', 'NoCliente'),
+			      'Contrato' => array(self::HAS_ONE, 'Contrato', 'NoContrato'),
+			      'Duplicatas' => array(self::HAS_MANY, 'Duplicatas', 'NoCliente'),
 		);
 	}
 
@@ -157,8 +157,19 @@ class Cliente extends CActiveRecord
 		// Warning: Please modify the following code to remove attributes that
 		// should not be searched.
 
-		$criteria=new CDbCriteria;    
-                
+		$criteria=new CDbCriteria;
+
+		//$criteria->with = array( 'Contrato.Distribuidor, Contrato.MotivoCancelamento, Contrato.TipoCobranca, Contrato.CobrAdic, Contrato.NetAcessos,'=>array('select'=>false));
+		//$criteria->with = array('Contrato');
+		//$criteria->with = array('Contrato', 'Contrato.Distribuidor'=>array('select'=>false));
+		//$criteria->group = 'NoCliente, Contrato.NoContrato';
+    //$criteria->together = true;
+
+    $criteria->compare('Contrato.CodigoEstadoContr',$this->searchContrato->CodigoEstadoContr, true);
+    $criteria->compare('Contrato.DataInicioContr',$this->searchContrato->DataInicioContr, true);
+    $criteria->compare('Contrato.NoContrato',$this->searchContrato->NoContrato, true);
+
+
 		$criteria->compare('NoCliente',$this->NoCliente, true);
 		$criteria->compare('NomeCliente',$this->NomeCliente,true);
 		$criteria->compare('Endereco',$this->Endereco,true);
@@ -190,25 +201,46 @@ class Cliente extends CActiveRecord
 		$criteria->compare('InscricaoMunicipal',$this->InscricaoMunicipal,true);
 		$criteria->compare('EmailFinanceiro',$this->EmailFinanceiro,true);
 
+
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			'pagination'=>array('pageSize'=>10),
+		 	'sort'=>array(
+		 		//'defaultOrder'=>'NomeCliente ASC',
+		    'attributes'=>array(
+	         /* 'Contrato.NoContrato'=>array(
+	              'asc'=>'Contrato.NoContrato',
+	              'desc'=>'Contrato.NoContrato DESC',
+	          ),
+	          'Contrato.CodigoEstadoContr'=>array(
+	              'asc'=>'Contrato.CodigoEstadoContr',
+	              'desc'=>'Contrato.CodigoEstadoContr DESC',
+	          ),
+	          'Contrato.DataInicioContr'=>array(
+	              'asc'=>'Contrato.DataInicioContr',
+	              'desc'=>'Contrato.DataInicioContr DESC',
+	          ),*/
+	          '',
+		     ),
+  		),
 		));
 	}
         
-        public function tipoPessoa()
-        {
-            return array (
-               'F' => 'Física',
-               'J' => 'Jurídica'
-            );
-        }
-        public function emailCobr()
-        {
-            return array (
-               'S' => 'Sim',
-               'N' => 'Não'
-            );
-        }
+  public function tipoPessoa()
+  {
+      return array (
+         '' => '',
+         'F' => Yii::t('main','cliente.tipoPessoa.fisica'),
+         'J' => Yii::t('main','cliente.tipoPessoa.juridica'),
+      );
+  }
+  public function emailCobr()
+  {
+      return array (
+         'S' => 'Sim',
+         'N' => 'Não'
+      );
+  }
         
         
        

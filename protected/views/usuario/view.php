@@ -1,3 +1,5 @@
+<?php include_once '_form.php' ?>
+
 <?php
 /* @var $this UsuarioController */
 /* @var $model Usuario */
@@ -26,7 +28,6 @@ $this->menu=array(
                     'idUsuario',
                     'NomeUsuario',
                     'UsuarioDB',
-                    'SenhaDB',
                     'UsuarioAD',
                     'Email',
                     'idDominioLogon',
@@ -37,3 +38,22 @@ $this->menu=array(
             ),
     )); ?>
 </div>
+
+
+<?php $this->widget('bootstrap.widgets.TbButton', array(
+        'label'=>Yii::t('main','helper.edit'),
+        'buttonType'=>'submit',
+        'icon'=>'icon-edit',
+        'type' => '',
+	    'htmlOptions' => array(
+                'style' => 'margin-top:20px;',
+                    'data-toggle' => 'modal',
+                    'data-target' => '#editUsuario',
+                    'class' => 'pull-right',
+                    'style' => 'z-index: 1053'        
+            ),
+));?> 
+
+
+
+<?php $this->widget( 'application.modules.auditTrail.widgets.portlets.ShowAuditTrail', array( 'model' => $model, ) ); ?>

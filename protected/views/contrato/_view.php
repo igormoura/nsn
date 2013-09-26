@@ -5,112 +5,115 @@
             'attributes'=>array(
                 'NoContrato',  
                 array(
-                    'label'=>'Nome do Cliente',
+                    'label'=>Yii::t('main','NomeCliente'),
                     'value'=>$model->NomeCliente,
                     'htmlOption'=>array('class'=>'span3',array('style'=> 'width:300px')),
                 ),
                 'dv',
                 array(
-                    'label'=>'Início Contrato',
+                    'label'=>Yii::t('main','contrato.DataInicioContr'),
                     'value'=>date("d/m/Y",strtotime($model->Contrato->DataInicioContr)),
                  ),
                 array(
-                    'label'=>'Digitação',
+                    'label'=>Yii::t('main','contrato.DataDigitacao'),
                     'value'=>date("d/m/Y",strtotime($model->Contrato->DataDigitacao)),
                     'visible'=>$model->Contrato->DataDigitacao == null || '' ? false : true,
                  ),
                 array(
-                    'label'=>'Contrato Atualizado',
+                    'label'=>Yii::t('main','contrato.ContrAtualizado'),
                     'value'=>date("d/m/Y",strtotime($model->Contrato->ContrAtualizado)),
                     'visible'=>$model->Contrato->ContrAtualizado == null || '' ? false : true,
                     ),
                 array(
-                    'label'=>'Motivo Cancelamento',
-                    /*'value'=>$model->Contrato->MotivoCancelamento->DescrMotivo,
-                    'visible'=>$model->Contrato->MotivoCancelamento->DescrMotivo == null ? false : true,*/
+                    'label'=>Yii::t('main','contrato.MotivoCancelamento'),
+                    'value'=>$model->Contrato->CodigoMotivoCanc,
+                    'visible'=>$model->Contrato->CodigoMotivoCanc == null ? false : true,
                 ),
                 array(
-                    'label'=>'Cancelamento Contrato',
+                    'label'=>Yii::t('main','contrato.DataCancContr'),
                     'value'=>date("d/m/Y",strtotime($model->Contrato->DataCancContr)),
                     'visible'=>$model->Contrato->DataCancContr == null || '' ? false : true,
                     ),
             /*------ Dados1 --------*/
                 array(
-                    'label'=>'Tipo Cobrança',
+                    'label'=>Yii::t('main','contrato.DescrTipoCobr'),
                     'value'=>$model->Contrato->TipoCobranca->DescrTipoCobr,
+                    'visible'=>$model->Contrato->TipoCobranca->DescrTipoCobr == null || '' ? false : true,
                     ),
                 array(
-                    'label'=>'Distribuidor',
+                    'label'=>Yii::t('main','distribuidor.NomeDistr'),
                     'value'=>$model->Contrato->Distribuidor->NomeDistr,
                 ),
-                'Localizacao',
+                //'Localizacao',
+                'Fil',
                 array(
-                    'label'=>'Matrícula',
+                    'label'=>Yii::t('main','contrato.Matricula'),
                     'value'=>$model->Contrato->Matricula,
                     'visible'=>$model->Contrato->Matricula == null || '' ? false : true,
                 ),
                 array(
-                    'label'=>'Primeira Cobrança',
+                    'label'=>Yii::t('main','contrato.PrimCobr'),
                     'value'=>date("d/m/Y",strtotime($model->Contrato->PrimCobr)),
                     'visible'=>$model->Contrato->PrimCobr == null || '' ? false : true,
                     ),
                 array(
-                    'label'=>'Empresa',
+                    'label'=>Yii::t('main','contrato.Empresa'),
                     'value'=>$model->Contrato->Empresa,
                     'visible'=>$model->Contrato->Empresa == null || '' ? false : true,
                     ),
                 'limiteemail',
                 'DiaVencimento',
                 array(
-                    'label'=>'Contrato Atualizado',
+                    'label'=>Yii::t('main','contrato.DataEntregDistrib'),
                     'value'=>date("d/m/Y",strtotime($model->Contrato->DataEntregDistrib)),
                     'visible'=>$model->Contrato->DataEntregDistrib == null || '' ? false : true,
                     ),
                 array(
-                    'label'=>'Login Original',
+                    'label'=>Yii::t('main','contrato.LoginOriginal'),
                     'value'=>$model->Contrato->LoginOriginal,
                     'visible'=>$model->Contrato->LoginOriginal == null || '' ? false : true,
                     ),
                 array(
-                    'label'=>'Primeiro Contato',
+                    'label'=>Yii::t('main','contrato.PrimContat'),
                     'value'=>$model->Contrato->PrimContat,
                     'visible'=>$model->Contrato->PrimContat == null || '' ? false : true,
                     ),
             /*----- Dados2 --------*/
                  array(
-                    'label'=>'Comentário',
+                    'label'=>Yii::t('main','contrato.Comentario'),
                     'value'=>$model->Contrato->Comentario,
                     'visible'=>$model->Contrato->Comentario == null || '' ? false : true,
                     ),                
             /*---------- Débito -------*/
                 array(
-                    'label'=>'Tipo Cartão',
+                    'label'=>Yii::t('main','contrato.TipoCartCred'),
                     'value'=>$model->Contrato->TipoCartCred,
                     'visible'=>$model->Contrato->TipoCartCred == null || ' ' ? false : true,
                     ),
                 array(
-                    'label'=>'Agência',
+                    'label'=>Yii::t('main','contrato.Agencia'),
                     'value'=>$model->Contrato->Agencia,
                     'visible'=>$model->Contrato->Agencia == null || '' ? false : true,
                     ),
 		array(
-                    'label'=>'Conta',
+                    
+                    'label'=>Yii::t('main','contrato.Conta'),
                     'value'=>$model->Contrato->Conta,
                     'visible'=>$model->Contrato->Conta == null || '' ? false : true,
                     ),
             /*------ Crédito ----------*/
                 array(
-                    'label'=>'CartaoCredito',
+                    'label'=>Yii::t('main','contrato.CartaoCredito'),
                     'value'=>$model->Contrato->CartaoCredito,
                     'visible'=>$model->Contrato->CartaoCredito == null || ' ' ? false : true,
                     ),
                 array(
-                    'label'=>'Val. Cartão Crédito',
+                     'label'=>Yii::t('main','contrato.ValidCartCredito'),
                     'value'=>$model->Contrato->ValidCartCredito,
                     'visible'=>$model->Contrato->ValidCartCredito == null || ' ' ? false : true,
                     ),
                 array(
-                    'label'=>'CVV',
+                     'label'=>Yii::t('main','contrato.cvv'),
                     'value'=>$model->Contrato->cvv,
                     'visible'=>$model->Contrato->cvv == null || ' ' ? false : true,
                     ),
@@ -119,13 +122,15 @@
 
 
 <?php $this->widget('bootstrap.widgets.TbButton', array(
-        'label'=>'Editar',
+        'label'=>Yii::t('main','helper.edit'),
         'buttonType'=>'submit',
+        'type' => '',
         'icon'=>'icon-edit',
-	'htmlOptions' => array(
+	    'htmlOptions' => array(
+        'style' => 'margin-top:20px;',
 		'data-toggle' => 'modal',
-		'data-target' => '#myModal',
-                'class' => 'pull-right'
+		'data-target' => '#editContrato',
+        'class' => 'pull-right',
                 
 	),
 ));?>

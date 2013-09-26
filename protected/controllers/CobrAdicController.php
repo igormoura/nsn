@@ -14,7 +14,7 @@ class CobrAdicController extends RController
 	
 	public function filters()
 	{
-    return array( 'rights' );
+    	return array( 'rights' );
 	}
         
   public function allowedActions() 

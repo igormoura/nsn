@@ -11,20 +11,21 @@ class ContratoController extends RController
 	/**
 	 * @return array action filters
 	 */
-        public function filters()
+		public function filters()
 	{
-            return array( 'rights' );
+		return array( 'rights' );
 	}
-        
-        public function allowedActions() { 
-            return 'index, suggestedTags'; 
-        }
+		
+		public function allowedActions() { 
+			return 'index, suggestedTags'; 
+		}
 
 	/**
 	 * Specifies the access control rules.
 	 * This method is used by the 'accessControl' filter.
 	 * @return array access control rules
-	 
+	 */
+	 /*
 	public function accessRules()
 	{
 		return array(
@@ -45,16 +46,16 @@ class ContratoController extends RController
 			),
 		);
 	}*/
-        
+		
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
 	 */
 	public function actionView($id)
 	{   
-           $this->redirect(array('/cliente/view','id' =>$id));
+			 $this->redirect(array('/cliente/view','id' =>$id));
 	}
-        
+		
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
@@ -96,10 +97,6 @@ class ContratoController extends RController
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->NoContrato));
 		}
-
-		$this->render('update',array(
-			'model'=>$model,
-		));
 	}
 
 	/**
@@ -151,7 +148,7 @@ class ContratoController extends RController
 	 */
 	public function loadModel($id)
 	{
-		$model=Cliente::model()->findByPk($id);
+		$model=Contrato::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;

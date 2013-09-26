@@ -26,6 +26,7 @@
                       'style'=>'width:180px', 
                       'options' => array('callback'=>'js:function(start, end){console.log(start.toString("MMMM d, yyyy") + " - " + end.toString("MMMM d, yyyy"));}')
                 )); ?>
+                
             <?php echo $form->dropDownListRow($model, 'Localizacao',
                array('Selecione Localização'=>Contrato::model()->OptionsLocalizacao(),
             )); ?>

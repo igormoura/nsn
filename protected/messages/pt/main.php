@@ -13,12 +13,31 @@ return array (
     'helper.edit' => 'Editar',
     'helper.update' => 'Atualizar',
     'helper.delete' => 'Excluir',
-    'helper.infoManager' => 'Você pode, opcionalmente, digite um operador de comparação (<, <=,>,> =, <> ou =) no início de cada um de seus valores de pesquisa para especificar como a comparação deve ser feito.',
+    'helper.infoManager' => 'OBS: (*) Para fazer a pesquisa pelo CNPJ / CPF, selecione a opção ao lado e identifique se é pessoa física ou jurídica antes de clicar em Buscar. Escolha por um menos uma opção para que possa ser realizado a pesquisa.',
     'helper.advancedSearch' => 'Busca Avançada',  
+    'helper.operations' => 'Operações', 
+    'helper.action' => 'Ações',
+    'helper.languages' => 'Idiomas',
+    'helper.settings' => 'Configurações',
+    'helper.userPermission' => 'Permissão de Usuário',
+    'helper.exit' => 'Sair',
+    'helper.welcome' => 'Bem-Vindo ao ',
+    'helper.new' => 'Novo {model}',
+    'helper.remenber' => 'Lembre-me na próxima vez',
+
+
+    /*TRADUÇÃO SITE*/
+    'site.home' => 'Home',
+    'site.about' => 'Sobre',
+    'site.contact' => 'Contato',
 
     /* TRADUÇÃO CONTRACT  */  
     'contrato.title' => 'Contrato',
-    'contrato.manager' => 'Gerenciar Contratos',
+    'contrato.manager' => 'Administração de Contratos',
+    'contrato.list' => 'Listar Contratos',
+    'contrato.create' => 'Novo Contrato',
+    'contrato.delete' => 'Deletar Contrato',
+    'contrato.update' => 'Atualizar Contrato',
 
     // Labels  
     'contrato.NoContrato' => 'Nº Contrato',
@@ -49,7 +68,11 @@ return array (
     'contrato.ClienteCorporativo' => 'Cliente Corporativo',
     'contrato.ContrAtualizado' => 'Atualização do Contrato',
     'contrato.Comentario' => 'Comentário',
-    'contrato.dv' => 'DV', 
+    'contrato.dv' => 'DV',
+    'contrato.Fil' => 'Local',
+    'contrato.CodigoTipoCobr' => 'Tipo de Cobrança',
+    'contrato.DescrTipoCobr' => 'Tipo de Cobrança',
+    'contrato.MotivoCancelamento' => 'Motivo Cancelamento',
 
     // FUNCÕES CONTRATO
 
@@ -94,9 +117,13 @@ return array (
     'cliente.ViaECT' => 'ViaECT',
     'cliente.InscricaoMunicipal' => 'Inscrição Municipal',
     'cliente.EmailFinanceiro' => 'Email Financeiro',
+    'cliente.EnderecoCobranca' => 'Endereço de Cobrança',
 
     // FUNÇÕES CLINTES
-    
+   'cliente.tipoPessoa.fisica' => 'Física',
+   'cliente.tipoPessoa.juridica' => 'Jurídica',
+   'cliente.tipoPessoa.select' => 'Selecione Tipo Pessoa',
+   
     
     
     /* TRADUÇÃO DUPLICATAS */
@@ -192,4 +219,68 @@ return array (
     'ocorrencia.title' => 'Ocorrência',
     'ocorrencia.manager' => 'Gerenciar Ocorrência',
 
+
+    // LABELS
+
+    'ocorrencia.NoContrato' => 'Contrato',
+    'ocorrencia.DataOcorrencia' => 'Data',
+    'ocorrencia.DataOcorrenciaF' => 'Data Ocorrencia F',
+    'ocorrencia.NomeUsuario' => 'Operador',
+    'ocorrencia.NomeContactado' => 'Contato',
+    'ocorrencia.Ocorrencia' => 'Ocorrência',
+    'ocorrencia.NoOcorrencia' => 'Ocorrencia',
+    'ocorrencia.StatusOcorrencia' => 'Status',
+    'ocorrencia.NoOcorrenciaPai' => 'No Ocorrencia Pai',
+    'ocorrencia.NoChamado' => 'Nº Chamado',
+    'ocorrencia.cdproblema' => 'Cdproblema',
+    'ocorrencia.cdServico' => 'Cd Servico',
+    'ocorrencia.ObsFec' => 'Obs Fec',
+    'ocorrencia.NomeUsuarioFec' => 'Nome Usuario Fec',
+    'ocorrencia.cdproblemafec' => 'Cdproblemafec',
+    'ocorrencia.dt_hr_ini_atendimento' => 'Dt Hr Ini Atendimento',
+    'ocorrencia.dt_hr_fim_atendimento' => 'Dt Hr Fim Atendimento',
+    'ocorrencia.id_usuario' => 'Id Usuario',
+    'ocorrencia.id_setor' => 'Id Setor',
+    'ocorrencia.OrigemdaOcorrencia' => 'Origemda Ocorrencia',
+    'ocorrencia.id_grupo' => 'Id Grupo',
+    'ocorrencia.OrigemEmail' => 'Origem Email',
+    'ocorrencia.idUsuarioF' => 'Id Usuario F',
+    'ocorrencia.flagVisivelCliente' => 'Flag Visivel Cliente',
+    'ocorrencia.flagSolicitacao' => 'Flag Solicitacao',
+
+
+
+/* TRADUÇÃO DISTRIBUIDOR */
+
+'distribuidor.NomeDistr' => 'Distribuidor',
+
+
+/* TRADUÇÃO MÓDULO RIGHT */
+
+'rights.Assignments' => 'Atribuições',
+'rights.Permission' => 'Permissões',
+'rights.Roles' => 'Cargos',
+'rights.Tasks' => 'Tarefas',
+'rights.Operations' => 'Operações',
+'rights.Permissions' => 'Permissões',
+'rights.MessageAssignments' => 'Aqui você pode ver as permissões atribuídas a cada usuário.',
+
+
+
+
+
+
+
+
+
+
+
+
+
 );
+
+
+
+
+
+

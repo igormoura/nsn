@@ -6,153 +6,187 @@
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
 return array(
-	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'SN Web',
-    
-	// preloading 'log' component
-	'preload'=>array(
-            'log',
-            'bootstrap',
+    'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
+    'name'=>'SN Web',
+
+    // PRÉ-CARREGAMENTO 'log' COMPONENTES 
+    'preload'=>array(
+        'log',
+        'bootstrap',
+        'translate',
+    ),
+
+     // TRADUÇÕES
+     /* Referente a Framework ex: YII ZII*/
+     //'sourceLanguage'=>'pt_br',
+
+     /* Referente ao projeto ex: NSN WEB*/
+     //'language'=>'en', // pt - Portugues, en - English
+
+    // CARREGAMENTO AUTOMÁTICO DAS CLASSES DE MODELO E COMPONENTES
+    'import'=>array(
+        'application.models.*',
+        'application.components.*',
+        'application.modules.rights.*', 
+        'application.modules.rights.components.*', // Correct paths if necessary.
+        'application.modules.translate.TranslateModule',
+        'application.modules.auditTrail.models.AuditTrail',
+    ),
+
+    'theme'=>'bootstrap',
+	
+    'modules'=>array(
+      'translate',
+        'auditTrail'=>array(
+         'userClass' => 'Usuario', // the class name for the user object
+         'userIdColumn' => 'idUsuario', // the column name of the primary key for the user
+         'userNameColumn' => 'idUsuario', // the column name of the primary key for the user
+        ),
+     /* 'AuditTrail' => array (
+        'Userclass' => 'Usuario', 
+        'UserIdColumn' => 'idUsuario',
+        'UserNameColumn' => 'NomeUsuario',
+      ), */
+
+      'rights'=>array( 
+        'superuserName'=>'Admin', // Name of the role with super user privileges. 
+        'userClass' => 'Usuario', // the name of the user model class.
+        'authenticatedName'=>'Authenticated', // Name of the authenticated user role. 
+        'userIdColumn'=>'idUsuario', // Name of the user id column in the database. 
+        'userNameColumn'=>'NomeUsuario', // Name of the user name column in the database. 
+        'enableBizRule'=>true, // Whether to enable authorization item business rules. 
+        'enableBizRuleData'=>false, // Whether to enable data for business rules. 
+        'displayDescription'=>true, // Whether to use item description instead of name. 
+        'flashSuccessKey'=>'RightsSuccess', // Key to use for setting success flash messages. 
+        'flashErrorKey'=>'RightsError', // Key to use for setting error flash messages. 
+        'baseUrl'=>'/rights', // Base URL for Rights. Change if module is nested. 
+        'layout'=>'rights.views.layouts.main', // Layout to use for displaying Rights. 
+        'appLayout'=>'application.views.layouts.main', // Application layout. 
+        'cssFile'=>'rights.css', // Style sheet file to use for Rights. 
+        'install'=>false, // Whether to enable installer. 
+        'debug'=>true, // Whether to enable debug mode.   
+       ),
+                
+       // uncomment the following to enable the Gii tool
+       'gii'=>array(
+            'class'=>'system.gii.GiiModule',
+            'password'=>'yiidemo',
+            'ipFilters'=>array('127.0.0.1','::1'),
+            'generatorPaths' => array('bootstrap.gii'), 
+        ),
+                    
+    ),
+   
+        
+    // Componentes da Aplicação
+    'components'=>array(
+
+        // Twitter Bootstrap
+        'bootstrap' => array(
+            'class' => 'ext.bootstrap.components.Bootstrap',
+            'responsiveCss' => true,
+        ),  
+        
+        'translate'=>array(//if you name your component something else change TranslateModule
+            'class'=>'translate.components.MPTranslate',
+            //any avaliable options here
+            'acceptedLanguages'=>array(
+                'en'=>'English',
+                'pt'=>'Português',
+               // 'es'=>'Español'
+            ),
+        ),
+        'user'=>array(
+            'class'=>'RWebUser',
+            'allowAutoLogin'=>true,
+            'loginUrl' => array('/user/login'),
+        ),
+        'authManager' => array(
+            'class'=>'RDbAuthManager',
+        ),
+        
+        
+       // Definir a classe e seu evento das Truduções em Falta
+       /*'messages'=>array(
+           'class'=>'CDbMessageSource',
+           'onMissingTranslation' => array('TranslateModule', 'missingTranslation'),
+       ),*/
+            
+        // uncomment the following to enable URLs in path-format
+        'urlManager'=>array(
+                'urlFormat'=>'path',
+                'rules'=>array(
+                        '<controller:\w+>/<id:\d+>'=>'<controller>/view',
+                        '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
+                        '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+                ),
+        ),
+		
+        /*'db'=>array(
+                'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
+        ),*/
+
+        // Configuração para coneção com um primeiro banco
+        'db'=>array(
+            'class'=>'system.db.CDbConnection',
+            'connectionString' => 'sqlsrv:Server=192.168.2.239; Database=NSN',
+            //'connectionString' => 'dblib:host=192.168.2.239; dbname=NSN',       //          - LINUX
+            'username' => 'nsnPhpYii',
+            'password' => 'n0v0-snetd',
+            'charset' => 'GB2312',
+            'tablePrefix' => 'tbl_'
+         ),
+
+        // Configuração para coneção a um segundo banco - Necessáio criar SecondbActiveRecord 
+        'secondb'=>array(
+           'class'=>'system.db.CDbConnection',
+           'connectionString' => 'sqlsrv:Server=192.168.2.239; Database=SNETD-TESTE;',
+           'username' => 'nsnPhpYii',
+           'password' => 'n0v0-snetd',
+           'charset' => 'GB2312'
+        ),
+
+        /*'db'=>array(
+          'class'=>'CDbConnection',
+          'connectionString'=>'pgsql:host=localhost;port=5432;dbname=nsn',
+          'username'=>'postgres',
+          'password'=>'postgres',
+          'emulatePrepare'=>true,  // necessário em algumas instalações do MySQL
+        ),*/
+        
+        'thirdb'=>array(
+              'connectionString' => 'mysql:host=localhost;dbname=nsn',
+              'emulatePrepare' => true,
+              'username' => 'root',
+              'password' => 'mysql',
+              'charset' => 'utf8',
+        ),
+                      
+        'errorHandler'=>array(
+            // use 'site/error' action to display errors
+            'errorAction'=>'site/error',
         ),
     
-         // Translated
-         /* Referente a Framework ex: YII ZII*/
-         'sourceLanguage'=>'pt_br',
-    
-         /* Referente ao projeto ex: NSN WEB*/
-         'language'=>'pt', // pt - Portugues, en - English
-
-	// autoloading model and component classes
-	'import'=>array(
-		'application.models.*',
-		'application.components.*',
-                'application.modules.rights.*', 
-                'application.modules.rights.components.*', // Correct paths if necessary.
-	),
-        'theme'=>'bootstrap',
-	'modules'=>array(
-                'rights'=>array( 
-                    'superuserName'=>'Admin', // Name of the role with super user privileges. 
-                    'userClass' => 'Usuario', // the name of the user model class.
-                    'authenticatedName'=>'Authenticated', // Name of the authenticated user role. 
-                    'userIdColumn'=>'idUsuario', // Name of the user id column in the database. 
-                    'userNameColumn'=>'NomeUsuario', // Name of the user name column in the database. 
-                    'enableBizRule'=>true, // Whether to enable authorization item business rules. 
-                    'enableBizRuleData'=>false, // Whether to enable data for business rules. 
-                    'displayDescription'=>true, // Whether to use item description instead of name. 
-                    'flashSuccessKey'=>'RightsSuccess', // Key to use for setting success flash messages. 
-                    'flashErrorKey'=>'RightsError', // Key to use for setting error flash messages. 
-                    'baseUrl'=>'/rights', // Base URL for Rights. Change if module is nested. 
-                    'layout'=>'rights.views.layouts.main', // Layout to use for displaying Rights. 
-                    'appLayout'=>'application.views.layouts.main', // Application layout. 
-                    'cssFile'=>'rights.css', // Style sheet file to use for Rights. 
-                    'install'=>false, // Whether to enable installer. 
-                    'debug'=>true, // Whether to enable debug mode. 
-                    
-                 ),
-                
-                // uncomment the following to enable the Gii tool
-		'gii'=>array(
-			'class'=>'system.gii.GiiModule',
-			'password'=>'yiidemo',
-			// If removed, Gii defaults to localhost only. Edit carefully to taste.
-			'ipFilters'=>array('127.0.0.1','::1'),
-                        'generatorPaths' => array(
-                            'bootstrap.gii'
-                         ),
-		),
-                    
-	),
-        
-        
-
-	// application components
-	'components'=>array(
-            
-		'user'=>array(
-                        'class'=>'RWebUser',
-                        'allowAutoLogin'=>true,
-                        'loginUrl' => array('/user/login'),
-		),
-                'authManager' => array(
-                    'class'=>'RDbAuthManager',
-                  ),
-            
-		// uncomment the following to enable URLs in path-format
-		/*
-		'urlManager'=>array(
-			'urlFormat'=>'path',
-			'rules'=>array(
-				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
-				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
-				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
-			),
-		),
-		*/
-		/*'db'=>array(
-			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
-		),*/
-                'db'=>array(
-                    'class'=>'system.db.CDbConnection',
-                    'connectionString' => 'sqlsrv:Server=192.168.2.239; Database=NSN',
-                    'username' => 'nsnPhpYii',
-                    'password' => 'n0v0-snetd',
-                    'charset' => 'GB2312',
-                    'tablePrefix' => 'tbl_'
-                 ),
-                'secondb'=>array(
-                   'class'=>'system.db.CDbConnection',
-                   'connectionString' => 'sqlsrv:Server=192.168.2.239; Database=SNETD-TESTE;',
-                   'username' => 'nsnPhpYii',
-                   'password' => 'n0v0-snetd',
-                   'charset' => 'GB2312'
+        /*'log'=>array(
+            'class'=>'CLogRouter',
+            'routes'=>array(
+                array(
+                        'class'=>'CFileLogRoute',
+                        'levels'=>'error, warning',
                 ),
-                /*'db'=>array(
-                  'class'=>'CDbConnection',
-                  'connectionString'=>'pgsql:host=localhost;port=5432;dbname=nsn',
-                  'username'=>'postgres',
-                  'password'=>'postgres',
-                  'emulatePrepare'=>true,  // necessário em algumas instalações do MySQL
-                ),*/
-                /*'db'=>array(
-                      'connectionString' => 'mysql:host=localhost;dbname=nsn',
-                      'emulatePrepare' => true,
-                      'username' => 'root',
-                      'password' => 'mysql',
-                      'charset' => 'utf8',
-                ),*/       
-                
-                
-		'errorHandler'=>array(
-			// use 'site/error' action to display errors
-			'errorAction'=>'site/error',
-		),
-		'log'=>array(
-			'class'=>'CLogRouter',
-			'routes'=>array(
-				array(
-					'class'=>'CFileLogRoute',
-					'levels'=>'error, warning',
-				),
-				// uncomment the following to show log messages on web pages
-
-				array(
-					'class'=>'CWebLogRoute',
-				),
-			),
-		),
-            
-                // Twitter Bootstrap
-                'bootstrap' => array(
-                    'class' => 'ext.bootstrap.components.Bootstrap',
-                    'responsiveCss' => true,
+                // uncomment the following to show log messages on web pages
+                array(
+                        'class'=>'CWebLogRoute',
                 ),
-	),
+            ),
+        ),*/
+                
+    ),
 
-	// application-level parameters that can be accessed
-	// using Yii::app()->params['paramName']
-	'params'=>array(
-		// this is used in contact page
-		'adminEmail'=>'webmaster@example.com',
-	),
+    // application-level parameters that can be accessed
+    // using Yii::app()->params['paramName']
+    'params'=>array(
+            // this is used in contact page
+            'adminEmail'=>'webmaster@example.com',
+    ),
 );

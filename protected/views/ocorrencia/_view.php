@@ -4,10 +4,10 @@
         'type'=>'striped bordered',
         'responsiveTable' => true,
         'dataProvider' => new CArrayDataProvider(
-            $model->Contrato->Ocorrencia, 
+            $model->Contrato->Ocorrencia,
             array(
                 'keyField'=>'DataOcorrencia',
-                'sort'=>array('defaultOrder'=>'DataOcorrencia ASC')
+                'sort'=>array('defaultOrder'=>'DataOcorrencia DESC')
             )),
     
         'columns' =>  array_merge(array(
@@ -18,11 +18,11 @@
            array(
                 'name' => Yii::t('main', 'ocorrencia.DataOcorrencia'),
                 'value' => '$data->DataOcorrencia', 
-                'value'=>'date("d/m/Y",strtotime($data->DataOcorrencia))',
+                'value'=>'date("d/m/Y h:m:s",strtotime($data->DataOcorrencia))',
             ),
             array(
                 'name' => Yii::t('main', 'ocorrencia.NomeContactado'),
-                'value' => '$data->NomeContactado', 
+                'value' => '$data->NomeContactado',
             ),
             array(
                 'name' => Yii::t('main', 'ocorrencia.Ocorrencia'),

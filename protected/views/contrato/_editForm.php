@@ -4,7 +4,7 @@
 /* @var $form CActiveForm */
 ?>
 
-<?php $this->beginWidget('bootstrap.widgets.TbModal', array('id' => 'myModal', 'htmlOptions' => array('style' => 'width: 922px; margin-left: -457px; overflow:hidden;'))); ?>
+<?php $this->beginWidget('bootstrap.widgets.TbModal', array('id' => 'editContrato', 'htmlOptions' => array('style' => 'width: 922px; margin-left: -457px; overflow:hidden;'))); ?>
 
 <?php /** @var BootActiveForm $form */
 	$form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
@@ -82,22 +82,28 @@
 
             <div class="span3">
                 <?php echo $form->dropDownListRow($model->Contrato, 'DiaVencimento',
-                    array('Selecione Dia do Vencimento'=>Contrato::model()->DiaVencimento(),
+                    array('Selecione Vencimento'=>Contrato::model()->DiaVencimento(),
                  )); ?>
                 
-                <?php echo $form->dropDownListRow($model->Contrato,'TipoCobranca', 
+                <?php echo $form->dropDownListRow($model->Contrato,'CodigoTipoCobr', 
                     CHtml::listData(TipoCobranca::model()->findAll(
                             array('order' => 'DescrTipoCobr ASC')), 'CodigoTipoCobr', 'DescrTipoCobr'), 
                     array('empty'=>'Selecione TipoCobranca')) ?>
+                <?php echo $form->error($model->Contrato,'CodigoTipoCobr'); ?>
 
-                <?php echo $form->dropDownListRow($model->Contrato,'Distribuidor', 
+
+                <?php echo $form->dropDownListRow($model->Contrato,'CodigoDistr', 
                         CHtml::listData(Distribuidor::model()->findAll(
                                 array('order' => 'NomeDistr ASC')), 'CodigoDistr', 'NomeDistr'), 
                         array('empty'=>'Selecione Distribuidor')) ?>
+                <?php echo $form->error($model->Contrato,'CodigoDistr'); ?>
 
-                <?php echo $form->dropDownListRow($model->Contrato, 'Localizacao',
-                   array('Selecione Localização'=>Contrato::model()->OptionsLocalizacao(),
+
+                <?php echo $form->dropDownListRow($model->Contrato, 'Fil',
+                   array('Selecione Localização'=>Contrato::model()->locFil(),
                 )); ?>
+                <?php echo $form->error($model->Contrato,'Localizacao'); ?>
+                
 
                 <?php echo $form->dropDownListRow($model->Contrato, 'Empresa',
                     array('Selecione Empresa'=>Contrato::model()->NomeEmpresa(),
@@ -108,7 +114,7 @@
              <?php echo $form->html5EditorRow($model->Contrato, 'Comentario', 
                    array('class'=>'span8', 
                          'rows'=>5, 
-                         'width'=>'600',
+                         'width'=>'788',
                          'height'=>'200', 
                          'options'=>array('color'=>true),
                        )); ?>
@@ -119,18 +125,18 @@
  </fieldset>
 
     <div class="modal-footer">
+        <!-- BOTÃO DE EDIÇÃO DO CLIENTE -->
         <?php $this->widget('bootstrap.widgets.TbButton', array(
-		'type' => 'primary',
-                'buttonType'=>'submit',
-		'label' => $model->Contrato->isNewRecord ? 'Criar' : 'Editar',
-		'url' => '#',
-		'htmlOptions' => array('data-dismiss' => 'modal'),
-	)); ?>
+            'type' => 'primary',
+            'buttonType' => 'submit',
+            'label' => $model->isNewRecord ? 'Criar' : 'Salvar',
+        ));?>
+
         <?php $this->widget('bootstrap.widgets.TbButton', array(
-		'label' => 'Cancelar',
-		'url' => '#',
-		'htmlOptions' => array('data-dismiss' => 'modal'),
-	)); ?>
+        	'label' => 'Cancelar',
+        	'url' => '#',
+        	'htmlOptions' => array('data-dismiss' => 'modal'),
+    	)); ?>
     </div>
 
     <?php $this->endWidget(); ?>

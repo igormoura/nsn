@@ -5,6 +5,9 @@
  * It contains the authentication method that checks if the provided
  * data can identity the user.
  */
+
+         
+        
 class UserIdentity extends CUserIdentity
 {
 	/**
@@ -15,33 +18,57 @@ class UserIdentity extends CUserIdentity
 	 * against some persistent user identity storage (e.g. database).
 	 * @return boolean whether authentication succeeds.
 	 */
+        
+    
+    
         private $_id;
 
                 /**
                  * Authenticates a user.
                  * @return boolean whether authentication succeeds.
-                 */
+                */
+        
                 public function authenticate()
                 {
-                        $user=Usuario::model()->find('LOWER(UsuarioDB)=?',array(strtolower($this->username)));
-                        if($user===null)
-                                $this->errorCode=self::ERROR_USERNAME_INVALID;
-                         else if($user->SenhaDB!==MD5($this->password))
-                                $this->errorCode=self::ERROR_PASSWORD_INVALID;
-                        else
-                        {
-                                $this->_id=$user->idUsuario;
-                                $this->username=$user->UsuarioDB;
-                                $this->errorCode=self::ERROR_NONE;
-                        }
-                        return $this->errorCode==self::ERROR_NONE;
-                }
+                    try
+                    {
+                        $client = new SoapClient('http://192.168.2.84:81/PainelSecrelService.asmx?WSDL');
+                        $result = $client->NSN_AutenticarUsuario(array('usuario' => $this->username, 'senha' =>$this->password));
+                        $json = $result->NSN_AutenticarUsuarioResult;
+                        
+                        $obj = json_decode($json, true);
+                        if($obj['logado']=='1' and $obj['erro']=='0'){
 
+                            $record=Usuario::model()->findByAttributes(array('Email'=>$this->username.'@secrel.net.br'));
+                            if($record===null)
+                                $this->errorCode=self::ERROR_USERNAME_INVALID;
+                            else
+                            {
+                                $this->_id=$record->idUsuario;
+                                $this->setState('title', $record->NomeUsuario);
+                                $this->errorCode=self::ERROR_NONE;
+                            }
+                            return !$this->errorCode;
+                        }
+                        else{
+                           $this->errorCode=self::ERROR_USERNAME_INVALID;
+                           $this->errorCode=self::ERROR_PASSWORD_INVALID;
+                        }
+
+
+                    }catch(Exception $e){
+                        echo 'BUFU!!!! ' .$e->getMessage();
+                        die();
+                    }
+                    
+                    return false;
+                }
+               
                 /**
                  * @return integer the ID of the user record
                  */
                 public function getId()
                 {
-                        return $this->_id;
+                    return $this->_id;
                 }
 }

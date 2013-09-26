@@ -123,4 +123,19 @@ class Usuario extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+        
+        public function status(){
+            return array(
+               '1' => '1',
+                '2' => '2',
+            );
+        }
+        
+        public function behaviors() { 
+            return array( 
+                'LoggableBehavior'=> 'application.modules.auditTrail.behaviors.LoggableBehavior', 
+            ); 
+        }
+        
+        
 }

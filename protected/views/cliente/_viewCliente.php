@@ -101,7 +101,7 @@
 <div class="accordion-group in">
     <div class="accordion-heading in">
         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-            Endereço de Cobrança <i class="icon-chevron-down"></i>
+           <?php echo Yii::t('main','cliente.EnderecoCobranca')?> <i class="icon-chevron-down"></i>
         </a>
     </div>
     <div id="collapseOne" class="accordion-body collapse">
@@ -135,7 +135,7 @@
                             'visible'=>$model->ECEstado == null || '' ? false : true,
                         ),
                         array(
-                           'label'=> Yii::t('main', 'cliente.Cep'),
+                           'label'=> Yii::t('main', 'cliente.ECCEP'),
                             'value'=>$model->ECCEP,
                             'visible'=>$model->ECCEP == null || '' ? false : true,
                         ),
@@ -150,14 +150,15 @@
 
 
 <?php $this->widget('bootstrap.widgets.TbButton', array(
-        'label'=>'Editar',
+        'label'=>Yii::t('main','helper.edit'),
         'buttonType'=>'submit',
         'icon'=>'icon-edit',
-	'htmlOptions' => array(
+        'type' => '',
+	    'htmlOptions' => array(
+        'style' => 'margin-top:20px;',
 		'data-toggle' => 'modal',
 		'data-target' => '#editCliente',
-                'class' => 'pull-right',
-                'style' => 'z-index: 1053'
-                
-	),
+        'class' => 'pull-right',
+        'style' => 'z-index: 1053'        
+	   ),
 ));?> 

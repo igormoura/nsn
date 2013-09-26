@@ -1,29 +1,30 @@
+
 <?php
 /* @var $this ClienteController */
 /* @var $model Cliente */
 
 $this->breadcrumbs=array(
-	'Clientes'=>array('index'),
+	Yii::t('main', 'contrato.title')=>array('index'),
 	$model->NoCliente,
 );
 
 $this->menu=array(
-	array('label'=>'List Cliente', 'url'=>array('index')),
-	array('label'=>'Create Cliente', 'url'=>array('create')),
-	array('label'=>'Update Cliente', 'url'=>array('update', 'id'=>$model->NoCliente)),
-	array('label'=>'Delete Cliente', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->NoCliente),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Cliente', 'url'=>array('admin')),
-);
-?>
+	//array('label'=>Yii::t('main', 'contrato.list'), 'url'=>array('index')),
+	array('label'=>Yii::t('main', 'contrato.create'), 'url'=>array('create')),
+	//array('label'=>Yii::t('main', 'contrato.update'), 'url'=>array('update', 'id'=>$model->NoCliente)),
+	//array('label'=>Yii::t('main', 'contrato.delete'), 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->NoCliente),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>Yii::t('main', 'contrato.manager'), 'url'=>array('admin')),
+);?>
 
 <h1><?php echo $model->NomeCliente; ?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbTabs', array(
-        'type' => 'tabs',
+    'type' => 'tabs',
 	'tabs' => array(
 		array(
             'label'=>Yii::t('main','cliente.title'),
             'content' => $this->renderPartial('_viewCliente',array('model'=>$model),true), 
+            'active' => true,
         ),
         array(
             'label'=>Yii::t('main','contrato.title'),
@@ -44,7 +45,6 @@ $this->menu=array(
         array(
             'label'=>Yii::t('main','ocorrencia.title'),
             'content' => $this->renderPartial('/ocorrencia/_view',array('model'=>$model),true),
-            'active' => true,
         ),
 	)
 ));	?>

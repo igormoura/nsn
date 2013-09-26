@@ -1,19 +1,19 @@
 #page {
     padding-top: 60px;
+    margin-bottom: 80px;
 }
 
 #footer{
-    margin-top: 40px;
-    border: none;
-    box-shadow: none;
+    margin: 0 auto;
+    max-width: 1180px;
 }
 
 /* Style CSS by Igor Moura */
 
 .form-signin {
-    max-width: 270px;
-    padding: 19px 29px 29px;
-    margin: 0 auto 20px;
+    max-width: 307px;
+    padding:15px 30px 10px 35px;
+    margin: 0 auto;
     background-color: #fff;
     border: 1px solid #e5e5e5;
     -webkit-border-radius: 5px;
@@ -22,10 +22,16 @@
     -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
     box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    
+    position: absolute;
+    top: 25%;
+    left: 0;
+    right: 0;
 }
 
 .breadcrumb {
-    margin: 0px 0 20px!important;
+    margin: 0px auto 40px!important;
+    width: 1170px !important;
 }
 
 
@@ -80,6 +86,85 @@ table.detail-view{
 }
 
 .accordion-heading .accordion-toggle {
-display: block;
-padding: 8px 23px !important;
+    display: block;
+    padding: 8px 23px !important;
+}
+
+
+
+#form-search-contrato .span2 {
+    width: 228px !important;
+}
+
+
+#form-search-contrato {
+    margin-left: 6px;
+}
+
+
+.alert {
+    background-color: #fcf8e3 !important;
+    border: 1px solid #fbeed5 !important;
+}
+
+.alert, .alert h4 {
+    color: #c09853 !important;
+}
+
+
+#cliente-grid table thead tr th {
+    color: #2fa4e7;
+    padding: 12px 8px;
+}
+
+.alert-success {
+    color: #669533 !important;
+    background-color: #d5ecbf !important;
+    border-color: #d2e6ab !important;
+}
+
+
+/* Form Edit Comentário Contrato */
+#editContrato .wysihtml5-sandbox {
+    width: 788px !important;
+}
+
+
+/* FOOTER */
+
+#footer-fixed {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin-bottom: 0;
+    border: none;
+    box-shadow: none;
+    width: 100%;
+}
+
+
+.center{
+    margin: 0 auto !important;
+    max-width: 1180px;
+}
+
+body {
+    height:100%;
+}
+
+.container {
+    min-height:100%;
+}
+
+.tudo {
+    padding-bottom:60px;
+}
+
+.margin-left-none {
+    margin-left: 0 !important;
+}
+
+.operation{
+    margin-top: 10px;
 }

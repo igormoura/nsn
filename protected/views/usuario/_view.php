@@ -17,10 +17,6 @@
 	<?php echo CHtml::encode($data->UsuarioDB); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('SenhaDB')); ?>:</b>
-	<?php echo CHtml::encode($data->SenhaDB); ?>
-	<br />
-
 	<b><?php echo CHtml::encode($data->getAttributeLabel('UsuarioAD')); ?>:</b>
 	<?php echo CHtml::encode($data->UsuarioAD); ?>
 	<br />

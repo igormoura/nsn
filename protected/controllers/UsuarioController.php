@@ -56,6 +56,14 @@ class UsuarioController extends RController
 			'model'=>$this->loadModel($id),
 		));
 	}
+        
+        public function actionLocalization()
+	{
+       $this->render('localization');
+        /*$this->render('localization',array(
+				'model'=>$this->loadModel($id),
+				));*/
+	}
 
 	/**
 	 * Creates a new model.
@@ -171,4 +179,9 @@ class UsuarioController extends RController
 			Yii::app()->end();
 		}
 	}
+
+
+
+
+
 }

@@ -70,7 +70,7 @@ class Contrato extends CActiveRecord
 	 * @return Contrato the static model class
 	 */
     
-         public $nomeCliente;
+  public $nomeCliente;
          
 	public static function model($className=__CLASS__)
 	{
@@ -125,17 +125,18 @@ class Contrato extends CActiveRecord
 	 */
 	public function relations()
 	{
-            return array(
-                'Distribuidor' => array(self::BELONGS_TO, 'Distribuidor', 'CodigoDistr'),
-                'EstadoContr' => array(self::BELONGS_TO, 'EstadoContr', 'CodigoEstadoContr'),
-                'MotivoCancelamento' => array(self::BELONGS_TO, 'MotivoCancelamento', 'CodigoMotivoCanc'),
-                'TipoCobranca' => array(self::BELONGS_TO, 'TipoCobranca', 'CodigoTipoCobr'),
-                'NomesEmpresas' => array(self::BELONGS_TO, 'NomesEmpresas', 'Empresa'),
-                'Cliente' => array(self::BELONGS_TO, 'Cliente', 'NoCliente'),
-                'CobrAdic' => array(self::HAS_MANY, 'CobrAdic', 'NoContrato'),
-                'NetAcessos' => array(self::HAS_MANY, 'NetAcessos', 'NoContrato'),
-                'Ocorrencia' => array(self::HAS_MANY, 'Ocorrencia', 'NoContrato'),
-            );
+    return array(
+        'Distribuidor' => array(self::BELONGS_TO, 'Distribuidor', 'CodigoDistr'),
+        'EstadoContr' => array(self::BELONGS_TO, 'EstadoContr', 'CodigoEstadoContr'),
+        //'MotivoCancelamento' => array(self::BELONGS_TO, 'MotivoCancelamento', 'CodigoMotivoCanc'),
+        'TipoCobranca' => array(self::BELONGS_TO, 'TipoCobranca', 'CodigoTipoCobr'),
+        'NomesEmpresas' => array(self::BELONGS_TO, 'NomesEmpresas', 'Empresa'),
+        //'Cliente' => array(self::BELONGS_TO, 'Cliente', 'NoCliente'),
+        'CobrAdic' => array(self::HAS_MANY, 'CobrAdic', 'NoContrato'),
+        'NetAcessos' => array(self::HAS_MANY, 'NetAcessos', 'NoContrato'),
+        'Ocorrencia' => array(self::HAS_MANY, 'Ocorrencia', 'NoContrato'),
+        'EstadoAcesso' => array(self::BELONGS_TO, 'EstadoAcesso', 'CodigoEstadoAcesso')
+    );
 	}
         
         
@@ -216,10 +217,10 @@ class Contrato extends CActiveRecord
 		// should not be searched.
 
 		$criteria=new CDbCriteria;
-                $criteria->together = true;
-    
-                //$criteria->addSearchCondition('NomeCliente',$this->Cliente->NomeCliente);
-                $criteria->compare('Cliente.NoCliente',$this->NoCliente, true);
+    $criteria->together = true;
+
+    //$criteria->addSearchCondition('NomeCliente',$this->Cliente->NomeCliente);
+    $criteria->compare('Cliente.NoCliente',$this->NoCliente, true);
                 
 		$criteria->compare('NoContrato',$this->NoContrato);
 		$criteria->compare('CodigoEstadoContr',$this->CodigoEstadoContr,true);
@@ -284,20 +285,24 @@ class Contrato extends CActiveRecord
 		));     
 	}
         
-        public function OptionsLocalizacao()
+        public function locFil()
         {
             return array(
-                '' => '',
+                ''    => '',
                 'FOR' => 'FOR',
                 'LIM' => 'LIM',
                 'ARA' => 'ARA',
+                'THE' => 'THE',
+                'QMB' => 'QMB',
+                'IGU' => 'IGU',
+                'PHB' => 'PHB',
             );
         }
         
         public function NomeEmpresa()
         {
             return array(
-                '' => '',
+                ''  => '',
                 'S' => 'SecrelNet',
                 'H' => 'HostWeb',
                 'E' => 'Estruturante',
@@ -345,15 +350,14 @@ class Contrato extends CActiveRecord
                 '30' => '30',
                 '31' => '31',
 
-            ); 
-               
+            );  
         }   
         
         public function primeiroContato()
         {
             return array(
-                's'=> Yii::t('main', 'helpers.yes'),
-                'n'=> Yii::t('main', 'helpers.no'),
+                's'=> Yii::t('main', 'helper.yes'),
+                'n'=> Yii::t('main', 'helper.no'),
             );
         }
         

@@ -29,11 +29,11 @@
 */
 
 #rights .flashes {
-	width:910px;
-	height:40px;
-	position:absolute;
-	top:60px;
-	left:20px;
+	width: 1170px;
+	height: 40px;
+	position: absolute;
+	top: 108px;
+	left: 366px;
 }
 #rights .flash {
 	margin:0;
@@ -59,7 +59,7 @@
 * Generator style.
 */
 
-#rights #generator table.items { margin:0; }
+#rights #generator table.items { margin:0; width: 100%}
 #rights #generator table.items th,
 #rights #generator table.items td { padding:10px; }
 #rights #generator table.items td { cursor:pointer; }
@@ -96,3 +96,10 @@
 }
 #rightsTooltip .heading { font-weight:bold; }
 #rightsTooltip .content { color:#808080; }
+
+
+#rights .advanced-search {
+float: right;
+margin-right: 141px;
+margin-top: 90px;
+}

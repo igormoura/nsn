@@ -16,7 +16,9 @@
 		'class'=>'add-task-link',
 	)); ?></p>
 
-	<?php $this->widget('zii.widgets.grid.CGridView', array(
+	<?php $this->widget('bootstrap.widgets.TbExtendedGridView', array(
+        'type'=>'striped bordered',
+        'responsiveTable' => true,
 	    'dataProvider'=>$dataProvider,
 	    'template'=>'{items}',
 	    'emptyText'=>Rights::t('core', 'No tasks found.'),

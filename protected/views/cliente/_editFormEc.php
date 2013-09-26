@@ -19,15 +19,15 @@
 </style>
 
 <?php $this->beginWidget('bootstrap.widgets.TbModal', 
-    array('id' => 'editEc', 
-        'htmlOptions' => array(
-            'style' =>
-               'width: 625px;
-                margin-left: -302px;
-                overflow: hidden;
-                z-index: 1051;
-                top: 27%;'
-            )
+    array('id' => 'editClienteEc', 
+      'htmlOptions' => array(
+          'style' =>
+             'width: 625px;
+              margin-left: -302px;
+              overflow: hidden;
+              z-index: 1051;
+              top: 27%;'
+          )
  )); ?>
 
 
@@ -68,28 +68,39 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
                 <?php echo $form->error($model, 'ECBairro'); ?>
             </div> 
             <div class="span3">
-                <?php echo $form->textFieldRow($model, 'ECCEP', array('class' => 'span3')) ?>
+                <?php echo $form->labelEx($model, 'ECCEP'); ?>
+                <?php
+                $this->widget('CMaskedTextField', array(
+                    'model' => $model,
+                    'attribute' => 'ECCEP',
+                    'mask' => '99.999-999',
+                    'htmlOptions' => array('size' => 10)
+                ));
+                ?>
                 <?php echo $form->error($model, 'ECCEP'); ?>
-            </div> 
+            </div>
         </div>
 
     </div>
 </fieldset>
+
 <div class="modal-footer">
+    <!-- BOTÃO DE EDIÇÃO DO ENDEREÇO DE COBRANÇA -->
     <?php
-    $this->widget('bootstrap.widgets.TbButton', array(
-        'buttonType'=>'submit',
-        'type' => 'primary',
-        'label' => $model->isNewRecord ? 'Criar' : 'Salvar',
-        'url' => '#',
-        'htmlOptions' => array('data-dismiss' => 'modal'),
-    ));
+        $this->widget('bootstrap.widgets.TbButton', array(
+            'type' => 'primary',
+            'buttonType' => 'submit',
+            //'url' => '#',
+            'label' => $model->isNewRecord ? 'Criar' : 'Salvar',
+        ));
     ?>
     <?php
     $this->widget('bootstrap.widgets.TbButton', array(
         'label' => 'Cancelar',
         'url' => '#',
-        'htmlOptions' => array('data-dismiss' => 'modal'),
+        'htmlOptions' => array(
+            'data-dismiss' => 'modal'
+            ),
     ));
     ?>
 </div>
