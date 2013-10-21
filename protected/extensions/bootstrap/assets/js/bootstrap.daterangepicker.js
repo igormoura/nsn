@@ -87,7 +87,7 @@
 
         var DRPTemplate = '<div class="daterangepicker dropdown-menu">' +
                 '<div class="calendar left"></div>' +
-                '<div class="calendar right"></div>' +
+                '<div class="calendar right teste"></div>' +
                 '<div class="ranges">' +
                   '<div class="range_inputs">' +
                     '<div class="daterangepicker_start_input" style="float: left">' +
@@ -223,10 +223,10 @@
 
         if (this.opens == 'right') {
             //swap calendar positions
-            var left = this.container.find('.calendar.left');
             var right = this.container.find('.calendar.right');
-            left.removeClass('left').addClass('right');
+            var left = this.container.find('.calendar.left');
             right.removeClass('right').addClass('left');
+            left.removeClass('left').addClass('right');
         }
 
         if (typeof options == 'undefined' || typeof options.ranges == 'undefined')

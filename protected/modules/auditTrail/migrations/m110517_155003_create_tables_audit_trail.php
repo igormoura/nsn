@@ -15,17 +15,17 @@ class m110517_155003_create_tables_audit_trail extends CDbMigration
 		//upgrade it from here if we ever need to. This was done so
 		//that older versions can still use migrate functionality to upgrade.
 		$this->createTable( 'tbl_audit_trail',
-			array(
-				'id' => 'pk',
-				'old_value' => 'text',
-				'new_value' => 'text',
-				'action' => 'string NOT NULL',
-				'model' => 'NOT NULL',
-				'field' => 'NOT NULL',
-				'stamp' => 'datetime NOT NULL',
-				'user_id' => 'string',
-				'model_id' => 'string NOT NULL',
-			)
+                    array(
+                        'id' => 'pk',
+                        'old_value' => 'text',
+                        'new_value' => 'text',
+                        'action' => 'string NOT NULL',
+                        'model' => 'NOT NULL',
+                        'field' => 'NOT NULL',
+                        'stamp' => 'datetime NOT NULL',
+                        'user_id' => 'string',
+                        'model_id' => 'string NOT NULL',
+                    )
 		);
 
 		//Index these bad boys for speedy lookups

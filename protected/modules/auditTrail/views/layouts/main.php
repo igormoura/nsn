@@ -9,7 +9,7 @@
     ?><!-- breadcrumbs -->
 <?php endif ?>
 
-<div id="auditTrail" class="container center tudo">
+<div id="rights" class="container center tudo">
     <div id="content">
         <?php echo $content; ?>
     </div><!-- content -->

@@ -207,7 +207,7 @@ class TbExtendedGridView extends TbGridView
 	 */
 	public function init()
 	{
-
+            
 		if (preg_match(
 			'/extendedsummary/i',
 			$this->template
@@ -248,8 +248,12 @@ class TbExtendedGridView extends TbGridView
 	 */
 	public function renderKeys()
 	{
+    
+            
 		$data = $this->dataProvider->getData();
 		
+               
+                
 		if (!$this->sortableRows || !$this->getAttribute($data[0], (string)$this->sortableAttribute)) {
 			parent::renderKeys();
 		}
@@ -263,11 +267,11 @@ class TbExtendedGridView extends TbGridView
 			)
 		);
 		foreach ($data as $d) {
-			echo CHtml::tag(
+			/*echo CHtml::tag(
 				'span',
 				array('data-order' => $this->getAttribute($d, $this->sortableAttribute)),
 				CHtml::encode($this->getPrimaryKey($d))
-			);
+			);*/
 		}
 		echo "</div>\n";
 		return true;

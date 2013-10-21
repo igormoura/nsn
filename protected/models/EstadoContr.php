@@ -92,4 +92,12 @@ class EstadoContr extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+        
+        
+        public function behaviors()
+        { 
+            return array( 'LoggableBehavior'=> 'application.modules.auditTrail.behaviors.LoggableBehavior', );
+        }
+        
+        
 }

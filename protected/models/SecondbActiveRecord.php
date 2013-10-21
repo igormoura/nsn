@@ -18,6 +18,5 @@ class SecondbActiveRecord extends CActiveRecord {
                 throw new CDbException(Yii::t('yii','Active Record requires a "db" CDbConnection application component.'));
         }
     }
-    
 }
 ?>

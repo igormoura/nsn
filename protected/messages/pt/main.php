@@ -24,6 +24,13 @@ return array (
     'helper.welcome' => 'Bem-Vindo ao ',
     'helper.new' => 'Novo {model}',
     'helper.remenber' => 'Lembre-me na próxima vez',
+    'helper.errorUserPassword' => 'Nome de usuário ou senha incorretos.',
+    'helper.username' => 'Usuário AD / Email',
+    'helper.password' => 'Senha',
+    'helper.create' => 'Criar',
+    'helper.search' => 'Buscar',
+    'helper.fieldsRequired' => 'Os campos com '.'<span class="required">*</span>'.' são obrigatórios.',
+    
 
 
     /*TRADUÇÃO SITE*/
@@ -235,18 +242,44 @@ return array (
     'ocorrencia.cdproblema' => 'Cdproblema',
     'ocorrencia.cdServico' => 'Cd Servico',
     'ocorrencia.ObsFec' => 'Obs Fec',
-    'ocorrencia.NomeUsuarioFec' => 'Nome Usuario Fec',
+    'ocorrencia.NomeUsuarioFec' => 'Nome Usuário Fec',
     'ocorrencia.cdproblemafec' => 'Cdproblemafec',
     'ocorrencia.dt_hr_ini_atendimento' => 'Dt Hr Ini Atendimento',
     'ocorrencia.dt_hr_fim_atendimento' => 'Dt Hr Fim Atendimento',
-    'ocorrencia.id_usuario' => 'Id Usuario',
+    'ocorrencia.id_usuario' => 'Id Usuário',
     'ocorrencia.id_setor' => 'Id Setor',
     'ocorrencia.OrigemdaOcorrencia' => 'Origemda Ocorrencia',
     'ocorrencia.id_grupo' => 'Id Grupo',
     'ocorrencia.OrigemEmail' => 'Origem Email',
-    'ocorrencia.idUsuarioF' => 'Id Usuario F',
+    'ocorrencia.idUsuarioF' => 'Id Usuário F',
     'ocorrencia.flagVisivelCliente' => 'Flag Visivel Cliente',
     'ocorrencia.flagSolicitacao' => 'Flag Solicitacao',
+    
+    
+    /* TRADUÇÃO USUARIOS */
+    'usuarios.manager' => 'Administração de Usuário',
+    'usuarios.title' => 'Usuário',
+    
+    //LABELS
+    'usuarios.id_usuario' => 'Id',
+    'usuarios.email_usuario' => 'Email',
+    'usuarios.nm_usuario' => 'Nome',
+    'usuarios.pw_usuario' => 'Pw Usuário',
+    'usuarios.home_usuario' => 'Home',
+    'usuarios.foto_usuario' => 'Foto',
+    'usuarios.dt_nascimento' => 'Data Nascimento',
+    'usuarios.cel_usuario' => 'Cel Usuário',
+    'usuarios.tel_usuario' => 'Tel Usuário',
+    'usuarios.ramal_usuario' => 'Ramal usuário',
+    'usuarios.status' => 'Status',
+    'usuarios.nomecompleto_usuario' => 'Nome Completo',
+    'usuarios.cdGrupoVenda' => 'Cd Grupo Venda',
+    'usuarios.Id_Supervisor' => 'Supervisor',
+    'usuarios.matricula' => 'Matrícula',
+    'usuarios.id_cargahora' => 'Id Carga hora',
+    'usuarios.filial' => 'Filial',
+    'usuarios.usuarioad' => 'Usuário AD',
+    'usuarios.VocalixAgenteID' => 'Vocalix Agente',
 
 
 
@@ -255,15 +288,39 @@ return array (
 'distribuidor.NomeDistr' => 'Distribuidor',
 
 
-/* TRADUÇÃO MÓDULO RIGHT */
-
-'rights.Assignments' => 'Atribuições',
-'rights.Permission' => 'Permissões',
-'rights.Roles' => 'Cargos',
-'rights.Tasks' => 'Tarefas',
-'rights.Operations' => 'Operações',
-'rights.Permissions' => 'Permissões',
-'rights.MessageAssignments' => 'Aqui você pode ver as permissões atribuídas a cada usuário.',
+/* TRADUÇÃO MÓDULO AUDIT TRAIL */
+    'audit.manager' => 'Administração de  Auditoria',
+    'audit.id' => 'ID',
+    'audit.old_value' => 'Valor Antigo',
+    'audit.new_value' => 'Novo Valor',
+    'audit.action' => 'Ação',
+    'audit.model' => 'Modelo',
+    'audit.field' => 'Campo',
+    'audit.stamp' => 'Data e Hora',
+    'audit.user_id' => 'Usuário',
+    'audit.model_id' => 'ID Modelo',
+    'audit.title' => 'Auditoria',
+    
+    
+    
+    /* TRADUÇÃO LOG */
+    'yiiLog.manager' => 'Administração de Logs do Sistema',
+    'yiiLog.logtime' => 'Data e Hora',
+    'yiiLog.title' => 'Log',
+    
+    'yiiLog.id' => 'ID',
+    'yiiLog.level' => 'Tipo',
+    'yiiLog.category' => 'Categoria',
+    'yiiLog.logtime' => 'Data e Hora',
+    'yiiLog.IP_User' => 'IP Usuário',
+    'yiiLog.user_name' => 'Usuário',
+    'yiiLog.request_URL' => 'URL',
+    'yiiLog.message' => 'Mensagem',
+    
+    // FUNÇÕES
+    'yiiLog.typeLevel.select' => 'Selecione o Tipo',
+    'yiiLog.typeLevel.trace' => 'Rota',
+    'yiiLog.typeLevel.error' => 'Erro',
 
 
 

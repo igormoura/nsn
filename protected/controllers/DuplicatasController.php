@@ -177,11 +177,4 @@ class DuplicatasController extends RController
             }
 	}
         
-        public function actionRelational()
-        {
-            $this->renderPartial('_relationalDuplicatas');
-        }
-
-        
-        
 }

@@ -19,10 +19,10 @@
             ),
     )); ?>
 
-    <?php echo $form->textFieldRow($model, 'username', array('class'=>'span4')); ?>
+    <?php echo $form->textFieldRow($model, 'username', array('class'=>'span4', 'style' => 'width: 253px;', 'prepend' =>'<i class="icon-user"></i>')); ?>
     <?php echo $form->error($model,'username'); ?>
 
-    <?php echo $form->passwordFieldRow($model, 'password', array('class'=>'span4')); ?>
+    <?php echo $form->passwordFieldRow($model, 'password', array('class'=>'span4', 'style' => 'width: 253px;', 'prepend' =>'<i class="icon-lock"></i>')); ?>
     <?php echo $form->error($model,'password'); ?>
 
     <?php echo $form->checkboxRow($model, 'rememberMe'); ?>

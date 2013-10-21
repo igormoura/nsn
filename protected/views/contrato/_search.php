@@ -47,7 +47,7 @@
         <?php $this->widget('bootstrap.widgets.TbButton', 
             array(
                 'buttonType'=>'submit', 
-                'label'=>'Buscar',
+                'label'=>Yii::t('main','helper.search'),
                 'type' => 'primary',
                 'htmlOptions' => array(
                     'style'=>'margin-top:10px'),

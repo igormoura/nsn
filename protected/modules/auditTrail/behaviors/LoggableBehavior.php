@@ -60,7 +60,7 @@ class LoggableBehavior extends CActiveRecordBehavior
 			
 			$log->save();
 			
-			
+
 			foreach ($newattributes as $name => $value) {
 				$log=new AuditTrail();
 				$log->old_value = '';
@@ -73,8 +73,7 @@ class LoggableBehavior extends CActiveRecordBehavior
 				$log->user_id=		 $userid;
 				$log->save();
 			}
-			
-			
+						
 			
 		}
 		return parent::afterSave($event);

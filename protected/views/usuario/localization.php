@@ -12,6 +12,13 @@
 <fieldset> 
 	<legend><?php echo Yii::t('main','helper.languages'); ?></legend>
 	<?php echo $translate->dropdown(); ?>
+        
+        <?php 
+        
+
+        
+        
+        ?>
 </fieldset>
 
 

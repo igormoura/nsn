@@ -33,8 +33,9 @@ public function safeUp()
       'CASCADE',
       'RESTRICT'
     );
- 
-  public function safeDown()
+  
+  }
+    public function safeDown()
   {
     $this->dropForeignKey('FK_Message_SourceMessage','Message');
     $this->dropTable('SourceMessage');

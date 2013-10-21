@@ -571,4 +571,9 @@ class MultilingualBehavior extends CActiveRecordBehavior
 	{
 		return parent::hasProperty($name) or $this->hasLangAttribute($name);
 	}
+        
+        public function behaviors()
+        { 
+            return array( 'LoggableBehavior'=> 'application.modules.auditTrail.behaviors.LoggableBehavior', );
+        }
 }

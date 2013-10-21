@@ -18,8 +18,6 @@ class UserIdentity extends CUserIdentity
 	 * against some persistent user identity storage (e.g. database).
 	 * @return boolean whether authentication succeeds.
 	 */
-        
-    
     
         private $_id;
 
@@ -33,19 +31,24 @@ class UserIdentity extends CUserIdentity
                     try
                     {
                         $client = new SoapClient('http://192.168.2.84:81/PainelSecrelService.asmx?WSDL');
-                        $result = $client->NSN_AutenticarUsuario(array('usuario' => $this->username, 'senha' =>$this->password));
-                        $json = $result->NSN_AutenticarUsuarioResult;
                         
+                        $username = str_replace("@secrel.net.br", "", $this->username);
+                        
+                        $result = $client->NSN_AutenticarUsuario(array('usuario' =>$username, 'senha' =>$this->password));
+                        $json = $result->NSN_AutenticarUsuarioResult;
+
                         $obj = json_decode($json, true);
+                        
                         if($obj['logado']=='1' and $obj['erro']=='0'){
 
-                            $record=Usuario::model()->findByAttributes(array('Email'=>$this->username.'@secrel.net.br'));
+                            $record=Usuarios::model()->findByAttributes(array('usuarioad'=>$username, 'email_usuario'=>$username.'@secrel.net.br'));
+               
                             if($record===null)
                                 $this->errorCode=self::ERROR_USERNAME_INVALID;
                             else
                             {
-                                $this->_id=$record->idUsuario;
-                                $this->setState('title', $record->NomeUsuario);
+                                $this->_id=$record->id_usuario;
+                                $this->setState('title', $record->nm_usuario);
                                 $this->errorCode=self::ERROR_NONE;
                             }
                             return !$this->errorCode;
@@ -70,5 +73,10 @@ class UserIdentity extends CUserIdentity
                 public function getId()
                 {
                     return $this->_id;
+                }
+                
+                public function behaviors()
+                { 
+                    return array( 'LoggableBehavior'=> 'application.modules.auditTrail.behaviors.LoggableBehavior', );
                 }
 }

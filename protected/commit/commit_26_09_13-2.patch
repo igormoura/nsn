@@ -1,0 +1,44 @@
+From d0ffc8ff113d9fe77f0bde065bf89d47d444ee05 Mon Sep 17 00:00:00 2001
+From: Igor Moura <igormoura>
+Date: 26/09/2013 17:39:25
+
+Revert "Initialize Audit System"
+
+This reverts commit b119ad09e5687dfd3dcc3c51c5548bc191fd2bad.
+
+diff --git a/protected/modules/auditTrail/.DS_Store b/protected/modules/auditTrail/.DS_Store
+deleted file mode 100644
+index dd74794..0000000
+--- a/protected/modules/auditTrail/.DS_Store
++++ /dev/null
+Binary files differ
+diff --git a/protected/modules/auditTrail/models/.DS_Store b/protected/modules/auditTrail/models/.DS_Store
+deleted file mode 100644
+index 5008ddf..0000000
+--- a/protected/modules/auditTrail/models/.DS_Store
++++ /dev/null
+Binary files differ
+diff --git a/protected/modules/auditTrail/views/.DS_Store b/protected/modules/auditTrail/views/.DS_Store
+deleted file mode 100644
+index 6f1c5a1..0000000
+--- a/protected/modules/auditTrail/views/.DS_Store
++++ /dev/null
+Binary files differ
+diff --git a/protected/modules/auditTrail/views/default/.DS_Store b/protected/modules/auditTrail/views/default/.DS_Store
+deleted file mode 100644
+index 5008ddf..0000000
+--- a/protected/modules/auditTrail/views/default/.DS_Store
++++ /dev/null
+Binary files differ
+diff --git a/protected/modules/auditTrail/widgets/.DS_Store b/protected/modules/auditTrail/widgets/.DS_Store
+deleted file mode 100644
+index e2f4aeb..0000000
+--- a/protected/modules/auditTrail/widgets/.DS_Store
++++ /dev/null
+Binary files differ
+diff --git a/protected/modules/auditTrail/widgets/portlets/.DS_Store b/protected/modules/auditTrail/widgets/portlets/.DS_Store
+deleted file mode 100644
+index 1e58340..0000000
+--- a/protected/modules/auditTrail/widgets/portlets/.DS_Store
++++ /dev/null
+Binary files differ

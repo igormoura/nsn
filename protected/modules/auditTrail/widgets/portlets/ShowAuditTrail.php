@@ -18,7 +18,7 @@ class ShowAuditTrail extends CPortlet
 	 */
 	public $visible = true;
 
-	/**
+	/*
 	 * @var this allows you to override individual columns' display properties in the datagrid.
 	 * Column definitions should be indexed by column name, and the value should match the column
 	 * format of CDataGrid. For example:
@@ -49,7 +49,7 @@ class ShowAuditTrail extends CPortlet
 	 * Sets the title of the portlet
 	 */
 	public function init() {
-		$this->title = "Audit Trail For " . get_class($this->model) . " " . $this->model->id;
+		//$this->title = "Audit Trail For " . get_class($this->model) . " " . $this->model->id;
 		parent::init();
 	}
 
@@ -64,7 +64,9 @@ class ShowAuditTrail extends CPortlet
 			$auditTrail->model = get_class($this->model);
 			$auditTrail->model_id = $this->model->primaryKey;
 			$columnFormat = $this->getColumnFormat();
-			$this->widget('zii.widgets.grid.CGridView', array(
+			$this->widget('bootstrap.widgets.TbExtendedGridView', array(
+                                'type'=>'striped bordered',
+                                'responsiveTable' => true,
 				'id'=>'audit-trail-grid',
 				'dataProvider'=>$auditTrail->search(),
 				'columns'=> $this->getColumnFormat(),

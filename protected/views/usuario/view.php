@@ -56,4 +56,8 @@ $this->menu=array(
 
 
 
-<?php $this->widget( 'application.modules.auditTrail.widgets.portlets.ShowAuditTrail', array( 'model' => $model, ) ); ?>
+<?php 
+
+$this->widget( 'application.modules.auditTrail.widgets.portlets.ShowAuditTrail', 
+        array( 'model' => $model, ) );
+?>

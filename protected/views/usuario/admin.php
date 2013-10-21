@@ -28,6 +28,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
+
 <h1>Manage Usuarios</h1>
 
 <p>
@@ -35,14 +36,14 @@ You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&g
 or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
 </p>
 
-<div class="advanced-search">
-    <?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
-    <div class="search-form well" style="display:block">
+
+
+    <?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button', 'style' => 'float: right; margin-right: -145px; margin-bottom: 32px; margin-top: 19px;')); ?>
+    <div class="search-form well span2 pull-right" style="display:block; width: 223px; margin-right: -293px; margin-top: 45px;">
     <?php $this->renderPartial('_search',array(
             'model'=>$model,
     )); ?>
     </div><!-- search-form -->
-</div>
 
 
 
@@ -86,86 +87,6 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
                     'data-toggle' => 'modal',
                     'data-target' => '#editUsuario',
                     'class' => 'pull-right',
-                    'style' => 'z-index: 1053'        
+                    'style' => 'z-index: 1053; margin-top: -60px;'        
             ),
 ));?> 
-
-
-<?php $this->widget( 'application.modules.auditTrail.widgets.portlets.ShowAuditTrail', 
-        array( 'model' => $model, ) );
-?>
-
-
-
-
-
-
-
-
-
-
-
-
-<?php 
-
-/*
-$a = array(
-    "one" => 1,
-    "two" => 2,
-    "three" => 3,
-    "seventeen" => 17
-);
-
-foreach ($a as $k => $v) {
-    echo "\$a[$k] => $v.\n";
-}
-
-$model_ids = array(array($model->idUsuario, 'Title'));
-foreach($model as $id => $nomeUsuario){
-    $model_ids[] = array($nomeUsuario, 'NomeUsuario');
-}
-
-
-
-
-$criteria=new CDbCriteria(array(
-    'order'=>'stamp DESC',
-    'with'=>array('Usuario'),
-));
-
-$param_id = 0;
-foreach( $model_ids as $id_pair ) {
-    $criteria->addCondition( '( model_id = ' . $param_id . ' AND model =' . $param_id . ' )', 'OR' );
-    $criteria->params[  $param_id ] = $id_pair[0];
-    $criteria->params[ $param_id ] = $id_pair[1];
-    $param_id++;
-}
-
-$this->widget('zii.widgets.grid.CGridView', array(
-    'id'=>'title-grid',
-    'dataProvider'=>new CActiveDataProvider('AuditTrail', array(
-        'criteria'=>$criteria,
-        'pagination'=>array(
-            'pageSize'=>100,
-        )
-    )),
-    'columns'=>array(
-        array(
-            'name' => 'Author',
-            'value' => '$data->user ? $data->user->email : ""'
-        ),
-        'model',
-        'model_id',
-        'action',
-        array(
-            'name' => 'field',
-            'value' => '$data->getParent()->getAttributeLabel($data->field)'
-        ),
-        'old_value',
-        'new_value',
-        array(
-            'name' => 'Date Changed',
-            'value' => 'date("d-m-Y H:i:s", strtotime($data->stamp))'
-        )
-    ),
-)); */ ?>

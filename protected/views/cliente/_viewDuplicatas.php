@@ -11,18 +11,17 @@
                 'keyField'=>'NumeroDup',
                 'sort'=>array('defaultOrder'=>'DataVencDup DESC'))
             ),
-    
         'columns' => array_merge(array(
             array(
                 'class'=>'bootstrap.widgets.TbRelationalColumn',
                 'name' => Yii::t('main', 'duplicatas.NumeroDup'),
-                            'url' => $this->createUrl('cliente/relational'),
+                'url' => $this->createUrl('cliente/detailsDuplicatas'),
                 'value' => '$data->NumeroDup', 
                 'afterAjaxUpdate'=>'js:function(tr,rowid, data){ console.log(rowid); }',
-                    ),
+            ),
             array(
                 'name' => Yii::t('main', 'duplicatas.NumeroLote'),
-                'value' => '$data->NumeroLote', 
+                'value' => '$data->NumeroLote',
             ),
             array(
                 'name'=>Yii::t('main', 'duplicatas.DataEmisDup'),

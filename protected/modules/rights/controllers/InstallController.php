@@ -94,7 +94,7 @@ class InstallController extends RController
 					$this->redirect(array('install/ready'));
 				}
 
-                // Redirect to the error page.
+                                // Redirect to the error page.
 				$this->redirect(array('install/error'));
 			}
 			// Module is already installed.

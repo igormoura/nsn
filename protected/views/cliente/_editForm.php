@@ -9,7 +9,7 @@
     array(
         'id' => 'editCliente', 
         'htmlOptions' =>
-            array('style' =>'width: 922px; margin-left: -457px; overflow:hidden;')
+            array('style' =>'width: 885px; margin-left: -457px; overflow:hidden;')
           ));
  ?>
 
@@ -37,7 +37,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
     </div>
 
     <div class="modal-body">
-        <p class="note">Fields with <span class="required">*</span> are required.</p>
+        <p class="note"><?php echo Yii::t('main','helper.fieldsRequired') ?></p>
 
         <?php echo $form->errorSummary($model); ?>
 
@@ -46,20 +46,20 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
                 <?php echo $form->textFieldRow($model, 'NoCliente', array('disabled' => true), array('class' => 'span3')); ?>
                 <?php echo $form->error($model, 'NoCliente'); ?>
             </div>   
-            <div class="span6" style="margin-left:-10px;">
-                <?php echo $form->textFieldRow($model, 'NomeCliente', array('class' => 'span7')) ?>
+            <div class="span5" style="margin-left:-18px;">
+                <?php echo $form->textFieldRow($model, 'NomeCliente', array('class' => 'span5')) ?>
                 <?php echo $form->error($model, 'NomeCliente'); ?>
             </div>
-            <div class="span6">
-                <?php echo $form->textFieldRow($model, 'Endereco', array('class' => 'span7')) ?>
+            <div class="span7" style="width: 670px;">
+                <?php echo $form->textFieldRow($model, 'Endereco', array('class' => 'span7', 'style' => 'width: 220px')) ?>
                 <?php echo $form->error($model, 'Endereco'); ?>
             </div> 
-            <div class="span6">
-                <?php echo $form->textFieldRow($model, 'Contato', array('class' => 'span7')) ?>
+            <div class="span5">
+                <?php echo $form->textFieldRow($model, 'Contato', array('class' => 'span5')) ?>
                 <?php echo $form->error($model, 'Contato'); ?>
             </div>
-            <div class="span3" style="margin-left: 10px;">
-                <?php echo $form->textFieldRow($model, 'Pager', array('class' => 'span3')) ?>
+            <div class="span3">
+                <?php echo $form->textFieldRow($model, 'Pager') ?>
                 <?php echo $form->error($model, 'Pager'); ?>
             </div>
 
@@ -106,7 +106,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
                 <?php echo $form->error($model, 'CPF'); ?>
                 </div>
             </div>
-            <div class="span3">
+            <div class="span3" style="margin-left: -18px;">
                 <?php echo $form->labelEx($model, 'FoneResidencia'); ?>
                 <?php
                 $this->widget('CMaskedTextField', array(
@@ -141,7 +141,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
                 <?php echo $form->error($model, 'Celular'); ?>
             </div>
 
-            <div class="span3">
+            <div class="span3" style="margin-left: -18px;">
                 <?php echo $form->labelEx($model, 'FAX'); ?>
                 <?php
                 $this->widget('CMaskedTextField', array(
@@ -165,12 +165,12 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
                 <?php echo $form->error($model, 'Telex'); ?>
             </div>
 
-            <div class="span6">
-                <?php echo $form->textFieldRow($model, 'EMail', array('class' => 'span7')) ?>
+            <div class="span5">
+                <?php echo $form->textFieldRow($model, 'EMail', array('class' => 'span5')) ?>
                 <?php echo $form->error($model, 'EMail'); ?>
             </div>
 
-            <div class="span3" style="margin-left: 10px;">
+            <div class="span3">
                 <?php
                     echo $form->dropDownListRow($model, 
                     'EmailCobr', 
@@ -202,7 +202,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
     $this->widget('bootstrap.widgets.TbButton', array(
         'type' => 'primary',
         'buttonType' => 'submit',
-        'label' => $model->isNewRecord ? 'Criar' : 'Salvar',
+        'label' => $model->isNewRecord ? Yii::t('main','helper.create') : Yii::t('main','helper.save'),
     ));
     ?>
 

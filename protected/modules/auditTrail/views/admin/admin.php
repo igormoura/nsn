@@ -23,24 +23,33 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Audit Trails</h1>
+<?php $this->renderPartial('//components/_TbNavbarModules') ?>
 
-<p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
+<?php if(isset($this->breadcrumbs)):?>
+    <?php $this->widget('bootstrap.widgets.TbBreadcrumbs', array(
+            'links'=>$this->breadcrumbs,
+    ));?><!-- breadcrumbs -->
+<?php endif  ?>
+    
+<h1><?php echo Yii::t('main','audit.manager') ?></h1>
 
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
-<div class="search-form" style="display:none">
-<?php $this->renderPartial('_search',array(
-	'model'=>$model,
-)); ?>
-</div><!-- search-form -->
+<div class="advanced-search">
+    <?php echo CHtml::link(Yii::t('main','helper.advancedSearch'),'#',array('class'=>'search-button')); ?>
+    <div class="search-form well" style="display:block">
+    <?php $this->renderPartial('_search',array(
+            'model'=>$model,
+    )); ?>
+    </div><!-- search-form -->
+</div>
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+<div class="span9" style="margin-left: 0px;">
+<?php $this->widget('bootstrap.widgets.TbExtendedGridView', array(
 	'id'=>'audit-trail-grid',
+        'fixedHeader' => true,
+        'type'=>'striped bordered',
+        'responsiveTable' => true,
 	'dataProvider'=>$model->search(),
-	'filter'=>$model,
+	//'filter'=>$model,
 	'columns'=>array(
 		'id',
 		'old_value',
@@ -48,11 +57,22 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'action',
 		'model',
 		'field',
-		'stamp',
+                array(
+                    'header'=>Yii::t('main','audit.stamp'),
+                    'name'=>'stamp',
+                    'value'=>'date("d/m/Y H:i:s",strtotime($data->stamp))',
+                    'htmlOptions'=>array('style'=>'width: 12%')
+                ),
 		'user_id',
-		'model_id',
+                array(
+                  'name'=>'model_id', 
+                  'header'=>Yii::t('main','audit.model_id'),
+                  'htmlOptions'=>array('style'=>'width: 11%')
+                ),
 //		array(
 //			'class'=>'CButtonColumn',
 //		),
 	),
 )); ?>
+
+</di>

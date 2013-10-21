@@ -4272,3 +4272,278 @@ Stack trace:
 #12 C:\xampp\htdocs\yii-framework\framework\yiic.php(33): CConsoleApplication->run()
 #13 C:\xampp\htdocs\nsn\protected\yiic.php(7): require_once()
 
+2013/10/04 14:04:39 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S02]: [Microsoft][SQL Server Native Client 11.0][SQL Server]Invalid object name 'YiiLog'.. The SQL statement executed was: DELETE FROM [YiiLog] WHERE 0=1.
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/04 14:26:27 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S02]: [Microsoft][SQL Server Native Client 11.0][SQL Server]Invalid object name 'YiiLog'.. The SQL statement executed was: DELETE FROM [YiiLog] WHERE 0=1.
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:34:35 [trace] [system.CModule] Loading "log" application component
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:34:35 [trace] [system.CModule] Loading "db" application component
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:34:35 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:34:35 [trace] [system.db.CDbCommand] Executing SQL: DELETE FROM [YiiLog] WHERE 0=1
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:34:35 [trace] [system.CModule] Loading "secondb" application component
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:34:35 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:34:35 [trace] [system.db.CDbCommand] Executing SQL: DELETE FROM [YiiLog] WHERE 0=1
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:34:35 [trace] [system.CModule] Loading "bootstrap" application component
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:34:35 [trace] [system.CModule] Loading "clientScript" application component
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\components\Bootstrap.php (487)
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\components\Bootstrap.php (167)
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:34:35 [trace] [system.CModule] Loading "assetManager" application component
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\components\Bootstrap.php (473)
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\components\packages.php (15)
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\components\Bootstrap.php (218)
+2013/10/07 14:34:35 [trace] [system.CModule] Loading "request" application component
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\components\Bootstrap.php (478)
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\components\packages.php (15)
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\components\Bootstrap.php (218)
+2013/10/07 14:34:35 [trace] [system.CModule] Loading "translate" application component
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:34:35 [trace] [system.CModule] Loading "session" application component
+in C:\xampp\htdocs\nsn\protected\modules\translate\components\MPTranslate.php (192)
+in C:\xampp\htdocs\nsn\protected\modules\translate\components\MPTranslate.php (54)
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:34:35 [trace] [system.CModule] Loading "urlManager" application component
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:34:35 [trace] [system.base.CModule] Loading "auditTrail" module
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:34:35 [trace] [system.db.CDbCommand] Querying SQL: 		SELECT k.column_name field_name
+			FROM [INFORMATION_SCHEMA].[KEY_COLUMN_USAGE] k
+		    LEFT JOIN [INFORMATION_SCHEMA].[TABLE_CONSTRAINTS] c
+		      ON k.table_name = c.table_name
+		     AND k.constraint_name = c.constraint_name
+		   WHERE c.constraint_type ='PRIMARY KEY'
+		   	    AND k.table_name = :table
+				AND k.table_schema = :schema
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\controllers\AdminController.php (10)
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:34:35 [trace] [system.db.CDbCommand] Querying SQL: 		SELECT
+		     KCU1.CONSTRAINT_NAME AS 'FK_CONSTRAINT_NAME'
+		   , KCU1.TABLE_NAME AS 'FK_TABLE_NAME'
+		   , KCU1.COLUMN_NAME AS 'FK_COLUMN_NAME'
+		   , KCU1.ORDINAL_POSITION AS 'FK_ORDINAL_POSITION'
+		   , KCU2.CONSTRAINT_NAME AS 'UQ_CONSTRAINT_NAME'
+		   , KCU2.TABLE_NAME AS 'UQ_TABLE_NAME'
+		   , KCU2.COLUMN_NAME AS 'UQ_COLUMN_NAME'
+		   , KCU2.ORDINAL_POSITION AS 'UQ_ORDINAL_POSITION'
+		FROM [INFORMATION_SCHEMA].[REFERENTIAL_CONSTRAINTS] RC
+		JOIN [INFORMATION_SCHEMA].[KEY_COLUMN_USAGE] KCU1
+		ON KCU1.CONSTRAINT_CATALOG = RC.CONSTRAINT_CATALOG
+		   AND KCU1.CONSTRAINT_SCHEMA = RC.CONSTRAINT_SCHEMA
+		   AND KCU1.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
+		JOIN [INFORMATION_SCHEMA].[KEY_COLUMN_USAGE] KCU2
+		ON KCU2.CONSTRAINT_CATALOG =
+		RC.UNIQUE_CONSTRAINT_CATALOG
+		   AND KCU2.CONSTRAINT_SCHEMA =
+		RC.UNIQUE_CONSTRAINT_SCHEMA
+		   AND KCU2.CONSTRAINT_NAME =
+		RC.UNIQUE_CONSTRAINT_NAME
+		   AND KCU2.ORDINAL_POSITION = KCU1.ORDINAL_POSITION
+		WHERE KCU1.TABLE_NAME = :table
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\controllers\AdminController.php (10)
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:34:35 [trace] [system.db.CDbCommand] Querying SQL: SELECT t1.*, columnproperty(object_id(t1.table_schema+'.'+t1.table_name), t1.column_name, 'IsIdentity') AS IsIdentity, CONVERT(VARCHAR, t2.value) AS Comment FROM [INFORMATION_SCHEMA].[COLUMNS] AS t1 LEFT OUTER JOIN sys.extended_properties AS t2 ON t1.ORDINAL_POSITION = t2.minor_id AND object_name(t2.major_id) = t1.TABLE_NAME AND t2.class=1 AND t2.class_desc='OBJECT_OR_COLUMN' AND t2.name='MS_Description' WHERE t1.TABLE_NAME='tbl_audit_trail' AND t1.TABLE_SCHEMA='dbo'
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\controllers\AdminController.php (10)
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:34:35 [trace] [system.CModule] Loading "themeManager" application component
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\controllers\AdminController.php (17)
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:34:35 [trace] [system.CModule] Loading "user" application component
+in C:\xampp\htdocs\nsn\protected\views\components\_TbNavbarModules.php (11)
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\views\admin\admin.php (26)
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\controllers\AdminController.php (17)
+2013/10/07 14:34:35 [trace] [system.CModule] Loading "widgetFactory" application component
+in C:\xampp\htdocs\nsn\protected\views\components\_TbNavbarModules.php (85)
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\views\admin\admin.php (26)
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\controllers\AdminController.php (17)
+2013/10/07 14:34:35 [trace] [system.CModule] Loading "coreMessages" application component
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\widgets\TbBreadcrumbs.php (60)
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\views\admin\admin.php (31)
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\controllers\AdminController.php (17)
+2013/10/07 14:34:35 [trace] [system.CModule] Loading "messages" application component
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\views\admin\admin.php (34)
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\controllers\AdminController.php (17)
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:34:35 [trace] [system.db.ar.CActiveRecord] AuditTrail.count()
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\widgets\TbGridView.php (68)
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\widgets\TbExtendedGridView.php (230)
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\views\admin\admin.php (76)
+2013/10/07 14:34:35 [trace] [system.db.CDbCommand] Querying SQL: SELECT COUNT(*) FROM [dbo].[tbl_audit_trail] [t]
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\widgets\TbGridView.php (68)
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\widgets\TbExtendedGridView.php (230)
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\views\admin\admin.php (76)
+2013/10/07 14:34:35 [trace] [system.db.ar.CActiveRecord] AuditTrail.findAll()
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\widgets\TbGridView.php (68)
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\widgets\TbExtendedGridView.php (230)
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\views\admin\admin.php (76)
+2013/10/07 14:34:35 [trace] [system.db.CDbCommand] Querying SQL: SELECT TOP 10 * FROM [dbo].[tbl_audit_trail] [t]
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\widgets\TbGridView.php (68)
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\widgets\TbExtendedGridView.php (230)
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\views\admin\admin.php (76)
+2013/10/07 14:34:35 [trace] [system.CModule] Loading "format" application component
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\widgets\TbExtendedGridView.php (563)
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\widgets\TbExtendedGridView.php (240)
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\views\admin\admin.php (76)
+2013/10/07 14:39:13 [trace] [system.CModule] Loading "log" application component
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:39:13 [trace] [system.CModule] Loading "db" application component
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:39:13 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:39:13 [trace] [system.db.CDbCommand] Executing SQL: DELETE FROM [YiiLog] WHERE 0=1
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:39:13 [trace] [system.CModule] Loading "secondb" application component
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:39:13 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:39:13 [trace] [system.db.CDbCommand] Executing SQL: DELETE FROM [YiiLog] WHERE 0=1
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:39:13 [trace] [system.CModule] Loading "bootstrap" application component
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:39:13 [trace] [system.CModule] Loading "clientScript" application component
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\components\Bootstrap.php (487)
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\components\Bootstrap.php (167)
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:39:13 [trace] [system.CModule] Loading "assetManager" application component
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\components\Bootstrap.php (473)
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\components\packages.php (15)
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\components\Bootstrap.php (218)
+2013/10/07 14:39:13 [trace] [system.CModule] Loading "request" application component
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\components\Bootstrap.php (478)
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\components\packages.php (15)
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\components\Bootstrap.php (218)
+2013/10/07 14:39:13 [trace] [system.CModule] Loading "translate" application component
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:39:13 [trace] [system.CModule] Loading "session" application component
+in C:\xampp\htdocs\nsn\protected\modules\translate\components\MPTranslate.php (192)
+in C:\xampp\htdocs\nsn\protected\modules\translate\components\MPTranslate.php (54)
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:39:13 [trace] [system.CModule] Loading "urlManager" application component
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:39:13 [trace] [system.base.CModule] Loading "auditTrail" module
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:39:13 [trace] [system.db.CDbCommand] Querying SQL: 		SELECT k.column_name field_name
+			FROM [INFORMATION_SCHEMA].[KEY_COLUMN_USAGE] k
+		    LEFT JOIN [INFORMATION_SCHEMA].[TABLE_CONSTRAINTS] c
+		      ON k.table_name = c.table_name
+		     AND k.constraint_name = c.constraint_name
+		   WHERE c.constraint_type ='PRIMARY KEY'
+		   	    AND k.table_name = :table
+				AND k.table_schema = :schema
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\controllers\AdminController.php (10)
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:39:13 [trace] [system.db.CDbCommand] Querying SQL: 		SELECT
+		     KCU1.CONSTRAINT_NAME AS 'FK_CONSTRAINT_NAME'
+		   , KCU1.TABLE_NAME AS 'FK_TABLE_NAME'
+		   , KCU1.COLUMN_NAME AS 'FK_COLUMN_NAME'
+		   , KCU1.ORDINAL_POSITION AS 'FK_ORDINAL_POSITION'
+		   , KCU2.CONSTRAINT_NAME AS 'UQ_CONSTRAINT_NAME'
+		   , KCU2.TABLE_NAME AS 'UQ_TABLE_NAME'
+		   , KCU2.COLUMN_NAME AS 'UQ_COLUMN_NAME'
+		   , KCU2.ORDINAL_POSITION AS 'UQ_ORDINAL_POSITION'
+		FROM [INFORMATION_SCHEMA].[REFERENTIAL_CONSTRAINTS] RC
+		JOIN [INFORMATION_SCHEMA].[KEY_COLUMN_USAGE] KCU1
+		ON KCU1.CONSTRAINT_CATALOG = RC.CONSTRAINT_CATALOG
+		   AND KCU1.CONSTRAINT_SCHEMA = RC.CONSTRAINT_SCHEMA
+		   AND KCU1.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
+		JOIN [INFORMATION_SCHEMA].[KEY_COLUMN_USAGE] KCU2
+		ON KCU2.CONSTRAINT_CATALOG =
+		RC.UNIQUE_CONSTRAINT_CATALOG
+		   AND KCU2.CONSTRAINT_SCHEMA =
+		RC.UNIQUE_CONSTRAINT_SCHEMA
+		   AND KCU2.CONSTRAINT_NAME =
+		RC.UNIQUE_CONSTRAINT_NAME
+		   AND KCU2.ORDINAL_POSITION = KCU1.ORDINAL_POSITION
+		WHERE KCU1.TABLE_NAME = :table
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\controllers\AdminController.php (10)
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:39:13 [trace] [system.db.CDbCommand] Querying SQL: SELECT t1.*, columnproperty(object_id(t1.table_schema+'.'+t1.table_name), t1.column_name, 'IsIdentity') AS IsIdentity, CONVERT(VARCHAR, t2.value) AS Comment FROM [INFORMATION_SCHEMA].[COLUMNS] AS t1 LEFT OUTER JOIN sys.extended_properties AS t2 ON t1.ORDINAL_POSITION = t2.minor_id AND object_name(t2.major_id) = t1.TABLE_NAME AND t2.class=1 AND t2.class_desc='OBJECT_OR_COLUMN' AND t2.name='MS_Description' WHERE t1.TABLE_NAME='tbl_audit_trail' AND t1.TABLE_SCHEMA='dbo'
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\controllers\AdminController.php (10)
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:39:13 [trace] [system.CModule] Loading "themeManager" application component
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\controllers\AdminController.php (17)
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:39:13 [trace] [system.CModule] Loading "user" application component
+in C:\xampp\htdocs\nsn\protected\views\components\_TbNavbarModules.php (11)
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\views\admin\admin.php (26)
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\controllers\AdminController.php (17)
+2013/10/07 14:39:13 [trace] [system.CModule] Loading "widgetFactory" application component
+in C:\xampp\htdocs\nsn\protected\views\components\_TbNavbarModules.php (85)
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\views\admin\admin.php (26)
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\controllers\AdminController.php (17)
+2013/10/07 14:39:13 [trace] [system.CModule] Loading "coreMessages" application component
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\widgets\TbBreadcrumbs.php (60)
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\views\admin\admin.php (31)
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\controllers\AdminController.php (17)
+2013/10/07 14:39:13 [trace] [system.CModule] Loading "messages" application component
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\views\admin\admin.php (34)
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\controllers\AdminController.php (17)
+in C:\xampp\htdocs\nsn\index.php (13)
+2013/10/07 14:39:13 [trace] [system.db.ar.CActiveRecord] AuditTrail.count()
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\widgets\TbGridView.php (68)
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\widgets\TbExtendedGridView.php (230)
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\views\admin\admin.php (76)
+2013/10/07 14:39:13 [trace] [system.db.CDbCommand] Querying SQL: SELECT COUNT(*) FROM [dbo].[tbl_audit_trail] [t]
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\widgets\TbGridView.php (68)
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\widgets\TbExtendedGridView.php (230)
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\views\admin\admin.php (76)
+2013/10/07 14:39:13 [trace] [system.db.ar.CActiveRecord] AuditTrail.findAll()
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\widgets\TbGridView.php (68)
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\widgets\TbExtendedGridView.php (230)
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\views\admin\admin.php (76)
+2013/10/07 14:39:13 [trace] [system.db.CDbCommand] Querying SQL: SELECT TOP 10 * FROM [dbo].[tbl_audit_trail] [t]
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\widgets\TbGridView.php (68)
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\widgets\TbExtendedGridView.php (230)
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\views\admin\admin.php (76)
+2013/10/07 14:39:13 [trace] [system.CModule] Loading "format" application component
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\widgets\TbExtendedGridView.php (563)
+in C:\xampp\htdocs\nsn\protected\extensions\bootstrap\widgets\TbExtendedGridView.php (240)
+in C:\xampp\htdocs\nsn\protected\modules\auditTrail\views\admin\admin.php (76)
+2013/10/21 20:38:40 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: could not find driver' in C:\xampp\htdocs\yii-framework\framework\db\CDbConnection.php:381
+Stack trace:
+#0 C:\xampp\htdocs\yii-framework\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\yii-framework\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\yii-framework\framework\base\CModule.php(387): CDbConnection->init()
+#3 C:\xampp\htdocs\yii-framework\framework\logging\CDbLogRoute.php(109): CModule->getComponent('db')
+#4 C:\xampp\htdocs\yii-framework\framework\logging\CDbLogRoute.php(71): CDbLogRoute->getDbConnection()
+#5 C:\xampp\htdocs\yii-framework\framework\logging\CLogRouter.php(66): CDbLogRoute->init()
+#6 C:\xampp\htdocs\yii-framework\framework\base\CModule.php(387): CLogRouter->init()
+#7 C:\xampp\htdocs\yii-framework\framework\base\CModule.php(523): CModule->getComponent('log')
+#8 C:\xampp\htdocs\yii-framework\framework\base\CApplication.php(152): CModule->preloadComponents()
+#9 C:\xampp\htdocs\yii-framework\framework\YiiBase.php(125): CApplication->__construct('C:\xampp\htdocs...')
+#10 C:\xampp\htdocs\yii-framework\framework\YiiBase.php(98): YiiBase::createApplication('CWebApplication', 'C:\xampp\htdocs...')
+#11 C:\xampp\htdocs\nsn\index.php(13): YiiBase::createWebApplication('C:\xampp\htdocs...')
+#12 C:\xampp\htdocs\yii-framework\framework\cli\commands\ShellCommand.php(78): require('C:\xampp\htdocs...')
+#13 C:\xampp\htdocs\yii-framework\framework\console\CConsoleCommandRunner.php(67): ShellCommand->run(Array)
+#14 C:\xampp\htdocs\yii-framework\framework\console\CConsoleApplication.php(91): CConsoleCommandRunner->run(Array)
+#15 C:\xampp\htdocs\yii-framework\framework\base\CApplication.php(169): CConsoleApplication->processRequest()
+#16 C:\xampp\htdocs\yii-framework\framework\yiic.php(33): CApplication->run()
+#17 C:\xampp\htdocs\nsn\protected\yiic.php(7): require_once('C:\xampp\htdocs...')
+#18 {main}
+REQUEST_URI=/index.php
+---
+2013/10/21 20:39:09 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: could not find driver' in C:\xampp\htdocs\yii-framework\framework\db\CDbConnection.php:381
+Stack trace:
+#0 C:\xampp\htdocs\yii-framework\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\yii-framework\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\yii-framework\framework\base\CModule.php(387): CDbConnection->init()
+#3 C:\xampp\htdocs\yii-framework\framework\cli\commands\MigrateCommand.php(442): CModule->getComponent('db')
+#4 C:\xampp\htdocs\yii-framework\framework\cli\commands\MigrateCommand.php(451): MigrateCommand->getDbConnection()
+#5 C:\xampp\htdocs\yii-framework\framework\cli\commands\MigrateCommand.php(482): MigrateCommand->getMigrationHistory(-1)
+#6 C:\xampp\htdocs\yii-framework\framework\cli\commands\MigrateCommand.php(84): MigrateCommand->getNewMigrations()
+#7 [internal function]: MigrateCommand->actionUp(Array)
+#8 C:\xampp\htdocs\yii-framework\framework\console\CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#9 C:\xampp\htdocs\yii-framework\framework\console\CConsoleCommandRunner.php(67): CConsoleCommand->run(Array)
+#10 C:\xampp\htdocs\yii-framework\framework\console\CConsoleApplication.php(91): CConsoleCommandRunner->run(Array)
+#11 C:\xampp\htdocs\yii-framework\framework\base\CApplication.php(169): CConsoleApplication->processRequest()
+#12 C:\xampp\htdocs\yii-framework\framework\yiic.php(33): CApplication->run()
+#13 C:\xampp\htdocs\nsn\protected\yiic.php(7): require_once('C:\xampp\htdocs...')
+#14 {main}
+---

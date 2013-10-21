@@ -1,4 +1,4 @@
-<?php
+    <?php
 /**
 * Authorization item form class file.
 *
@@ -6,14 +6,23 @@
 * @copyright Copyright &copy; 2010 Christoffer Niska
 * @since 0.5
 */
-class AuthItemForm extends CFormModel
+class AuthItemForm extends CActiveRecord
 {
 	public $name;
 	public $description;
 	public $type;
 	public $bizRule;
 	public $data;
-
+        
+        
+        /**
+	 * @return string the associated database table name
+	 */
+	public function tableName()
+	{
+		return 'AuthItem';
+	}
+        
 	/**
 	* Declares the validation rules.
 	*/
@@ -82,5 +91,11 @@ class AuthItemForm extends CFormModel
 		if( empty($this->data)===false && empty($this->bizRule)===true )
 			$this->addError('data', Rights::t('core', 'Business rule cannot be empty.'));
 	}
+        
+        public function behaviors()
+        { 
+            return array( 'LoggableBehavior'=> 'application.modules.auditTrail.behaviors.LoggableBehavior', );
+        }    
+        
 }
 

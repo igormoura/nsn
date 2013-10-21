@@ -196,7 +196,12 @@ class Duplicatas extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
-
+        
+        // GERA BUG NA VIEW DO CLIENTE
+        /*public function behaviors()
+        { 
+            return array( 'LoggableBehavior'=> 'application.modules.auditTrail.behaviors.LoggableBehavior', );
+        }*/
 
         
 }

@@ -12,10 +12,10 @@
      'id'=>'form-search-usuario',
 )); ?>
 
-    	    <div class="row">
+    <div class="row">
         <div class="span2">
         <?php echo $form->label($model,'NomeUsuario'); ?>
-        <?php echo $form->textField($model, 'NomeUsuario', array('class'=>'span3')); ?>
+        <?php echo $form->textField($model, 'NomeUsuario'); ?>
     
         <?php echo $form->label($model,'UsuarioDB'); ?>
         <?php echo $form->textField($model,'UsuarioDB',array('size'=>50,'maxlength'=>50)); ?>
@@ -34,7 +34,7 @@
         </div>
 
         </div>
-            </div>
+    </div>
 
 <?php $this->endWidget(); ?>
 

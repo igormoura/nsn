@@ -125,18 +125,18 @@ class Contrato extends CActiveRecord
 	 */
 	public function relations()
 	{
-    return array(
-        'Distribuidor' => array(self::BELONGS_TO, 'Distribuidor', 'CodigoDistr'),
-        'EstadoContr' => array(self::BELONGS_TO, 'EstadoContr', 'CodigoEstadoContr'),
-        //'MotivoCancelamento' => array(self::BELONGS_TO, 'MotivoCancelamento', 'CodigoMotivoCanc'),
-        'TipoCobranca' => array(self::BELONGS_TO, 'TipoCobranca', 'CodigoTipoCobr'),
-        'NomesEmpresas' => array(self::BELONGS_TO, 'NomesEmpresas', 'Empresa'),
-        //'Cliente' => array(self::BELONGS_TO, 'Cliente', 'NoCliente'),
-        'CobrAdic' => array(self::HAS_MANY, 'CobrAdic', 'NoContrato'),
-        'NetAcessos' => array(self::HAS_MANY, 'NetAcessos', 'NoContrato'),
-        'Ocorrencia' => array(self::HAS_MANY, 'Ocorrencia', 'NoContrato'),
-        'EstadoAcesso' => array(self::BELONGS_TO, 'EstadoAcesso', 'CodigoEstadoAcesso')
-    );
+            return array(
+                'Distribuidor' => array(self::BELONGS_TO, 'Distribuidor', 'CodigoDistr'),
+                'EstadoContr' => array(self::BELONGS_TO, 'EstadoContr', 'CodigoEstadoContr'),
+                //'MotivoCancelamento' => array(self::BELONGS_TO, 'MotivoCancelamento', 'CodigoMotivoCanc'),
+                'TipoCobranca' => array(self::BELONGS_TO, 'TipoCobranca', 'CodigoTipoCobr'),
+                'NomesEmpresas' => array(self::BELONGS_TO, 'NomesEmpresas', 'Empresa'),
+                //'Cliente' => array(self::BELONGS_TO, 'Cliente', 'NoCliente'),
+                'CobrAdic' => array(self::HAS_MANY, 'CobrAdic', 'NoContrato'),
+                'NetAcessos' => array(self::HAS_MANY, 'NetAcessos', 'NoContrato'),
+                'Ocorrencia' => array(self::HAS_MANY, 'Ocorrencia', 'NoContrato'),
+                'EstadoAcesso' => array(self::BELONGS_TO, 'EstadoAcesso', 'CodigoEstadoAcesso')
+            );
 	}
         
         
@@ -217,10 +217,10 @@ class Contrato extends CActiveRecord
 		// should not be searched.
 
 		$criteria=new CDbCriteria;
-    $criteria->together = true;
+                $criteria->together = true;
 
-    //$criteria->addSearchCondition('NomeCliente',$this->Cliente->NomeCliente);
-    $criteria->compare('Cliente.NoCliente',$this->NoCliente, true);
+                //$criteria->addSearchCondition('NomeCliente',$this->Cliente->NomeCliente);
+                $criteria->compare('Cliente.NoCliente',$this->NoCliente, true);
                 
 		$criteria->compare('NoContrato',$this->NoContrato);
 		$criteria->compare('CodigoEstadoContr',$this->CodigoEstadoContr,true);
@@ -310,48 +310,14 @@ class Contrato extends CActiveRecord
             );
         }
         
-        public function diaVencimento()
-        {
-             
+        function diaVencimento(){
+            $rows = array();
             for($i=1;$i<=31;$i++){
-                //echo $i;
-            }
-            
-            return array(
-                '1' => '1',
-                '2' => '2',
-                '3' => '3',
-                '4' => '4',
-                '5' => '5',
-                '6' => '6',
-                '7' => '7',
-                '8' => '8',
-                '9' => '9',
-                '10' => '10',
-                '11' => '11',
-                '12' => '12',
-                '13' => '13',
-                '14' => '14',
-                '15' => '15',
-                '16' => '16',
-                '17' => '17',
-                '18' => '18',
-                '19' => '19',
-                '20' => '20',
-                '21' => '21',
-                '22' => '22',
-                '23' => '23',
-                '24' => '24',
-                '25' => '25',
-                '26' => '26',
-                '27' => '27',
-                '28' => '28',
-                '29' => '29',
-                '30' => '30',
-                '31' => '31',
+            $rows[] = $i;
+        }
 
-            );  
-        }   
+            return $rows;
+        }  
         
         public function primeiroContato()
         {
@@ -366,6 +332,11 @@ class Contrato extends CActiveRecord
             return array(
                 'S' => 'Suspenso',
             );
+        }
+        
+        public function behaviors()
+        { 
+            return array( 'LoggableBehavior'=> 'application.modules.auditTrail.behaviors.LoggableBehavior', );
         }
 
 }

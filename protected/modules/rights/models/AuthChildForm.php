@@ -6,10 +6,20 @@
 * @copyright Copyright &copy; 2010 Christoffer Niska
 * @since 0.9
 */
-class AuthChildForm extends CFormModel
+class AuthChildForm extends CActiveRecord
 {
 	public $itemname;
-
+        
+        
+        /**
+	 * @return string the associated database table name
+	 */
+	public function tableName()
+	{
+		return 'AuthItemChild';
+	}
+        
+        
 	/**
 	 * Declares the validation rules.
 	 */
@@ -29,4 +39,11 @@ class AuthChildForm extends CFormModel
 			'itemname' => Rights::t('core', 'Authorization item'),
 		);
 	}
+        
+        public function behaviors()
+        { 
+            return array( 'LoggableBehavior'=> 'application.modules.auditTrail.behaviors.LoggableBehavior', );
+        }
+        
+ 
 }

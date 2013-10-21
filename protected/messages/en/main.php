@@ -21,6 +21,10 @@ return array (
   'helper.exit' => 'Exit',
   'helper.welcome' => 'Welcome to ',
   'helper.remenber' => 'Remember me next time',
+  'helper.errorUserPassword' => 'Incorrect username or password.',
+  'helper.username' => 'Username AD',
+  'helper.password' => 'Password',
+  'heleper.create' => 'Create',
 
   /* TRANSLATED SITE */
   'site.home' => 'Home',
@@ -231,9 +235,44 @@ return array (
   'ocorrencia.idUsuarioF' => 'Id User F',
   'ocorrencia.flagVisivelCliente' => 'Flag visible Customer',
   'ocorrencia.flagSolicitacao' => 'Flag Request',
+    
+    /* TRANSLATED USUARIOS */
+    'usuarios.manager' => 'Manager Users',
+    
+    // LABELS
+    'usuarios.id_usuario' => 'Id',
+    'usuarios.email_usuario' => 'Email',
+    'usuarios.nm_usuario' => 'Name',
+    'usuarios.pw_usuario' => 'Pw User',
+    'usuarios.home_usuario' => 'Home',
+    'usuarios.foto_usuario' => 'Photo',
+    'usuarios.dt_nascimento' => 'Date of Birth',
+    'usuarios.cel_usuario' => 'Cel User',
+    'usuarios.tel_usuario' => 'Tel User',
+    'usuarios.ramal_usuario' => 'Ramal User',
+    'usuarios.status' => 'Status',
+    'usuarios.nomecompleto_usuario' => 'Full Name',
+    'usuarios.cdGrupoVenda' => 'Cd Group Sale',
+    'usuarios.Id_Supervisor' => 'Supervisor',
+    'usuarios.matricula' => 'Registration',
+    'usuarios.id_cargahora' => 'Id Hours',
+    'usuarios.filial' => 'Filial',
+    'usuarios.usuarioad' => 'User AD',
+    'usuarios.VocalixAgenteID' => 'Agent Vocalix',
 
 
-
+   /* TRANSLATED MODULE AUDIT TRAIL */ 
+    
+    'audit.manager' => 'Manage Audit',
+    'audit.id' => 'ID',
+    'audit.old_value' => 'Old Value',
+    'audit.new_value' => 'New Value',
+    'audit.action' => 'Action',
+    'audit.model' => 'Model',
+    'audit.field' => 'Field',
+    'audit.stamp' => 'Stamp',
+    'audit.user_id' => 'User',
+    'audit.model_id' => 'Model',
 
 
 

@@ -39,7 +39,7 @@ class Faturamento extends CActiveRecord
 	 */
 	public static function model($className=__CLASS__)
 	{
-		return parent::model($className);
+            return parent::model($className);
 	}
 
 	/**
@@ -172,4 +172,9 @@ class Faturamento extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+        
+        public function behaviors()
+        { 
+            return array( 'LoggableBehavior'=> 'application.modules.auditTrail.behaviors.LoggableBehavior', );
+        }
 }

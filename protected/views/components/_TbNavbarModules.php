@@ -66,7 +66,7 @@
                'items' => array(
                    array('label'=>'Manter Permissões', 'url'=>array('/rights/assignment/view')),
                    array('label'=>'Manter Transação','url'=>'#'), 
-                   array('label'=>'Manter Usuário', 'url'=>array('/usuario/admin')),  
+                   array('label'=>'Manter Usuário', 'url'=>array('/usuarios/admin')),  
                    ),
              ),
     array('label'=>'Ajuda',           

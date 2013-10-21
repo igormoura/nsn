@@ -1,0 +1,43 @@
+From b119ad09e5687dfd3dcc3c51c5548bc191fd2bad Mon Sep 17 00:00:00 2001
+From: Igor Moura <igormoura>
+Date: 26/09/2013 17:35:57
+
+Initialize Audit System
+
+
+diff --git a/protected/modules/auditTrail/.DS_Store b/protected/modules/auditTrail/.DS_Store
+new file mode 100644
+index 0000000..dd74794
+--- /dev/null
++++ b/protected/modules/auditTrail/.DS_Store
+Binary files differ
+diff --git a/protected/modules/auditTrail/models/.DS_Store b/protected/modules/auditTrail/models/.DS_Store
+new file mode 100644
+index 0000000..5008ddf
+--- /dev/null
++++ b/protected/modules/auditTrail/models/.DS_Store
+Binary files differ
+diff --git a/protected/modules/auditTrail/views/.DS_Store b/protected/modules/auditTrail/views/.DS_Store
+new file mode 100644
+index 0000000..6f1c5a1
+--- /dev/null
++++ b/protected/modules/auditTrail/views/.DS_Store
+Binary files differ
+diff --git a/protected/modules/auditTrail/views/default/.DS_Store b/protected/modules/auditTrail/views/default/.DS_Store
+new file mode 100644
+index 0000000..5008ddf
+--- /dev/null
++++ b/protected/modules/auditTrail/views/default/.DS_Store
+Binary files differ
+diff --git a/protected/modules/auditTrail/widgets/.DS_Store b/protected/modules/auditTrail/widgets/.DS_Store
+new file mode 100644
+index 0000000..e2f4aeb
+--- /dev/null
++++ b/protected/modules/auditTrail/widgets/.DS_Store
+Binary files differ
+diff --git a/protected/modules/auditTrail/widgets/portlets/.DS_Store b/protected/modules/auditTrail/widgets/portlets/.DS_Store
+new file mode 100644
+index 0000000..1e58340
+--- /dev/null
++++ b/protected/modules/auditTrail/widgets/portlets/.DS_Store
+Binary files differ

@@ -108,6 +108,43 @@ class SiteController extends Controller
 	}
         
         
+        /*  REGISTRO DE LOGIN */
+        public function actionRegister()
+        {
+                $model=new LoginForm;
+                $newUser = new Usuario;
+                
+                // if it is ajax validation request
+                if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
+                {
+                        echo CActiveForm::validate($model);
+                        Yii::app()->end();
+                }
+
+                // collect user input data
+                if(isset($_POST['LoginForm']))
+                {
+                        $model->attributes=$_POST['LoginForm'];
+                        $newUser->NomeUsuario = $model->username;
+                        $newUser->SenhaDB = $model->password;
+                        $newUser->Email = $model->email;
+                        $newUser->joined = date('d/m/y
+                            h:m:s');
+                                
+                        if($newUser->save()) {
+                                $identity=new UserIdentity($newUser->NomeUsuario,$model->password);
+                                $identity->authenticate();
+                                Yii::app()->user->login($identity,0);
+                                //redirect the user to page he/she came from
+                                $this->redirect(Yii::app()->user->returnUrl);
+                        }
+                                
+                }
+                // display the register form
+                $this->render('register',array('model'=>$model));
+        }
+        
+        
         
         
         

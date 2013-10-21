@@ -13,15 +13,10 @@ $('.search-form form').submit(function(){
 });
 ");?>
 
-
-
-
-
 <?php $this->breadcrumbs = array(
 	'Rights'=>Rights::getBaseUrl(),
 	Rights::t('core', 'Assignments'),
 ); ?>
-
 
 
 <div class="advanced-search">
@@ -32,7 +27,6 @@ $('.search-form form').submit(function(){
     )); ?>
     </div><!-- search-form -->
 </div>
-
 
 
 <div id="assignments" class="span9 margin-left-none">
@@ -52,6 +46,7 @@ $('.search-form form').submit(function(){
             'type' => 'striped bordered',
             'responsiveTable' => true,
                 'columns'=>array(
+                    'id',
                     array(
                             'name'=>'name',
                             'header'=>Rights::t('core', 'Name'),

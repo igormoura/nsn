@@ -12,6 +12,7 @@ class AssignmentController extends RController
 	* @property RAuthorizer
 	*/
 	private $_authorizer;
+        
 
 	/**
 	* Initializes the controller.
@@ -44,6 +45,17 @@ class AssignmentController extends RController
 	public function actionView()
 	{
 		// Create a data provider for listing the users
+            
+               /* $model=new AssignmentForm('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['AssignmentForm']))
+			$model->attributes=$_GET['AssignmentForm'];
+
+		$this->render('view',array(
+			'model'=>$model,
+		));
+                */
+                
 		$dataProvider = new RAssignmentDataProvider(array(
 			'pagination'=>array(
 				'pageSize'=>10,
@@ -140,7 +152,7 @@ class AssignmentController extends RController
 		}
 		else
 		{
-			throw new CHttpException(400, Rights::t('core', 'Invalid request. Please do not repeat this request again.'));
+                        throw new CHttpException(400, Rights::t('core', 'Invalid request. Please do not repeat this request again.'));
 		}
 	}
 	

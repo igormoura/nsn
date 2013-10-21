@@ -6,7 +6,7 @@
 * @copyright Copyright &copy; 2010 Christoffer Niska
 * @since 0.9.8
 */
-class GenerateForm extends CFormModel
+class GenerateForm extends CActiveRecord
 {
 	public $items;
 
@@ -15,8 +15,13 @@ class GenerateForm extends CFormModel
 	 */
 	public function rules()
 	{
-		return array(
-			array('items', 'safe'),
-		);
+            return array(
+                    array('items', 'safe'),
+            );
 	}
+        
+        public function behaviors()
+        { 
+            return array( 'LoggableBehavior'=> 'application.modules.auditTrail.behaviors.LoggableBehavior', );
+        }
 }

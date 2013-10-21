@@ -3,17 +3,17 @@
 class AuditTrailModule extends CWebModule
 {
 	/**
-	 * @var string the name of the User class. Defaults to "User"
+	 * @var string nome da classe de usuário. O padrão é "User"
 	 */
 	public $userClass = "User";
 
 	/**
-	 * @var string the name of the column of the user class that is the primary key. Defaults to "id"
+	 * @var string nome da coluna da classe de usuário que é a chave primária. O padrão é "id"
 	 */	
 	public $userIdColumn = "id";
 
 	/**
-	 * @var string the name of the column of the user class that is the username. Defaults to "username"
+	 * @var string nome da coluna da classe de usuário que é a chave primária. O padrão é "username"
 	 */	
 	public $userNameColumn = "username";
 	
@@ -31,6 +31,7 @@ class AuditTrailModule extends CWebModule
 		$this->setImport(array(
 			'auditTrail.models.*',
 			'auditTrail.components.*',
+                        //'application.modules.auditTrail.models.AuditTrail',
 		));
 	}
 

@@ -1,8 +1,4 @@
-<?php
-/* @var $this ContratoController */
-/* @var $model Contrato */
-/* @var $form CActiveForm */
-?>
+
   
 <div class="wide form">
     
@@ -16,13 +12,11 @@
     <div class="row">
         <div class="span2">
 
-        <?php echo $form->label(Usuario::model(),'NomeUsuario'); ?>
-        <?php echo $form->textFieldRow(Usuario::model(),'NomeUsuario',array('style'=>'width:207px')); ?>
+
 
         </div>
-    </div>
-           
-        <?php $this->widget('bootstrap.widgets.TbButton', 
+    </div>  
+       <?php $this->widget('bootstrap.widgets.TbButton', 
             array(
                 'buttonType'=>'submit', 
                 'label'=>'Buscar',
@@ -30,8 +24,6 @@
                 'htmlOptions' => array(
                     'style'=>'margin-top:10px'),
         )); ?>
-    
-    
     <?php $this->endWidget(); ?>
 
 </div><!-- search-form -->

@@ -303,4 +303,9 @@ class Rights
 	{
 		return Yii::t('RightsModule.'.$category, $message, $params, $source, $language);
 	}
+        
+        public function behaviors()
+        { 
+            return array( 'LoggableBehavior'=> 'application.modules.auditTrail.behaviors.LoggableBehavior', );
+        }
 }

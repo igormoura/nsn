@@ -12,14 +12,15 @@ class ClienteController extends RController
 	 * @return array action filters
 	 */
 	
-    public function filters()
-		{
-		  	return array( 'rights' );
-		}
+        public function filters()
+        {
+            return array( 'rights' );
+        }
         
-    public function allowedActions() { 
-        return 'index, suggestedTags'; 
-    }
+        public function allowedActions()
+        { 
+            return 'index, suggestedTags'; 
+        }
 
 	/*
 	 * Displays a particular model.
@@ -33,10 +34,9 @@ class ClienteController extends RController
 
 		$this->actionUpdateContrato($id);
 		
-    $this->render('view',array(
-            'model'=>$this->loadModel($id),
-    ));
-
+                $this->render('view',array(
+                        'model'=>$this->loadModel($id),
+                ));
 	}
 
 	/**
@@ -134,7 +134,7 @@ class ClienteController extends RController
 	public function actionAdmin()
 	{
 		$model=new Cliente('search');
-		$contrato   = new Contrato('search');
+		$contrato = new Contrato('search');
 
 		$model->unsetAttributes();  // clear any default values
 		$contrato->unsetAttributes();
@@ -143,9 +143,9 @@ class ClienteController extends RController
 			$model->attributes=$_GET['Cliente'];
 
 		if (isset($_GET['Contrato']))
-            $contrato->attributes = $_GET['Contrato'];
+                $contrato->attributes = $_GET['Contrato'];
 
-    $model->searchContrato = $contrato;
+                $model->searchContrato = $contrato;
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -161,18 +161,18 @@ class ClienteController extends RController
 	 */
 	public function loadModel($id)
 	{
-    $model=Cliente::model()->findByPk($id);
-    if($model===null)
-            throw new CHttpException(404,'The requested page does not exist.');
-    return $model;
-	}
+            $model=Cliente::model()->findByPk($id);
+            if($model===null)
+                    throw new CHttpException(404,'The requested page does not exist.');
+            return $model;
+                }
 
-	public function loadModelContrato($id)
-	{
-    $model=Contrato::model()->findByPk($id);
-    if($model===null)
-            throw new CHttpException(404,'The requested page does not exist.');
-    return $model;
+        public function loadModelContrato($id)
+        {
+            $model=Contrato::model()->findByPk($id);
+            if($model===null)
+                    throw new CHttpException(404,'The requested page does not exist.');
+            return $model;
 	}
 
 	/**
@@ -188,15 +188,18 @@ class ClienteController extends RController
 		}
 	}
         
-        
-  public function actionRelational()
-  {
-      $this->renderPartial('_relationalDuplicatas', array(
-              'id' => Yii::app()->getRequest()->getParam('id'),
-              //'gridDataProvider' => $this->getGridDataProvider(),
-              //'data' => $this->getGridDataProvider(),
-      ));
-  }
+        /**
+         *  FUNÇÃO PARA GERAR O RELACIONAL DA GRID VIEW PARA O DETALHAMENTO DAS DUPLICADAS
+         *  NA VIEW NSN/INDEX.PHP/CLIENTE/ID/ " ABA DAS DUPLICASTAS "
+         */
+        public function actionRelational()
+        {
+            $this->renderPartial('_detailsDuplicatas', array(
+                    'id' => Yii::app()->getRequest()->getParam('id'),
+                    //'gridDataProvider' => $this->getGridDataProvider(),
+                    //'data' => $this->getGridDataProvider(),
+            ));
+        }
 
 
 

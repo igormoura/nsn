@@ -37,23 +37,50 @@ return array(
 	
     'modules'=>array(
       'translate',
+        
         'auditTrail'=>array(
-         'userClass' => 'Usuario', // the class name for the user object
-         'userIdColumn' => 'idUsuario', // the column name of the primary key for the user
-         'userNameColumn' => 'idUsuario', // the column name of the primary key for the user
+            'userClass' => 'Usuarios', // O nome da classe para o objeto do usuário
+            'userIdColumn' => 'id_usuario', // O nome da coluna da chave primária para o usuário
+            'userNameColumn' => 'nm_usuario', // o nome da coluna do nome para o usuário
         ),
-     /* 'AuditTrail' => array (
-        'Userclass' => 'Usuario', 
-        'UserIdColumn' => 'idUsuario',
-        'UserNameColumn' => 'NomeUsuario',
-      ), */
+        
+        'rbam'=>array( 
+            'applicationLayout'=>'application.views.layouts.main', 
+            'authAssignmentsManagerRole'=>' Auth Assignments Manager', 
+            'authenticatedRole'=>'Authenticated', 
+            'authItemsManagerRole'=>'Auth Items Manager', 
+            'baseScriptUrl'=>null, 
+            'baseUrl'=>null, 
+            'cssFile'=>null, 
+            'development'=>true, 
+            'exclude'=>'rbam', 
+            'guestRole'=>'Guest', 
+            'initialise'=>null, 
+            'layout'=>'rbam.views.layouts.main', 
+            'juiCssFile'=>'jquery-ui.css', 
+            'juiHide'=>'puff', 
+            'juiScriptFile'=>'jquery-ui.min.js', 
+            'juiScriptUrl'=>null, 
+            'juiShow'=>'fade',
+            'juiTheme'=>'base', 
+            'juiThemeUrl'=>null, 
+            'pageSize'=>10, 
+            'rbacManagerRole'=>'RBAC Manager', 
+            'relationshipsPageSize'=>5, 
+            'showConfirmation'=>3000, 
+            'showMenu'=>true, 
+            'userClass'=>'Usuarios', 
+            'userCriteria'=>array(), 
+            'userIdAttribute'=>'id_usuario', 
+            'userNameAttribute'=>'nm_usuario', 
+        ),
 
       'rights'=>array( 
         'superuserName'=>'Admin', // Name of the role with super user privileges. 
-        'userClass' => 'Usuario', // the name of the user model class.
+        'userClass' => 'Usuarios', // the name of the user model class.
         'authenticatedName'=>'Authenticated', // Name of the authenticated user role. 
-        'userIdColumn'=>'idUsuario', // Name of the user id column in the database. 
-        'userNameColumn'=>'NomeUsuario', // Name of the user name column in the database. 
+        'userIdColumn'=>'id_usuario', // Name of the user id column in the database. 
+        'userNameColumn'=>'nm_usuario', // Name of the user name column in the database. 
         'enableBizRule'=>true, // Whether to enable authorization item business rules. 
         'enableBizRuleData'=>false, // Whether to enable data for business rules. 
         'displayDescription'=>true, // Whether to use item description instead of name. 
@@ -80,7 +107,13 @@ return array(
         
     // Componentes da Aplicação
     'components'=>array(
-
+      
+      // LOGOUT APÓS 15 MIN
+      'session' => array(
+        'class' => 'CDbHttpSession',
+        'timeout' => 900,
+      ),
+        
         // Twitter Bootstrap
         'bootstrap' => array(
             'class' => 'ext.bootstrap.components.Bootstrap',
@@ -96,13 +129,20 @@ return array(
                // 'es'=>'Español'
             ),
         ),
+        
         'user'=>array(
             'class'=>'RWebUser',
             'allowAutoLogin'=>true,
             'loginUrl' => array('/user/login'),
         ),
+        
         'authManager' => array(
             'class'=>'RDbAuthManager',
+        ),
+        
+        // DATATIME ZONE
+        'localtime'=>array(
+            'class'=>'LocalTime',
         ),
         
         
@@ -129,12 +169,12 @@ return array(
         // Configuração para coneção com um primeiro banco
         'db'=>array(
             'class'=>'system.db.CDbConnection',
-            'connectionString' => 'sqlsrv:Server=192.168.2.239; Database=NSN',
+            'connectionString' => 'sqlsrv:Server=192.168.2.239; Database=Manager2003-TESTE',
             //'connectionString' => 'dblib:host=192.168.2.239; dbname=NSN',       //          - LINUX
             'username' => 'nsnPhpYii',
             'password' => 'n0v0-snetd',
             'charset' => 'GB2312',
-            'tablePrefix' => 'tbl_'
+            'tablePrefix' => 'tbl_',  
          ),
 
         // Configuração para coneção a um segundo banco - Necessáio criar SecondbActiveRecord 
@@ -143,7 +183,7 @@ return array(
            'connectionString' => 'sqlsrv:Server=192.168.2.239; Database=SNETD-TESTE;',
            'username' => 'nsnPhpYii',
            'password' => 'n0v0-snetd',
-           'charset' => 'GB2312'
+           'charset' => 'GB2312',           
         ),
 
         /*'db'=>array(
@@ -167,19 +207,38 @@ return array(
             'errorAction'=>'site/error',
         ),
     
-        /*'log'=>array(
+        'log'=>array(
             'class'=>'CLogRouter',
             'routes'=>array(
                 array(
-                        'class'=>'CFileLogRoute',
-                        'levels'=>'error, warning',
+                    'class'=>'ext.LogDb',
+                    'autoCreateLogTable'=>true,
+                    'connectionID'=>'db',
+                    'enabled'=>true,
+                    'levels'=>'trace',//You can replace trace,info,warning,error
+                     'categories'=>'system.web.filters.CFilterChain, exception.CException',
                 ),
+                 array(
+                    'class'=>'ext.LogDb',
+                    'autoCreateLogTable'=>true,
+                    'connectionID'=>'secondb',
+                    'enabled'=>true,
+                    'levels'=>'trace, error',//You can replace trace,info,warning,error
+                    'categories'=>'system.web.filters.CFilterChain, exception.CException',
+                ),
+ 
                 // uncomment the following to show log messages on web pages
+ 
+                
                 array(
-                        'class'=>'CWebLogRoute',
+                    'class'=>'CWebLogRoute',
+                    'categories'=>'system.web.filters.CFilterChain, exception.CException',
+                    'levels' => 'trace, error',
+                    
                 ),
+                
             ),
-        ),*/
+        ),
                 
     ),
 

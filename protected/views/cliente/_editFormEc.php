@@ -22,7 +22,7 @@
     array('id' => 'editClienteEc', 
       'htmlOptions' => array(
           'style' =>
-             'width: 625px;
+             'width: 611px;
               margin-left: -302px;
               overflow: hidden;
               z-index: 1051;
@@ -50,24 +50,24 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 
         <?php echo $form->errorSummary($model); ?>
 
-        <div class="row span8">    
+        <div class="row span" style="margin-left: 7px;">    
             <div class="span6">
                 <?php echo $form->textFieldRow($model, 'ECEndereco', array('style'=>'width: 495px;')) ?>
                 <?php echo $form->error($model, 'Endereco'); ?>
             </div>
             <div class="span3">
-                <?php echo $form->textFieldRow($model, 'ECEstado', array('class' => 'span3')) ?>
+                <?php echo $form->textFieldRow($model, 'ECEstado') ?>
                 <?php echo $form->error($model, 'ECEstado'); ?>
             </div>
-            <div class="span3">
-                <?php echo $form->textFieldRow($model, 'ECCidade', array('class' => 'span3')) ?>
+            <div class="span3" style="margin-left: 18px;">
+                <?php echo $form->textFieldRow($model, 'ECCidade') ?>
                 <?php echo $form->error($model, 'ECCidade'); ?>
             </div>
             <div class="span3">
-                <?php echo $form->textFieldRow($model, 'ECBairro', array('class' => 'span3')) ?>
+                <?php echo $form->textFieldRow($model, 'ECBairro') ?>
                 <?php echo $form->error($model, 'ECBairro'); ?>
             </div> 
-            <div class="span3">
+            <div class="span3" style="margin-left: 18px;">
                 <?php echo $form->labelEx($model, 'ECCEP'); ?>
                 <?php
                 $this->widget('CMaskedTextField', array(
