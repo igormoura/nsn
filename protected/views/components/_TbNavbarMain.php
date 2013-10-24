@@ -1,7 +1,7 @@
 <?php
 
 $dia = date("j");
-$hora = date("H");
+$hora = date("H")-1;
 $minuto = date("i");
 $segundo = date("s");
   
@@ -21,30 +21,28 @@ $misc = $semana[date("w")].", ".date("j")." de ".$mes[date("n")]." de ".date("Y"
       'fixed' => 'top',
       'items'=>array(
         array(
-            'class'=>'bootstrap.widgets.TbMenu',
-            /*'items'=>array(
-                array('label'=>Yii::t('main','site.home'), 'url'=>array('/site/index')),
+            'class'=>'application.components.YiiSmartMenu',
+            'items'=>array(
+               /* array('label'=>Yii::t('main','site.home'), 'url'=>array('/site/index')),
                 array('label'=>Yii::t('main','site.about'), 'url'=>array('/site/page', 'view'=>'about')),
                 array('label'=>Yii::t('main','site.contact'), 'url'=>array('/site/contact')),
                // array('label'=>'Usuarios', 'url'=>array('/usuario/admin'),'visible'=>!Yii::app()->user->isGuest),
-               // array('label'=>'Controle de Acesso', 'url'=>array('/rights/'),'visible'=>!Yii::app()->user->isGuest)
-            ),*/
+               // array('label'=>'Controle de Acesso', 'url'=>array('/rights/'),'visible'=>!Yii::app()->user->isGuest)*/
+            ),
         ),
         array(
-            'class'=>'bootstrap.widgets.TbMenu',
+            'class'=>'application.components.YiiSmartMenu',
             'htmlOptions'=>array('class'=>'pull-right'),  
             'items'=>array( 
-                '---',
+                //'---',
                 array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
                 array('label'=>'Logout ('.Yii::app()->user->name.')',           
                       'visible'=>!Yii::app()->user->isGuest,
                       'items' => array(
-                          array('label'=>Yii::t('main','helper.settings'),           
+                          array('label'=>Yii::t('main','helper.settings'),
+                            'visible'=>!Yii::app()->user->isGuest,
                             'items' => array(
-                                array('label'=>Yii::t('main','helper.userPermission'), 'url'=>array('/rbam/authAssignments/index')),
-                                array('label'=>Yii::t('main','Auditoria'), 'url'=>array('/auditTrail/admin')),
-                                array('label'=>Yii::t('main','Log'), 'url'=>array('/yiiLog/admin')),
-                                array('label'=>Yii::t('main','helper.languages'), 'url' =>array('/usuario/localization')),  
+
                           )),
                           array('label'=>Yii::t('main','helper.exit'), 'url'=>array('/site/logout')),                       
                           ),

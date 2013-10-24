@@ -23,7 +23,7 @@ return array(
      /* Referente ao projeto ex: NSN WEB*/
      //'language'=>'en', // pt - Portugues, en - English
 
-    // CARREGAMENTO AUTOMÁTICO DAS CLASSES DE MODELO E COMPONENTES
+    // CARREGAMENTO AUTOMÁTICO DAS CLASSES E COMPONENTES
     'import'=>array(
         'application.models.*',
         'application.components.*',
@@ -44,55 +44,20 @@ return array(
             'userNameColumn' => 'nm_usuario', // o nome da coluna do nome para o usuário
         ),
         
-        'rbam'=>array( 
-            'applicationLayout'=>'application.views.layouts.main', 
-            'authAssignmentsManagerRole'=>' Auth Assignments Manager', 
-            'authenticatedRole'=>'Authenticated', 
-            'authItemsManagerRole'=>'Auth Items Manager', 
-            'baseScriptUrl'=>null, 
-            'baseUrl'=>null, 
-            'cssFile'=>null, 
-            'development'=>true, 
-            'exclude'=>'rbam', 
-            'guestRole'=>'Guest', 
-            'initialise'=>null, 
-            'layout'=>'rbam.views.layouts.main', 
-            'juiCssFile'=>'jquery-ui.css', 
-            'juiHide'=>'puff', 
-            'juiScriptFile'=>'jquery-ui.min.js', 
-            'juiScriptUrl'=>null, 
-            'juiShow'=>'fade',
-            'juiTheme'=>'base', 
-            'juiThemeUrl'=>null, 
-            'pageSize'=>10, 
-            'rbacManagerRole'=>'RBAC Manager', 
-            'relationshipsPageSize'=>5, 
-            'showConfirmation'=>3000, 
-            'showMenu'=>true, 
-            'userClass'=>'Usuarios', 
-            'userCriteria'=>array(), 
-            'userIdAttribute'=>'id_usuario', 
-            'userNameAttribute'=>'nm_usuario', 
-        ),
-
-      'rights'=>array( 
-        'superuserName'=>'Admin', // Name of the role with super user privileges. 
-        'userClass' => 'Usuarios', // the name of the user model class.
-        'authenticatedName'=>'Authenticated', // Name of the authenticated user role. 
-        'userIdColumn'=>'id_usuario', // Name of the user id column in the database. 
-        'userNameColumn'=>'nm_usuario', // Name of the user name column in the database. 
-        'enableBizRule'=>true, // Whether to enable authorization item business rules. 
-        'enableBizRuleData'=>false, // Whether to enable data for business rules. 
-        'displayDescription'=>true, // Whether to use item description instead of name. 
-        'flashSuccessKey'=>'RightsSuccess', // Key to use for setting success flash messages. 
-        'flashErrorKey'=>'RightsError', // Key to use for setting error flash messages. 
-        'baseUrl'=>'/rights', // Base URL for Rights. Change if module is nested. 
-        'layout'=>'rights.views.layouts.main', // Layout to use for displaying Rights. 
-        'appLayout'=>'application.views.layouts.main', // Application layout. 
-        'cssFile'=>'rights.css', // Style sheet file to use for Rights. 
-        'install'=>false, // Whether to enable installer. 
-        'debug'=>true, // Whether to enable debug mode.   
+        'rights'=>array( 
+            'superuserName'=>'Administrador', // Name of the role with super user privileges. 
+            'userClass' => 'Usuarios', // the name of the user model class.
+            'userIdColumn'=>'id_usuario', // Name of the user id column in the database. 
+            'userNameColumn'=>'nm_usuario', // Name of the user name column in the database.  
+           'cssFile'=>'rights.css', // Style sheet file to use for Rights.*/
+            'install' => true,
        ),
+        'rbam'=>array(          
+            'userClass'=>'Usuarios', 
+            'userIdAttribute'=>'id_usuario', 
+            'userNameAttribute'=>'nm_usuario',
+            'development'=>true,
+        ),
                 
        // uncomment the following to enable the Gii tool
        'gii'=>array(
@@ -133,7 +98,7 @@ return array(
         'user'=>array(
             'class'=>'RWebUser',
             'allowAutoLogin'=>true,
-            'loginUrl' => array('/user/login'),
+            'loginUrl' => array('site/login'),
         ),
         
         'authManager' => array(
@@ -170,7 +135,6 @@ return array(
         'db'=>array(
             'class'=>'system.db.CDbConnection',
             'connectionString' => 'sqlsrv:Server=192.168.2.239; Database=Manager2003-TESTE',
-            //'connectionString' => 'dblib:host=192.168.2.239; dbname=NSN',       //          - LINUX
             'username' => 'nsnPhpYii',
             'password' => 'n0v0-snetd',
             'charset' => 'GB2312',
@@ -194,13 +158,13 @@ return array(
           'emulatePrepare'=>true,  // necessário em algumas instalações do MySQL
         ),*/
         
-        'thirdb'=>array(
-              'connectionString' => 'mysql:host=localhost;dbname=nsn',
-              'emulatePrepare' => true,
-              'username' => 'root',
-              'password' => 'mysql',
-              'charset' => 'utf8',
-        ),
+       /*'thirdb'=>array(
+                'connectionString' => 'mysql:host=localhost;dbname=nsn',
+                'emulatePrepare' => true,
+                'username' => 'root',
+                'password' => 'mysql',
+                'charset' => 'utf8',
+        ),*/
                       
         'errorHandler'=>array(
             // use 'site/error' action to display errors
@@ -229,7 +193,6 @@ return array(
  
                 // uncomment the following to show log messages on web pages
  
-                
                 array(
                     'class'=>'CWebLogRoute',
                     'categories'=>'system.web.filters.CFilterChain, exception.CException',

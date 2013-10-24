@@ -22,23 +22,25 @@ class AuthItemController extends RController
 	*/
 	public function init()
 	{
-		$this->_authorizer = $this->module->getAuthorizer();
-		$this->layout = $this->module->layout;
-		$this->defaultAction = 'permissions';
+                $this->_authorizer = $this->module->getAuthorizer();
+                $this->layout = $this->module->layout;
+                $this->defaultAction = 'permissions';
 
-		// Register the scripts
-		$this->module->registerScripts();
+                // Register the scripts
+                $this->module->registerScripts();
 	}
 
 	/**
 	* @return array action filters
 	*/
-	public function filters()
+        public function filters()
 	{
-		return array(
-			'accessControl'
-		);
+            return array( 'rights' );
 	}
+        
+        public function allowedActions() { 
+            return 'index, suggestedTags'; 
+        }
 
 	/**
 	 * Specifies the access control rules.
@@ -93,7 +95,7 @@ class AuthItemController extends RController
     				'style'=>'width:25%',
 	    		),
     		),
-		);
+	);
 
 		// Add a column for each role
     	foreach( $roles as $roleName=>$role )

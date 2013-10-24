@@ -4,7 +4,7 @@
 
 include_once('_form.php');
 
-/*$this->breadcrumbs=array(
+$this->breadcrumbs=array(
 	Yii::t('main','usuarios.title')=>array('index'),
 	Yii::t('main','usuarios.manager'),
 );
@@ -75,15 +75,15 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'usuarioad',
 		'VocalixAgenteID',
 		*/
-		/* array(
+		array(
                     'header'=>Yii::t('main','helper.action'), 
                     'class'=>'bootstrap.widgets.TbButtonColumn',
-                    'template' => '{view}'),
+                    'template' => '{view}{update}{delete}'),
 	),
 )); ?>
-*/
 
-$this->widget('bootstrap.widgets.TbButton', array(
+
+<?php $this->widget('bootstrap.widgets.TbButton', array(
         'label'=>Yii::t('main','helper.new', array('{model}'=> get_class($model) )),
         'buttonType'=>'submit',
         'icon'=>'icon-edit',

@@ -5,7 +5,9 @@
 'type' => 'inverse',
 'items' => array(
     array(
-        'class' => 'bootstrap.widgets.TbMenu',
+        'class' => 'application.components.YiiSmartMenu',
+        'partItemSeparator'=>'.',
+        'upperCaseFirstLetter'=>true,
         'items' => array(
             array('label'=>'Cadastro',           
                    'visible'=>!Yii::app()->user->isGuest,
@@ -64,7 +66,10 @@
     array('label'=>'Configurações',           
                'visible'=>!Yii::app()->user->isGuest,
                'items' => array(
-                   array('label'=>'Manter Permissões', 'url'=>array('/rights/assignment/view')),
+                   array('label'=>Yii::t('main','helper.userPermission'), 'url'=>array('/rbam/authAssignments/index')),
+                   array('label'=>Yii::t('main','Auditoria'), 'url'=>array('/auditTrail/admin')),
+                   array('label'=>Yii::t('main','Log'), 'url'=>array('/yiiLog/admin')),
+                   array('label'=>Yii::t('main','helper.languages'), 'url' =>array('/usuario/localization')),
                    array('label'=>'Manter Transação','url'=>'#'), 
                    array('label'=>'Manter Usuário', 'url'=>array('/usuarios/admin')),  
                    ),

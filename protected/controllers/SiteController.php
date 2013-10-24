@@ -143,6 +143,7 @@ class SiteController extends Controller
                 // display the register form
                 $this->render('register',array('model'=>$model));
         }
+
         
         
         

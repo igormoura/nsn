@@ -1,6 +1,6 @@
 <?php
 
-class UsuariosController extends Controller
+class UsuariosController extends RController
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -110,29 +110,15 @@ class UsuariosController extends Controller
 	 * Manages all models.
 	 */
 	public function actionAdmin()
-	{   
-            $model=new Usuarios;
+	{                   
+            $this->actionCreate(); 
                 
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-            if(isset($_POST['Usuarios']))
-            {
-                    $model->attributes=$_POST['Usuarios'];
-                  //  $model->foto_usuario=CUploadedFile::getInstance($model,'foto_usuario');
-                    if($model->save()){
-                        // $model->image->saveAs('path/to/localFile');
-                         $this->redirect(array('view','id'=>$model->id_usuario));
-                    }
-
-            }
-                
-            $modeladmin=new Usuarios('search');
-            $modeladmin->unsetAttributes();  // clear any default values
+            $model=new Usuarios('search');
+            $model->unsetAttributes();  // clear any default values
             if(isset($_GET['Usuarios']))
-                    $modeladmin->attributes=$_GET['Usuarios'];
+                    $model->attributes=$_GET['Usuarios'];
             $this->render('admin',array(
-                    'model'=>$modeladmin,
+                    'model'=>$model,
             ));
             
 	}

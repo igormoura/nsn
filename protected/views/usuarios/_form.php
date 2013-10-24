@@ -13,9 +13,8 @@ $this->beginWidget('bootstrap.widgets.TbModal', array(
 ?>
 
 <?php
-/** @var BootActiveForm $form */
-$form = $this->beginWidget(
-    'bootstrap.widgets.TbActiveForm',
+
+$form = $this->beginWidget(    'bootstrap.widgets.TbActiveForm',
     array(
         'id' => 'usuarios-form',
        // 'htmlOptions' => array('class' => 'well'), // for inset effect
@@ -36,7 +35,7 @@ $form = $this->beginWidget(
             
         <div class="row span8">
             <div class="span4">
-            <?php echo $form->textFieldRow($model, 'nm_usuario', array('size' => 60, 'maxlength' => 100, 'class' => 'span4')); ?>
+            <?php echo $form->textFieldRow($model, 'nm_usuario', array('class' => 'span4')); ?>
             <?php echo $form->error($model, 'nm_usuario'); ?>
             </div>
             <div class="span3">
@@ -50,17 +49,22 @@ $form = $this->beginWidget(
             <?php echo $form->textFieldRow($model, 'nomecompleto_usuario', array('size' => 60, 'maxlength' => 100, 'class' => 'span4')); ?>
             <?php echo $form->error($model, 'nomecompleto_usuario'); ?>
             </div>
+            
             <div class="span3">
-            <?php echo $form->label($model, 'dt_nascimento'); ?>
-            <?php
-            $this->widget('CMaskedTextField', array(
-                'model' => $model,
-                'attribute' => 'dt_nascimento',
-                'mask' => '99/99/9999',
-                'htmlOptions' => array('size' => 8, 'maxlength' => 8, 'style' => 'width: 180px')
-            ));
-            ?> 
-            <?php echo $form->error($model, 'dt_nascimento'); ?>
+                <?php echo $form->textFieldRow($model, 'dt_nascimento'); ?>
+                <?php  Yii::import('application.extensions.CJuiDateTimePicker.CJuiDateTimePicker');                  
+                   $this->widget('CJuiDateTimePicker',array(
+                           'language'=>'',
+                           'model'=>$model,                                // Model object
+                           'attribute'=>'dt_nascimento', // Attribute name
+                           'mode'=>'datetime',                     // Use "time","date" or "datetime" (default)
+                           'options'=>array(
+                               'timeFormat'=>strtolower(Yii::app()->locale->timeFormat),
+                                'showSecond'=>true,
+                           ),                     // jquery plugin options
+                       //    'htmlOptions'=>array('readonly'=>true) // HTML options
+                   ));                             
+               ?> 
             </div>
        </div>
         
@@ -119,7 +123,7 @@ $form = $this->beginWidget(
         
         <div class="row span8">
             <div class="row span4">
-             <?php $form = $this->beginWidget(
+             <?php /*$form = $this->beginWidget(
                 'CActiveForm',
                 array(
                     'id' => 'upload-form',
@@ -133,7 +137,7 @@ $form = $this->beginWidget(
             echo $form->error($model, 'foto_usuario');
          
             $this->endWidget(); 
-            ?>
+            */?>
             </div>
             
             <div class="span3">

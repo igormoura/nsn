@@ -28,12 +28,20 @@ class RbamInitialiseController extends RbamController {
 	*/
 	private $_initialiser; 
 
-	/**
+	        
+        /**
 	* @return array action filters
 	*/
-	public function filters() {
-		return array('accessControl');
+        public function filters()
+	{
+            return array( 
+                'rights',
+            );
 	}
+        
+        public function allowedActions() { 
+            return 'index, suggestedTags'; 
+        }
 
 	/**
 	* Specifies the access control rules.

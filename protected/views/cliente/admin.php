@@ -30,7 +30,6 @@ $('.search-form form').submit(function(){
 <h1><?php echo Yii::t('main','contrato.manager')?></h1>
 
 <?php Yii::app()->user->setFlash('warning', Yii::t('main','helper.infoManager'));
-
 	$this->widget('bootstrap.widgets.TbAlert', array(
 	    'block'=>true, // display a larger alert block?
 	    'fade'=>true, // use transitions?
@@ -39,7 +38,6 @@ $('.search-form form').submit(function(){
 		   'warning'=>array('block'=>true, 'fade'=>true, 'closeText'=>'×'), // success, info, warning, error or danger
 	    ),
 	));
-
 ?>
 
 
