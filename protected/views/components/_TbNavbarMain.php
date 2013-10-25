@@ -1,17 +1,16 @@
 <?php
+    $dia = date("j");
+    $hora = date("H")-1;
+    $minuto = date("i");
+    $segundo = date("s");
 
-$dia = date("j");
-$hora = date("H")-1;
-$minuto = date("i");
-$segundo = date("s");
-  
-$semana = array(0 => "Domingo",1 => "Segunda-Feira", 2 => "Terça-Feira", 3 => "Quarta-Feira",  4 => "Quinta-Feira", 5 => "Sexta-Feira",  6 => "Sábado");
-$mes = array(1 => "Janeiro",  2 => "Fevereiro",  3 => "Março", 4 => "Abril", 5 => "Maio", 6 => "Junho", 7 => "Julho", 8 => "Agosto", 9 => "Setembro", 10 => "Outubro",  11 => "Novembro", 12 => "Dezembro");
-  
-$ano = date("Y");
-$data_completa = date("d/m/y");
-$hora_completa = $hora.":".$minuto;
-$misc = $semana[date("w")].", ".date("j")." de ".$mes[date("n")]." de ".date("Y");
+    $semana = array(0 => "Domingo",1 => "Segunda-Feira", 2 => "Terça-Feira", 3 => "Quarta-Feira",  4 => "Quinta-Feira", 5 => "Sexta-Feira",  6 => "Sábado");
+    $mes = array(1 => "Janeiro",  2 => "Fevereiro",  3 => "Março", 4 => "Abril", 5 => "Maio", 6 => "Junho", 7 => "Julho", 8 => "Agosto", 9 => "Setembro", 10 => "Outubro",  11 => "Novembro", 12 => "Dezembro");
+
+    $ano = date("Y");
+    $data_completa = date("d/m/y");
+    $hora_completa = $hora.":".$minuto;
+    $misc = $semana[date("w")].", ".date("j")." de ".$mes[date("n")]." de ".date("Y");
 ?>
 
 <?php $this->widget('bootstrap.widgets.TbNavbar',array(

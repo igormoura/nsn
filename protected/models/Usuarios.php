@@ -146,6 +146,10 @@ class Usuarios extends CActiveRecord
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+                        'sort'=>array(
+                              // 'defaultOrder'=>'stamp DESC',
+                                'attributes'=>array('')
+                            )
 		));
 	}
         

@@ -1,7 +1,7 @@
 <?php
 $this->breadcrumbs=array(
-	'Audit Trails'=>array('/auditTrail'),
-	'Manage',
+	Yii::t('main','audit.title')=>array('/auditTrail'),
+	Yii::t('main','audit.manager'),
 );
 /*
 $this->menu=array(
@@ -33,9 +33,9 @@ $('.search-form form').submit(function(){
     
 <h1><?php echo Yii::t('main','audit.manager') ?></h1>
 
-<div class="advanced-search">
+<div class="advanced-search" style=" margin-top: 22px;">
     <?php echo CHtml::link(Yii::t('main','helper.advancedSearch'),'#',array('class'=>'search-button')); ?>
-    <div class="search-form well" style="display:block">
+    <div class="search-form well" style="display:block;">
     <?php $this->renderPartial('_search',array(
             'model'=>$model,
     )); ?>

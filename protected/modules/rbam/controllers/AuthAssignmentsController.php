@@ -105,7 +105,7 @@ class AuthAssignmentsController extends RbamController {
 			$model->attachBehavior('rbamUser', 'RbamUserBehavior');
 
 		$this->pageTitle = $this->_pageTitle($this->action->id);
-		$this->breadcrumbs = array('RBAM'=>array('rbam/index'), $this->pageTitle);
+		$this->breadcrumbs = array(Yii::t('RbamModule.rbam','Access Control')=>array('rbam/index'), $this->pageTitle);
 		$this->render($this->action->id, compact('dataProvider'));
 	}
 
@@ -165,7 +165,7 @@ class AuthAssignmentsController extends RbamController {
 
 		$this->pageTitle = $this->_pageTitle($this->action->id, array('{user}'=>$user->rbamName));
 		$this->breadcrumbs = array(
-			'RBAM'=>array('rbam/index'),
+			Yii::t('RbamModule.rbam','Access Control')=>array('rbam/index'),
 			$this->_pageTitle('index')=>array('index'),
 			$this->_pageTitle('userRoles', array(
 				'{user}'=>$user->rbamName
@@ -231,7 +231,7 @@ class AuthAssignmentsController extends RbamController {
 			'{user}'=>$user->rbamName
 		));
 		$this->breadcrumbs = array(
-			'RBAM'=>array('rbam/index'),
+			Yii::t('RbamModule.rbam','Access Control')=>array('rbam/index'),
 			$this->_pageTitle('index')=>array('index'),
 			$this->pageTitle
 		);
@@ -266,7 +266,7 @@ class AuthAssignmentsController extends RbamController {
 			'{role}'=>$role
 		));
 		$this->breadcrumbs = array(
-			'RBAM'=>array('rbam/index'),
+			Yii::t('RbamModule.rbam','Access Control')=>array('rbam/index'),
 			$this->_pageTitle('index')=>array('index'),
 			$this->pageTitle
 		);

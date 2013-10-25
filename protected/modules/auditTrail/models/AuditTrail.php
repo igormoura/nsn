@@ -127,6 +127,7 @@ class AuditTrail extends CActiveRecord
                         'criteria'=>$criteria,
                         'sort'=>array(
                            'defaultOrder'=>'stamp DESC',
+                            'attributes'=>array('')
                         )
                     ),
                     $options

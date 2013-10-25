@@ -10,7 +10,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	//array('label'=>Yii::t('main', 'contrato.list'), 'url'=>array('index')),
-	array('label'=>Yii::t('main', 'contrato.create'), 'url'=>array('create')),
+	//array('label'=>Yii::t('main', 'contrato.create'), 'url'=>array('create')),
 	//array('label'=>Yii::t('main', 'contrato.update'), 'url'=>array('update', 'id'=>$model->NoCliente)),
 	//array('label'=>Yii::t('main', 'contrato.delete'), 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->NoCliente),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>Yii::t('main', 'contrato.manager'), 'url'=>array('admin')),

@@ -111,4 +111,5 @@ return array(
 	'View roles assigned to this user'=>'Ver funções atribuídas para este usuário',
 	'View users with this role assigned'=>'Exibir usuários com este grupo atribuído',
 	'Yes'=>'Sim',
+        'Access Control' => 'Controle de Acesso',
 );

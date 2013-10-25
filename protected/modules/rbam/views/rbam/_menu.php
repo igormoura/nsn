@@ -28,6 +28,7 @@ $this->widget('bootstrap.widgets.TbMenu', array(
 
 ?>
 
+
 <script>
 $(function(){
   function stripTrailingSlash(str) {
@@ -49,3 +50,4 @@ $(function(){
   });
 });
 </script>
+

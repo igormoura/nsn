@@ -131,7 +131,7 @@ class AuthItemsController extends RbamController {
 	public function actionIndex($active=0) {
 		$authItems = $this->_getAuthItems();
 		$this->pageTitle = $this->_pageTitle($this->action->id);
-		$this->breadcrumbs = array('RBAM'=>array('rbam/index'), $this->pageTitle);
+		$this->breadcrumbs = array(Yii::t('RbamModule.rbam','Access Control')=>array('rbam/index'), $this->pageTitle);
 		$this->render($this->action->id, compact('authItems', 'active'));
 	}
 
@@ -174,7 +174,7 @@ class AuthItemsController extends RbamController {
 			'{type}'=>$this->type($type, true, true)
 		));
 		$this->breadcrumbs = array(
-			'RBAM'=>array('rbam/index'),
+			Yii::t('RbamModule.rbam','Access Control')=>array('rbam/index'),
 			$this->_pageTitle('index')=>array('index'),
 			$this->pageTitle
 		);
@@ -235,7 +235,7 @@ class AuthItemsController extends RbamController {
 			'{type}'=>$this->type($item->type, true, true)
 		));
 		$this->breadcrumbs = array(
-			'RBAM'=>array('rbam/index'),
+			Yii::t('RbamModule.rbam','Access Control')=>array('rbam/index'),
 			$this->_pageTitle('index')=>array('index'),
 			$this->pageTitle
 		);
@@ -291,7 +291,7 @@ class AuthItemsController extends RbamController {
                         $response['status'] = $status;
                         $response['parent'] = array('name'=>$parent->name, 'type'=>$this->type($parent->type));
                         $response['child'] = array('name'=>$child->name, 'type'=>$this->type($child->type));
-            header('Content-type: application/json');
+                        header('Content-type: application/json');
                         echo CJSON::encode($response);
                         Yii::app()->end();  
 	}

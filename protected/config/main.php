@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
     'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-    'name'=>'SN Web',
+    'name'=>'NSN Web',
 
     // PRÉ-CARREGAMENTO 'log' COMPONENTES 
     'preload'=>array(
@@ -49,14 +49,14 @@ return array(
             'userClass' => 'Usuarios', // the name of the user model class.
             'userIdColumn'=>'id_usuario', // Name of the user id column in the database. 
             'userNameColumn'=>'nm_usuario', // Name of the user name column in the database.  
-           'cssFile'=>'rights.css', // Style sheet file to use for Rights.*/
+            'cssFile'=>'rights.css', // Style sheet file to use for Rights.*/
             'install' => true,
        ),
-        'rbam'=>array(          
+        'rbam'=>array(
             'userClass'=>'Usuarios', 
             'userIdAttribute'=>'id_usuario', 
             'userNameAttribute'=>'nm_usuario',
-            'development'=>true,
+           // 'development'=>true,
         ),
                 
        // uncomment the following to enable the Gii tool

@@ -451,6 +451,8 @@ class RbamModule extends CWebModule {
 	* @param array CMenu items. Options set here override the defaults.
 	* @return array CMenu items.
 	*/
+        
+        
 	public function getMenuItems($items=array()) {
 		$user = Yii::app()->getUser();
 		return array_merge(array(
@@ -458,19 +460,20 @@ class RbamModule extends CWebModule {
 				'label'=>Yii::t('RbamModule.rbam','Auth Assignments'),
 				'url'=>array('authAssignments/index'),
 				'active'=>$this->id==='authAssignments',
+           
 				'visible'=>$user->checkAccess($this->authAssignmentsManagerRole)
 			),
+                        array(
+                                'label'=>Yii::t('RbamModule.rbam','{type}', array('{type}'=>Yii::t('RbamModule.rbam','Authorisation Items'))),
+                                'url'=>array('authItems/index'),
+                                'active'=>$this->id==='authItems' && $this->action->id==='create' && strpos(Yii::app()->getRequest()->queryString,'type='.CAuthItem::TYPE_ROLE)!==false,
+                            ),  
 			array(
-				'label'=>Yii::t('RbamModule.rbam','Auth Items'),
-				'url'=>array('authItems/index'),
+				'label'=>Yii::t('RbamModule.rbam','Criar Itens de Autorização'),
+				'url'=>array('authItems/create', 'type'=>0 || 1 || 2),
 				'active'=>$this->id==='authItems' && $this->action->id!=='generate',
 				'visible'=>$user->checkAccess($this->authItemsManagerRole),
 				'items'=>array(
-                                        array(
-						'label'=>Yii::t('RbamModule.rbam','{type}', array('{type}'=>Yii::t('RbamModule.rbam','Authorisation Items'))),
-						'url'=>array('authItems/index'),
-						'active'=>$this->id==='authItems' && $this->action->id==='create' && strpos(Yii::app()->getRequest()->queryString,'type='.CAuthItem::TYPE_ROLE)!==false,
-					),
 					array(
 						'label'=>Yii::t('RbamModule.rbam','Create {type}', array('{type}'=>Yii::t('RbamModule.rbam','Role'))),
 						'url'=>array('authItems/create', 'type'=>CAuthItem::TYPE_ROLE),

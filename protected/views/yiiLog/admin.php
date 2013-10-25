@@ -45,13 +45,7 @@ $('.search-form form').submit(function(){
         'type'=>'striped bordered',
         'responsiveTable' => true,
         'dataProvider' => $model->search(),
-        /*'dataProvider' => new CArrayDataProvider(
-             $model->search(), 
-            array(
-                'keyField'=>'id',
-                'sort'=>array('defaultOrder'=>'id DESC'))
-         ),*/
-   
+    
 	//'filter'=>$model,
 	'columns' => array_merge(array(
                 array(

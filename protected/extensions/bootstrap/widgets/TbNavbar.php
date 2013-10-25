@@ -88,7 +88,7 @@ class TbNavbar extends CWidget
 			}
 
 			if (!isset($this->brandUrl)) {
-				$this->brandUrl = Yii::app()->homeUrl;
+                            $this->brandUrl = Yii::app()->homeUrl.'/cliente/admin';       
 			}
 
 			$this->brandOptions['href'] = CHtml::normalizeUrl($this->brandUrl);

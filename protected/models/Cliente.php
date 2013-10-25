@@ -206,22 +206,22 @@ class Cliente extends CActiveRecord
 			'pagination'=>array('pageSize'=>10),
 		 	'sort'=>array(
 		 		//'defaultOrder'=>'NomeCliente ASC',
-                        'attributes'=>array(
-                        /* 'Contrato.NoContrato'=>array(
-                             'asc'=>'Contrato.NoContrato',
-                             'desc'=>'Contrato.NoContrato DESC',
-                         ),
-                         'Contrato.CodigoEstadoContr'=>array(
-                             'asc'=>'Contrato.CodigoEstadoContr',
-                             'desc'=>'Contrato.CodigoEstadoContr DESC',
-                         ),
-                         'Contrato.DataInicioContr'=>array(
-                             'asc'=>'Contrato.DataInicioContr',
-                             'desc'=>'Contrato.DataInicioContr DESC',
-                         ),*/
-                      '',
-		     ),
-  		),
+                            'attributes'=>array(
+                                /* 'Contrato.NoContrato'=>array(
+                                     'asc'=>'Contrato.NoContrato',
+                                     'desc'=>'Contrato.NoContrato DESC',
+                                 ),
+                                 'Contrato.CodigoEstadoContr'=>array(
+                                     'asc'=>'Contrato.CodigoEstadoContr',
+                                     'desc'=>'Contrato.CodigoEstadoContr DESC',
+                                 ),
+                                 'Contrato.DataInicioContr'=>array(
+                                     'asc'=>'Contrato.DataInicioContr',
+                                     'desc'=>'Contrato.DataInicioContr DESC',
+                                 ),*/
+                                '',
+                            ),
+                        ),
 		));
 	}
         

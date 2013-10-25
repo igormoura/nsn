@@ -116,7 +116,8 @@ class YiiLog extends CActiveRecord
 			'criteria'=>$criteria,
                         'sort'=>array(
                            'defaultOrder'=>'logtime DESC',
-                        )
+                            'attributes'=>array('')
+                        ),
 		));
 	}
         
@@ -126,5 +127,10 @@ class YiiLog extends CActiveRecord
               'trace'=>Yii::t('main','yiiLog.typeLevel.trace'),
               'error'=>Yii::t('main','yiiLog.typeLevel.error'),  
             );
+        }
+        
+        public function behaviors()
+        { 
+            return array( 'LoggableBehavior'=> 'application.modules.auditTrail.behaviors.LoggableBehavior', );
         }
 }

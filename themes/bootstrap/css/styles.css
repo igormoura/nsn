@@ -113,8 +113,8 @@ table.detail-view{
 }
 
 
-#cliente-grid table thead tr th {
-    color: #2fa4e7;
+table thead tr th {
+    color: #0088cc;
     padding: 12px 8px;
 }
 
