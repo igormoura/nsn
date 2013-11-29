@@ -107,12 +107,11 @@ class AuditTrail extends CActiveRecord
             $criteria->compare('action',$this->action,true);
             $criteria->compare('model',$this->model,true);
             $criteria->compare('field',$this->field,true);            
-            //$criteria->compare('stamp',$this->stamp,true);
             
+            // BUSCAR POR PERÍODO
             $inicio = explode('/', substr($this->stamp,0,10));
             $fim = explode('/', substr($this->stamp,13,10));
             //$criteria->addBetweenCondition('stamp', '2013/10/09 00:00:00', '2013/10/09 23:59:59');
-            // POG
             if(isset($this->stamp) && $this->stamp != ''){
                 $criteria->addBetweenCondition('stamp', $inicio[2]. '-'. $inicio[1]. '-'. $inicio[0]. ' 00:00:00', $fim[2]. '-'. $fim[1]. '-'. $fim[0]. ' 23:59:59' );
             }

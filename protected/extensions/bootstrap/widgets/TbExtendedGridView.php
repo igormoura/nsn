@@ -431,10 +431,10 @@ class TbExtendedGridView extends TbGridView
 				'htmlOptions' => array('style' => 'margin-bottom:5px')
 			)
 		);
-		echo '<div class="row">';
+	//	echo '<div class="row">';
 		$buttons->init();
 		$buttons->run();
-		echo '</div>';
+	//	echo '</div>';
 
 		$chartId = preg_replace('[-\\ ?]', '_', 'exgvwChart' . $this->getId()); // cleaning out most possible characters invalid as javascript variable identifiers.
 
@@ -490,7 +490,7 @@ class TbExtendedGridView extends TbGridView
 		$this->chartOptions['htmlOptions']['style'] = 'display:none'; // sorry but use a class to provide styles, we need this
 		// build unique ID
 		// important!
-		echo '<div class="row">';
+	//	echo '<div class="row">';
 		if ($this->ajaxUpdate !== false) {
 			if (isset($options['chart']) && is_array($options['chart'])) {
 				$options['chart']['renderTo'] = $chartId;
@@ -518,7 +518,7 @@ class TbExtendedGridView extends TbGridView
 		$chart = Yii::createComponent($configChart);
 		$chart->init();
 		$chart->run();
-		echo '</div>';
+	//	echo '</div>';
 		// end chart display
 		// ****************************************
 	}

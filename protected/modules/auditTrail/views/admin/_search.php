@@ -29,7 +29,6 @@ $form = $this->beginWidget(
 <?php echo $form->textField($model,'field',array('size'=>60,'maxlength'=>64)); ?>
 
 
-    
 <?php echo $form->dateRangeRow(
     $model,
     'stamp',

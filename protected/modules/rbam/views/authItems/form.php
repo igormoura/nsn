@@ -11,6 +11,9 @@
 */
 $module = $this->getModule();
 $cs = Yii::app()->getClientScript();
+
+
+// COLUNM LEFT
 echo '<div id="left-column">';
 echo $form;
 if ($this->action->id==='manage'):
@@ -18,6 +21,8 @@ if ($this->action->id==='manage'):
 	$cs->registerScript('makeNameEditable', 'jQuery("#AuthItem_name").dblclick(function(){jQuery(this).removeAttr("readonly");});'); // makes default role names editable
 endif;
 echo '</div>';
+
+// COLUNM RIGTH
 if ($this->action->id==='manage'):
 	echo '<div id="right-column">';
 	echo CHtml::tag('h3', array(), Yii::t('RbamModule.rbam','Manage Relationships'));

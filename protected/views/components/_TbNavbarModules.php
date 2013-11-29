@@ -60,7 +60,8 @@
                    array('label'=>'Informações Predial', 'url'=>'#'), 
                    array('label'=>'Manutenção Dominios', 'url'=>'#'),
                    array('label'=>'Manutenção Sites','url'=>'#'), 
-                   array('label'=>'Registro Ocorrências', 'url'=>'#'),   
+                   array('label'=>'Gráficos Ocorrências', 'url'=>array('/ocorrencia/admin')),   
+                   array('label'=>'Gráficos Vendas', 'url'=>array('/prospectServicos/admin')),   
                    ),
              ),
     array('label'=>'Configurações',           
@@ -86,6 +87,12 @@
                    array('label'=>'Painel de controle', 'url'=>'#'),
                    ),
              ),
+    array('label'=>'Ponto',           
+        'visible'=>!Yii::app()->user->isGuest,
+        'items' => array(
+            array('label'=>'Cadastrar Setor', 'url'=>array('/setor/admin')),
+            ),
+      ),
    )
 ))));?>
 

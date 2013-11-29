@@ -57,9 +57,9 @@ class Usuarios extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			//array('id_usuario', 'required'),
+			array('nm_usuario, email_usuario, email_usuario', 'required'),
 			array('id_usuario, cdGrupoVenda, Id_Supervisor, id_cargahora, VocalixAgenteID', 'numerical', 'integerOnly'=>true),
-			array('email_usuario, nm_usuario, pw_usuario, home_usuario, nomecompleto_usuario', 'length', 'max'=>100),
+			//array('email_usuario, nm_usuario, pw_usuario, home_usuario, nomecompleto_usuario', 'length', 'max'=>100),
 			//array('foto_usuario', 'length', 'max'=>50),
                         //array('foto_usuario', 'file', 'types'=>'jpg, gif, png'),
 			array('cel_usuario, tel_usuario, ramal_usuario', 'length', 'max'=>10),
@@ -82,6 +82,8 @@ class Usuarios extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+                    'Setor'=>array(self::MANY_MANY, 'Setor', 'usuarios_setor(id_usuario, id_setor)'),
+                    'CargaHoraria'=>array(self::BELONGS_TO, 'CargaHoraria', 'id_grupo_horario'),
 		);
 	}
 

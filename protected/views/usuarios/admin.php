@@ -28,11 +28,10 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
+
 <h1><?php echo Yii::t('main','usuarios.manager') ?></h1>
 
 <p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
 </p>
 
 <?php echo CHtml::link(Yii::t('main','helper.advancedSearch'),'#',array('class'=>'search-button', 'style' => 'float: right; margin-right: -145px; margin-bottom: 32px; margin-top: 19px;')); ?>
@@ -78,7 +77,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		array(
                     'header'=>Yii::t('main','helper.action'), 
                     'class'=>'bootstrap.widgets.TbButtonColumn',
-                    'template' => '{view}{update}{delete}'),
+                    'template' => '{view}{delete}'),
 	),
 )); ?>
 

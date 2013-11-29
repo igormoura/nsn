@@ -10,7 +10,7 @@
         'id' => 'editCliente', 
         'htmlOptions' =>
             array('style' =>'width: 885px; margin-left: -457px; overflow:hidden;')
-          ));
+    ));
  ?>
 
 <?php

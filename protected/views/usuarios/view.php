@@ -5,7 +5,7 @@
 include_once '_form.php';
 
 $this->breadcrumbs=array(
-	'Usuarioses'=>array('index'),
+	Yii::t('main','usuarios.title')=>array('index'),
 	$model->id_usuario,
 );
 

@@ -31,6 +31,9 @@ return array(
         'application.modules.rights.components.*', // Correct paths if necessary.
         'application.modules.translate.TranslateModule',
         'application.modules.auditTrail.models.AuditTrail',
+        'ext.YiiMailer.YiiMailer',
+        'application.extensions.EAjaxUpload.*',
+        'ext.yii-highcharts.highcharts.*'
     ),
 
     'theme'=>'bootstrap',
@@ -71,12 +74,16 @@ return array(
    
         
     // Componentes da Aplicação
-    'components'=>array(
+    'components'=>array( 
+      // LOCAL DATA TIME ZONE
+     'localtime'=>array(
+        'class'=>'LocalTime',
+        ),
       
       // LOGOUT APÓS 15 MIN
       'session' => array(
-        'class' => 'CDbHttpSession',
-        'timeout' => 900,
+        'class' => 'system.web.CDbHttpSession',
+        'timeout' => 3600,
       ),
         
         // Twitter Bootstrap
@@ -131,20 +138,30 @@ return array(
                 'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
         ),*/
 
-        // Configuração para coneção com um primeiro banco
+        /// CONFIGURAÇÃO DE CONEXÃO PRIMEIRO BANCO
         'db'=>array(
             'class'=>'system.db.CDbConnection',
             'connectionString' => 'sqlsrv:Server=192.168.2.239; Database=Manager2003-TESTE',
             'username' => 'nsnPhpYii',
             'password' => 'n0v0-snetd',
             'charset' => 'GB2312',
-            'tablePrefix' => 'tbl_',  
+            'tablePrefix' => 'tbl_',
+            //'initSQLs'=>array("default_time_zone='+00:00';")   
          ),
 
-        // Configuração para coneção a um segundo banco - Necessáio criar SecondbActiveRecord 
+        // CONFIGURAÇÃO DE CONEXÃO SEGUNDO BANCO - NECESSÁRIO CRIAR MODEL SECONDB 
         'secondb'=>array(
            'class'=>'system.db.CDbConnection',
            'connectionString' => 'sqlsrv:Server=192.168.2.239; Database=SNETD-TESTE;',
+           'username' => 'nsnPhpYii',
+           'password' => 'n0v0-snetd',
+           'charset' => 'GB2312',           
+        ),
+        
+        // CONFIGURAÇÃO DE CONEXÃO TERCEIRO BANCO - NECESSÁRIO CRIAR MODEL THIRDB 
+        'thirdb'=>array(
+           'class'=>'system.db.CDbConnection',
+           'connectionString' => 'sqlsrv:Server=192.168.2.239; Database=SNETD;',
            'username' => 'nsnPhpYii',
            'password' => 'n0v0-snetd',
            'charset' => 'GB2312',           
@@ -171,7 +188,7 @@ return array(
             'errorAction'=>'site/error',
         ),
     
-        'log'=>array(
+        /*'log'=>array(
             'class'=>'CLogRouter',
             'routes'=>array(
                 array(
@@ -180,7 +197,8 @@ return array(
                     'connectionID'=>'db',
                     'enabled'=>true,
                     'levels'=>'trace',//You can replace trace,info,warning,error
-                     'categories'=>'system.web.filters.CFilterChain, exception.CException',
+                     //'categories'=>'system.web.filters.CFilterChain, exception.CException',
+                    'categories'=>'system.web.*',
                 ),
                  array(
                     'class'=>'ext.LogDb',
@@ -188,18 +206,33 @@ return array(
                     'connectionID'=>'secondb',
                     'enabled'=>true,
                     'levels'=>'trace, error',//You can replace trace,info,warning,error
-                    'categories'=>'system.web.filters.CFilterChain, exception.CException',
+                    //'categories'=>'system.web.filters.CFilterChain, exception.CException',
+                     'categories'=>'system.web.*',
                 ),
  
                 // uncomment the following to show log messages on web pages
  
                 array(
                     'class'=>'CWebLogRoute',
-                    'categories'=>'system.web.filters.CFilterChain, exception.CException',
+                    //'categories'=>'system.web.filters.CFilterChain, exception.CException',
+                    'categories'=>'system.web.*',
                     'levels' => 'trace, error',
-                    
                 ),
                 
+            ),
+        ),*/
+        
+        'log'=>array(
+            'class'=>'CLogRouter',
+            'routes'=>array(
+                array(
+                        'class'=>'CFileLogRoute',
+                        'levels'=>'error, warning',
+                ),
+                // uncomment the following to show log messages on web pages
+                array(
+                        'class'=>'CWebLogRoute',
+                ),
             ),
         ),
                 

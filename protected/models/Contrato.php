@@ -62,6 +62,9 @@
  * @property string $ClienteCorporativo
  * @property integer $FlagCarta
  */
+
+
+include 'Helpers.php';
 class Contrato extends CActiveRecord
 {
 	/**
@@ -70,7 +73,12 @@ class Contrato extends CActiveRecord
 	 * @return Contrato the static model class
 	 */
     
-  public $nomeCliente;
+   public $sizeChart;
+   public $totalChart;
+    
+   public $nomeCliente;
+  
+  
          
 	public static function model($className=__CLASS__)
 	{
@@ -116,7 +124,7 @@ class Contrato extends CActiveRecord
 			array('DataInicioContr, DataEntregDistrib, DataDigitacao, DataPrimeiroAcesso, DataUltimoAcesso, DataCancContr, PrimCobr, DataImprWE, TmpWEDataInit, DataImpWP, TMPWPDataInit', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('NoContrato, CodigoEstadoContr, CodigoGrupo, CodigoColegio, CodigoMotivoCanc, CondicoesAcesso, DataInicioContr, CodigoDistr, DiaVencimento, DataEntregDistrib, DataDigitacao, CodigoTipoCobr, DataPrimeiroAcesso, DataUltimoAcesso, NoCliente, Agencia, Conta, DataCancContr, Comentario, Matricula, Verba, LoginOriginal, CartaoCredito, ValidCartCredito, cvv, PrimContat, DataLimPovo, CodigoPovo, TipoCartCred, Localizacao, DataLimiteApuramento, PrimCobr, dv, ContrAtualizado, CandidatoWebcabo, DataImprWE, TransWE, TmpWEDataInit, TmpWECondicoesAcesso, TmpWECondicoesAcAnterior, Condo, grupo_autent, qtsimult, QtSimultPLogin, StatusWP, DataImpWP, TMPWPDataInit, TMPWPCondicoesAcesso, TMPWPCondicoesAcAnterior, DescPont, TipoEntrega, QtContas, Empresa, Fil, limiteemail, ClienteCorporativo, FlagCarta', 'safe', 'on'=>'search'),
+			array('totalChart, sizeChart, NoContrato, CodigoEstadoContr, CodigoGrupo, CodigoColegio, CodigoMotivoCanc, CondicoesAcesso, DataInicioContr, CodigoDistr, DiaVencimento, DataEntregDistrib, DataDigitacao, CodigoTipoCobr, DataPrimeiroAcesso, DataUltimoAcesso, NoCliente, Agencia, Conta, DataCancContr, Comentario, Matricula, Verba, LoginOriginal, CartaoCredito, ValidCartCredito, cvv, PrimContat, DataLimPovo, CodigoPovo, TipoCartCred, Localizacao, DataLimiteApuramento, PrimCobr, dv, ContrAtualizado, CandidatoWebcabo, DataImprWE, TransWE, TmpWEDataInit, TmpWECondicoesAcesso, TmpWECondicoesAcAnterior, Condo, grupo_autent, qtsimult, QtSimultPLogin, StatusWP, DataImpWP, TMPWPDataInit, TMPWPCondicoesAcesso, TMPWPCondicoesAcAnterior, DescPont, TipoEntrega, QtContas, Empresa, Fil, limiteemail, ClienteCorporativo, FlagCarta', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -131,7 +139,7 @@ class Contrato extends CActiveRecord
                 //'MotivoCancelamento' => array(self::BELONGS_TO, 'MotivoCancelamento', 'CodigoMotivoCanc'),
                 'TipoCobranca' => array(self::BELONGS_TO, 'TipoCobranca', 'CodigoTipoCobr'),
                 'NomesEmpresas' => array(self::BELONGS_TO, 'NomesEmpresas', 'Empresa'),
-                //'Cliente' => array(self::BELONGS_TO, 'Cliente', 'NoCliente'),
+                'Cliente' => array(self::BELONGS_TO, 'Cliente', 'NoCliente'),
                 'CobrAdic' => array(self::HAS_MANY, 'CobrAdic', 'NoContrato'),
                 'NetAcessos' => array(self::HAS_MANY, 'NetAcessos', 'NoContrato'),
                 'Ocorrencia' => array(self::HAS_MANY, 'Ocorrencia', 'NoContrato'),
@@ -222,68 +230,84 @@ class Contrato extends CActiveRecord
                 //$criteria->addSearchCondition('NomeCliente',$this->Cliente->NomeCliente);
                 $criteria->compare('Cliente.NoCliente',$this->NoCliente, true);
                 
-		$criteria->compare('NoContrato',$this->NoContrato);
-		$criteria->compare('CodigoEstadoContr',$this->CodigoEstadoContr,true);
-		$criteria->compare('CodigoGrupo',$this->CodigoGrupo,true);
-		$criteria->compare('CodigoColegio',$this->CodigoColegio,true);
-		$criteria->compare('CodigoMotivoCanc',$this->CodigoMotivoCanc,true);
-		$criteria->compare('CondicoesAcesso',$this->CondicoesAcesso,true);
-		$criteria->compare('DataInicioContr',$this->DataInicioContr,true);
-		$criteria->compare('CodigoDistr',$this->CodigoDistr,true);
-		$criteria->compare('DiaVencimento',$this->DiaVencimento);
-		$criteria->compare('DataEntregDistrib',$this->DataEntregDistrib,true);
-		$criteria->compare('DataDigitacao',$this->DataDigitacao,true);
-		$criteria->compare('CodigoTipoCobr',$this->CodigoTipoCobr,true);
-		$criteria->compare('DataPrimeiroAcesso',$this->DataPrimeiroAcesso,true);
-		$criteria->compare('DataUltimoAcesso',$this->DataUltimoAcesso,true);
-		$criteria->compare('NoCliente',$this->NoCliente);
-		$criteria->compare('Agencia',$this->Agencia,true);
-		$criteria->compare('Conta',$this->Conta,true);
-		$criteria->compare('DataCancContr',$this->DataCancContr,true);
-		$criteria->compare('Comentario',$this->Comentario,true);
-		$criteria->compare('Matricula',$this->Matricula,true);
-		$criteria->compare('Verba',$this->Verba,true);
-		$criteria->compare('LoginOriginal',$this->LoginOriginal,true);
-		$criteria->compare('CartaoCredito',$this->CartaoCredito,true);
-		$criteria->compare('ValidCartCredito',$this->ValidCartCredito,true);
-		$criteria->compare('cvv',$this->cvv,true);
-		$criteria->compare('PrimContat',$this->PrimContat,true);
-		$criteria->compare('DataLimPovo',$this->DataLimPovo,true);
-		$criteria->compare('CodigoPovo',$this->CodigoPovo,true);
-		$criteria->compare('TipoCartCred',$this->TipoCartCred,true);
-		$criteria->compare('Localizacao',$this->Localizacao,true);
-		$criteria->compare('DataLimiteApuramento',$this->DataLimiteApuramento);
-		$criteria->compare('PrimCobr',$this->PrimCobr,true);
-		$criteria->compare('dv',$this->dv,true);
-		$criteria->compare('ContrAtualizado',$this->ContrAtualizado,true);
-		$criteria->compare('CandidatoWebcabo',$this->CandidatoWebcabo,true);
-		$criteria->compare('DataImprWE',$this->DataImprWE,true);
-		$criteria->compare('TransWE',$this->TransWE,true);
-		$criteria->compare('TmpWEDataInit',$this->TmpWEDataInit,true);
-		$criteria->compare('TmpWECondicoesAcesso',$this->TmpWECondicoesAcesso,true);
-		$criteria->compare('TmpWECondicoesAcAnterior',$this->TmpWECondicoesAcAnterior,true);
-		$criteria->compare('Condo',$this->Condo);
-		$criteria->compare('grupo_autent',$this->grupo_autent);
-		$criteria->compare('qtsimult',$this->qtsimult);
-		$criteria->compare('QtSimultPLogin',$this->QtSimultPLogin);
-		$criteria->compare('StatusWP',$this->StatusWP,true);
-		$criteria->compare('DataImpWP',$this->DataImpWP,true);
-		$criteria->compare('TMPWPDataInit',$this->TMPWPDataInit,true);
-		$criteria->compare('TMPWPCondicoesAcesso',$this->TMPWPCondicoesAcesso,true);
-		$criteria->compare('TMPWPCondicoesAcAnterior',$this->TMPWPCondicoesAcAnterior,true);
-		$criteria->compare('DescPont',$this->DescPont,true);
-		$criteria->compare('TipoEntrega',$this->TipoEntrega,true);
-		$criteria->compare('QtContas',$this->QtContas);
-		$criteria->compare('Empresa',$this->Empresa,true);
-		$criteria->compare('Fil',$this->Fil,true);
-		$criteria->compare('limiteemail',$this->limiteemail);
-		$criteria->compare('ClienteCorporativo',$this->ClienteCorporativo,true);
-		$criteria->compare('FlagCarta',$this->FlagCarta);
+                $helper = new Helpers();
+                $aux = $helper->buscarPorPeriodo($this->DataCancContr);
+                $criteria->addBetweenCondition('DataCancContr', $aux['0'] , $aux['1'], true);  
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));     
 	}
+
+        public function dashboardCancelamentos($valor){
+            $helper = new Helpers();
+            $aux = $helper->buscarPorPeriodo($this->DataCancContr);
+            $selectTop = $helper->selectTop($this->sizeChart,$this->totalChart);
+            
+            $grupoServicos = Yii::app()->thirdb->createCommand()
+            ->select($selectTop.'CdGrupoServ,NmGrupoServ,sum(Valor) Valor')
+            ->from('dashboardServicosCanceladosView')
+            ->where("dtCanc >= '".$aux['0']."' and dtcanc < '".$aux['1']."' ")
+            ->group('CdGrupoServ,NmGrupoServ')
+            ->order('Valor desc')
+            ->queryAll();
+            
+            $grupoServico = array();
+            $grupoServicoBar = array();
+            
+             foreach ($grupoServicos as $aux) { 
+                $aux = (object) $aux;
+                //Pizza
+                $grupoServico[] = array($aux->NmGrupoServ, intval($aux->Valor));
+                // Barra
+                $grupoServicoBar[] = array('name' => $aux->NmGrupoServ, 'type' => 'column', 'data' => array(intval($aux->Valor)));
+            }
+
+            $motivos = Yii::app()->thirdb->createCommand()
+            ->select($selectTop." isnull(DescrMotivo,'Não Cadastrado') MotivoCanc,sum(Valor) Valor")
+            ->from('dashboardServicosCanceladosView')
+            ->where("dtCanc >= '2013-01-01' and dtcanc < '2013-01-03' ")
+            ->group("isnull(DescrMotivo,'Não Cadastrado')")
+            ->order('Valor desc')
+            ->queryAll();
+            
+            $motivo = array();
+            $motivoBar = array();
+            
+            foreach ($motivos as $aux) { 
+                // $motivo = (object) $motivo;
+                // Pizza
+                $motivo[] = array($aux['MotivoCanc'], intval($aux['Valor']));
+                // Barra
+                $motivoBar[] = array('name' => $aux['MotivoCanc'], 'type' => 'column', 'data' => array(intval($aux['Valor'])));
+            }
+                   
+            if($valor == 'grupoServico'){
+                return $grupoServico;
+            }elseif($valor == 'grupoServicoBar'){
+                return $grupoServicoBar;
+            }elseif($valor == 'motivo'){
+                return $motivo;
+            }elseif($valor == 'motivoBar'){
+                return $motivoBar;
+            }
+
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         public function locFil()
         {
@@ -313,9 +337,8 @@ class Contrato extends CActiveRecord
         function diaVencimento(){
             $rows = array();
             for($i=1;$i<=31;$i++){
-            $rows[] = $i;
-        }
-
+                $rows[] = $i;
+            }
             return $rows;
         }  
         

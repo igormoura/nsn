@@ -174,9 +174,10 @@ class AuthItem extends RBAMBaseModel {
 					'rows'=>3,
 					'hint'=>Yii::t('RbamModule.rbam','Additional data associated with this item; passed as the variable <em>$data</em> to the Business Rule.')
 				)
-			),
+			),                       
 			'buttons'=>array(
 				'submit'=>array(
+                                        'class'=>'ext.bootstrap.widgets.TbButton',
 					'type'=>'submit',
 					'label'=>Yii::t('RbamModule.rbam',ucfirst($this->scenario))
 				)

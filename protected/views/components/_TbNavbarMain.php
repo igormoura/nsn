@@ -1,6 +1,6 @@
 <?php
     $dia = date("j");
-    $hora = date("H")-1;
+    $hora = date("H")-4;
     $minuto = date("i");
     $segundo = date("s");
 
@@ -22,9 +22,9 @@
         array(
             'class'=>'application.components.YiiSmartMenu',
             'items'=>array(
-               /* array('label'=>Yii::t('main','site.home'), 'url'=>array('/site/index')),
-                array('label'=>Yii::t('main','site.about'), 'url'=>array('/site/page', 'view'=>'about')),
-                array('label'=>Yii::t('main','site.contact'), 'url'=>array('/site/contact')),
+               // array('label'=>Yii::t('main','site.home'), 'url'=>array('/site/index')),
+               // array('label'=>Yii::t('main','site.about'), 'url'=>array('/site/page', 'view'=>'about')),
+               // array('label'=>Yii::t('main','site.contact'), 'url'=>array('/site/contact')),
                // array('label'=>'Usuarios', 'url'=>array('/usuario/admin'),'visible'=>!Yii::app()->user->isGuest),
                // array('label'=>'Controle de Acesso', 'url'=>array('/rights/'),'visible'=>!Yii::app()->user->isGuest)*/
             ),
@@ -58,7 +58,7 @@
             'items'=>array( 
                         array(
                             'class'=>'application.components.Date',
-                            'label'=>$misc.' - '.$hora_completa,
+                            'label'=>$misc.'  '.$hora_completa,
                             'offset' => 4,
                             'visible'=>!Yii::app()->user->isGuest,
                          ),

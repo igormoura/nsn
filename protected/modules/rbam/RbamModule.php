@@ -453,6 +453,7 @@ class RbamModule extends CWebModule {
 	*/
         
         
+        
 	public function getMenuItems($items=array()) {
 		$user = Yii::app()->getUser();
 		return array_merge(array(
@@ -460,7 +461,6 @@ class RbamModule extends CWebModule {
 				'label'=>Yii::t('RbamModule.rbam','Auth Assignments'),
 				'url'=>array('authAssignments/index'),
 				'active'=>$this->id==='authAssignments',
-           
 				'visible'=>$user->checkAccess($this->authAssignmentsManagerRole)
 			),
                         array(
@@ -470,24 +470,24 @@ class RbamModule extends CWebModule {
                             ),  
 			array(
 				'label'=>Yii::t('RbamModule.rbam','Criar Itens de Autorização'),
-				'url'=>array('authItems/create', 'type'=>0 || 1 || 2),
+				'url'=>array('authItems/create', 'type'=>CAuthItem::TYPE_ROLE),
 				'active'=>$this->id==='authItems' && $this->action->id!=='generate',
 				'visible'=>$user->checkAccess($this->authItemsManagerRole),
 				'items'=>array(
 					array(
-						'label'=>Yii::t('RbamModule.rbam','Create {type}', array('{type}'=>Yii::t('RbamModule.rbam','Role'))),
-						'url'=>array('authItems/create', 'type'=>CAuthItem::TYPE_ROLE),
-						'active'=>$this->id==='authItems' && $this->action->id==='create' && strpos(Yii::app()->getRequest()->queryString,'type='.CAuthItem::TYPE_ROLE)!==false,
+                                            'label'=>Yii::t('RbamModule.rbam','Create {type}', array('{type}'=>Yii::t('RbamModule.rbam','Role'))),
+                                            'url'=>array('authItems/create', 'type'=>CAuthItem::TYPE_ROLE),
+                                            'active'=>$this->id==='authItems' && $this->action->id==='create' && strpos(Yii::app()->getRequest()->queryString,'type='.CAuthItem::TYPE_ROLE)!==false,
 					),
 					array(
-						'label'=>Yii::t('RbamModule.rbam','Create {type}', array('{type}'=>Yii::t('RbamModule.rbam','Task'))),
-						'url'=>array('authItems/create', 'type'=>CAuthItem::TYPE_TASK),
-						'active'=>$this->id==='authItems' && $this->action->id==='create' && strpos(Yii::app()->getRequest()->queryString,'type='.CAuthItem::TYPE_TASK)!==false,
+                                            'label'=>Yii::t('RbamModule.rbam','Create {type}', array('{type}'=>Yii::t('RbamModule.rbam','Task'))),
+                                            'url'=>array('authItems/create', 'type'=>CAuthItem::TYPE_TASK),
+                                            'active'=>$this->id==='authItems' && $this->action->id==='create' && strpos(Yii::app()->getRequest()->queryString,'type='.CAuthItem::TYPE_TASK)!==false,
 					),
 					array(
-						'label'=>Yii::t('RbamModule.rbam','Create {type}', array('{type}'=>Yii::t('RbamModule.rbam','Operation'))),
-						'url'=>array('authItems/create', 'type'=>CAuthItem::TYPE_OPERATION),
-						'active'=>$this->id==='authItems' && $this->action->id==='create' && strpos(Yii::app()->getRequest()->queryString,'type='.CAuthItem::TYPE_OPERATION)!==false,
+                                            'label'=>Yii::t('RbamModule.rbam','Create {type}', array('{type}'=>Yii::t('RbamModule.rbam','Operation'))),
+                                            'url'=>array('authItems/create', 'type'=>CAuthItem::TYPE_OPERATION),
+                                            'active'=>$this->id==='authItems' && $this->action->id==='create' && strpos(Yii::app()->getRequest()->queryString,'type='.CAuthItem::TYPE_OPERATION)!==false,
 					),
 				)
 			),

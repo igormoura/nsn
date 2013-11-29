@@ -10,7 +10,6 @@
 * @license		BSD License (see documentation)
 */
 
-
 $baseUrl = $this->getModule()->baseScriptUrl;
 
 $this->widget('rbam.extensions.alphapager.ApGridView', array(

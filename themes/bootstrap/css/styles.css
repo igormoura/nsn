@@ -196,7 +196,7 @@ body {
 
 
 .daterangepicker.opensright .calendar {
-    float: none !important;
+   // float: none !important;
 }
 
 .daterangepicker .calendar {
@@ -329,9 +329,6 @@ h6 small {
   margin: 20px 0 30px !important;
   border-bottom: 1px solid #f5f5f5 !important;
 }
-
-
-
 
 .btn-primary {
   color: #ffffff;

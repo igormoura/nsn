@@ -97,20 +97,17 @@ class YiiLog extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('level',$this->level,true);
 		$criteria->compare('category',$this->category,true);
-		//$criteria->compare('logtime',$this->logtime,true);
-                
-                $inicio = explode('/', substr($this->logtime,0,10));
-                $fim = explode('/', substr($this->logtime,13,10));
-                //$criteria->addBetweenCondition('stamp', '2013/10/09 00:00:00', '2013/10/09 23:59:59');
-                // POG
-                if(isset($this->logtime) && $this->logtime != ''){
-                    $criteria->addBetweenCondition('logtime', $inicio[2]. '-'. $inicio[1]. '-'. $inicio[0]. ' 00:00:00', $fim[2]. '-'. $fim[1]. '-'. $fim[0]. ' 23:59:59' );
-                }
-                
 		$criteria->compare('IP_User',$this->IP_User,true);
 		$criteria->compare('user_name',$this->user_name,true);
 		$criteria->compare('request_URL',$this->request_URL,true);
 		$criteria->compare('message',$this->message,true);
+                
+                // BUSCAR POR PERÍODO [DATERANGE]
+                $inicio = explode('/', substr($this->logtime,0,10));
+                $fim = explode('/', substr($this->logtime,13,10));
+                if(isset($this->logtime) && $this->logtime != ''){
+                    $criteria->addBetweenCondition('logtime', $inicio[2]. '-'. $inicio[1]. '-'. $inicio[0]. ' 00:00:00', $fim[2]. '-'. $fim[1]. '-'. $fim[0]. ' 23:59:59' );
+                }
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

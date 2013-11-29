@@ -90,7 +90,6 @@
                     array('empty'=>'Selecione TipoCobranca')) ?>
                 <?php echo $form->error($model->Contrato,'CodigoTipoCobr'); ?>
 
-
                 <?php echo $form->dropDownListRow($model->Contrato,'CodigoDistr', 
                         CHtml::listData(Distribuidor::model()->findAll(
                                 array('order' => 'NomeDistr ASC')), 'CodigoDistr', 'NomeDistr'), 

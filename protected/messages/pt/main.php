@@ -4,7 +4,6 @@
  * 
  */
 return array (
-  
     /*TRADUÇÕES GENÉRICAS */
 
     'helper.yes' => 'Sim',
@@ -30,8 +29,53 @@ return array (
     'helper.create' => 'Criar',
     'helper.search' => 'Buscar',
     'helper.fieldsRequired' => 'Os campos com '.'<span class="required">*</span>'.' são obrigatórios.',
+    'helper.dashboard' => 'Dashboard',
     
-
+    
+    /* TRADUÇÕES DASHBOARD */ 
+    'dashboard.pie' => "Pizza",
+    'dashboard.bar' => "Barra",
+    
+    
+    // DASHBOARD OCORRENCIAS
+    'dashboard.ocorrencias' => "Dashboard Ocorrências",
+    'dashboard.ocorrencias.tipoServicos' => "Tipo Serviços",
+    'dashboard.ocorrencias.tipoProblema' => "Tipo Problema",
+    'dashboard.ocorrencias.maiorMenor' => "Maior Menor",
+    'dashboard.ocorrencias.total' => "Total",
+    'dashboard.ocorrencias.menor72Horas' => "Menor 72Horas",
+    'dashboard.ocorrencias.maior72Horas' => "Maior 72Horas",
+    'dashboard.ocorrencias.tempoFechamento' => "Ocorrência por Tempo de Fechamento.",
+    'dashboard.ocorrencias.tipoServicoTotal' => "Ocorrência por Tipo de Serviço Total.",
+    'dashboard.ocorrencias.tipoServicoMaior72' => "Ocorrência por Tipo de Serviço Maior que 72 Horas.",
+    'dashboard.ocorrencias.tipoServicoMenor72' => "Ocorrência por Tipo de Serviço Menor que 72 Horas.",
+    'dashboard.ocorrencias.tipoProblemaTotal' => "Ocorrência por Tipo de Problema Total.",
+    'dashboard.ocorrencias.tipoProblemaMaior72' => "Ocorrência por Tipo de Problema Maior que 72 Horas.",
+    'dashboard.ocorrencias.tipoProblemaMenor72' => "Ocorrência por Tipo de Problema Menor que 72 Horas.",
+    
+    
+    // DASHBOARD VENDAS
+    'dashboard.vendas' => "Dashboard Vendas",
+    'dashboard.vendas.tiposClientes.title' => "Tipos Clientes",
+    'dashboard.vendas.tiposClientes' => "Vendas por Tipos Clientes",
+    'dashboard.vendas.grupoServicos.title' => "Grupo Serviços",
+    'dashboard.vendas.grupoServicos' => "Vendas por Grupo Serviços",
+    'dashboard.vendas.servicos.title' => "Serviços",
+    'dashboard.vendas.servicos' => "Vendas por Serviços",
+    'dashboard.vendas.clientes.title' => "Clientes",
+    'dashboard.vendas.clientes' => "Vendas por Clientes",
+    'dashboard.vendas.tiposAlunos.title' => "Tipos Alunos",
+    'dashboard.vendas.tiposAlunos' => "Vendas por Tipos Alunos",
+    'dashboard.vendas.cursos.title' => "Cursos",
+    'dashboard.vendas.cursos' => "Vendas por Cursos",
+    
+    // DASHBOARD MOTIVOS
+    'dashboard.cancelamento' => "Dashboard Cancelamento",
+    'dashboard.cancelamento.motivos.title' => "Motivos",
+    'dashboard.cancelamento.motivos' => "Motivos de Cancelamentos",
+    'dashboard.cancelamento.grupoServicos.title' => "Grupo Serviços",
+    'dashboard.cancelamento.grupoServicos' => "Cancelamento por Grupo Serviços",
+    
 
     /*TRADUÇÃO SITE*/
     'site.home' => 'Home',
@@ -45,6 +89,7 @@ return array (
     'contrato.create' => 'Novo Contrato',
     'contrato.delete' => 'Deletar Contrato',
     'contrato.update' => 'Atualizar Contrato',
+    'contrato.dashBoardCancelamento' => 'Dashboar Cancelamentos',
 
     // Labels  
     'contrato.NoContrato' => 'Nº Contrato',
@@ -84,14 +129,11 @@ return array (
     // FUNCÕES CONTRATO
 
 
-
-
     /* TRADUÇÃO CLIENTE */
     'cliente.title' => 'Cliente',
     'cliente.manager' => 'Gerenciar Clientes',
 
-
-
+    
     // Labels  
     'cliente.title' => 'Cliente',
     'cliente.NoCliente' => 'Nº Cliente',
@@ -131,8 +173,7 @@ return array (
    'cliente.tipoPessoa.juridica' => 'Jurídica',
    'cliente.tipoPessoa.select' => 'Selecione Tipo Pessoa',
    
-    
-    
+
     /* TRADUÇÃO DUPLICATAS */
     'duplicatas.title' => 'Conta Corrente',
     'duplicatas.manager' => 'Gerenciar Contas Corrente',
@@ -194,7 +235,7 @@ return array (
     'netAcessos.title' => 'Login',
     'netAcessos.manager' => 'Gerenciar Logins',
 
-
+    
     'netAcessos.LoginUsuario' => 'Login',
     'netAcessos.Campo_S' => 'Campo S',
     'netAcessos.CodigoMotivoCanc' => 'Codigo Motivo Canc',
@@ -222,16 +263,16 @@ return array (
 
 
 
-    /* TRADUÇÃO NETACESSOS */
+    /* TRADUÇÃO OCORRENCIA */
     'ocorrencia.title' => 'Ocorrência',
-    'ocorrencia.manager' => 'Gerenciar Ocorrência',
-
+    'ocorrencia.manager' => 'Gerenciamento de Ocorrências',
+    'ocorrencia.listaOcorrencias' => 'Ocorrencias',
+    'ocorrencia.dashboard' => 'Dashboard Ocorrências',
 
     // LABELS
-
     'ocorrencia.NoContrato' => 'Contrato',
-    'ocorrencia.DataOcorrencia' => 'Data',
-    'ocorrencia.DataOcorrenciaF' => 'Data Ocorrencia F',
+    'ocorrencia.DataOcorrencia' => 'Data Ocorrência',
+    'ocorrencia.DataOcorrenciaF' => 'Data Ocorrência F',
     'ocorrencia.NomeUsuario' => 'Operador',
     'ocorrencia.NomeContactado' => 'Contato',
     'ocorrencia.Ocorrencia' => 'Ocorrência',
@@ -240,7 +281,7 @@ return array (
     'ocorrencia.NoOcorrenciaPai' => 'No Ocorrencia Pai',
     'ocorrencia.NoChamado' => 'Nº Chamado',
     'ocorrencia.cdproblema' => 'Cdproblema',
-    'ocorrencia.cdServico' => 'Cd Servico',
+    'ocorrencia.cdServico' => 'Serviço',
     'ocorrencia.ObsFec' => 'Obs Fec',
     'ocorrencia.NomeUsuarioFec' => 'Nome Usuário Fec',
     'ocorrencia.cdproblemafec' => 'Cdproblemafec',
@@ -254,6 +295,15 @@ return array (
     'ocorrencia.idUsuarioF' => 'Id Usuário F',
     'ocorrencia.flagVisivelCliente' => 'Flag Visivel Cliente',
     'ocorrencia.flagSolicitacao' => 'Flag Solicitacao',
+    
+    // FUNÇÕES
+    'ocorrencia.porTipoProblema' => 'Tipo Problema',
+    'ocorrencia.porTipoServico' => 'Tipo Servico',
+    'ocorrencia.graficoPie' => 'Pizza',
+    'ocorrencia.graficoBar' => 'Barra',
+    'ocorrencia.sizeChart' =>  'Quantidade Análise',
+    'ocorrencia.totalChart' => 'Valor Total Análise',
+    
     
     
     /* TRADUÇÃO USUARIOS */
@@ -321,18 +371,42 @@ return array (
     'yiiLog.typeLevel.select' => 'Selecione o Tipo',
     'yiiLog.typeLevel.trace' => 'Rota',
     'yiiLog.typeLevel.error' => 'Erro',
-
-
-
-
-
-
-
-
-
-
-
-
+    
+    
+    
+    /* TRADUÇÃO SETOR*/
+    
+    'setor.id_setor' => 'ID',
+    'setor.ds_setor' => 'Descrição',
+    'setor.ativo' => 'Ativo',
+    
+    
+     // FUNÇÕES
+    
+    
+    
+    /* TRADUÇÃO PROSPECT SERVICOS*/
+    
+    
+    // LABELS
+    'prospectServicos.cdservico' => 'Cod. Serviços',
+    'prospectServicos.NoProspect' => 'Nº Cliente',
+    'prospectServicos.Servico' => 'Serviço',
+    'prospectServicos.Valor' => 'Valor',
+    'prospectServicos.Freq' => 'Frequência',
+    'prospectServicos.historico' => 'Histórico',
+    'prospectServicos.vencimento' => 'Vencimento',
+    'prospectServicos.IdVend' => 'Vendedor',
+    'prospectServicos.IdIndic' => 'Indicador',
+    'prospectServicos.DtVend' => 'Data Venda',
+    'prospectServicos.DtIndic' => 'Data Indicação',
+    'prospectServicos.status' => 'Status',
+    'prospectServicos.FidelidadePredial' => 'Fidelidade Predial',
+    'prospectServicos.DtFidelidadePredial' => 'Data Fidelidade Predial',
+    'prospectServicos.PlanoFidelidadePredial' => 'Plano Fidelidade Predial',
+    'prospectServicos.sizeChart' => 'Quantidade Análise',
+    'prospectServicos.totalChart' => 'Valor Total Análise',
+        
 
 );
 

@@ -49,7 +49,7 @@ class SiteController extends Controller
 	/**
 	 * Displays the contact page
 	 */
-	public function actionContact()
+	/*public function actionContact()
 	{
 		$model=new ContactForm;
 		if(isset($_POST['ContactForm']))
@@ -70,7 +70,55 @@ class SiteController extends Controller
 			}
 		}
 		$this->render('contact',array('model'=>$model));
+	}*/
+        
+        
+        /**
+	 * Displays the contact page
+	 */
+	public function actionContact()
+	{
+		$model=new ContactForm;
+		if(isset($_POST['ContactForm']))
+		{
+                    $model->attributes=$_POST['ContactForm'];
+			if($model->validate())
+			{
+                            $mail = new YiiMailer();
+                            //$mail->clearLayout();//if layout is already set in config
+                            $mail->IsSMTP();
+                            $mail->Host = "smtpdom.secrel.com.br";
+                            $mail->Port = 587;
+                            $mail->Username = "documentech@documentech.com.br";
+                            $mail->setFrom($mail->Username, "Documentech");
+                            $mail->setTo($model->email);
+                            $mail->setSubject($model->subject);
+                            $mail->setBody($model->body);
+                            
+                            $path = 'C:/Users/igor.moura.SECRELNET/Documents/igormoura/';
+                            $mail->addAttachment($path.'boleto.pdf'); 
+                                    
+                            //Dispara o e-mail
+                            $enviado = $mail->Send();
+                            
+                            // Limpa os destinatários e os anexos
+                            $mail->ClearAllRecipients();
+                            $mail->ClearAttachments();
+                            
+                            if ($enviado) {
+                                    Yii::app()->user->setFlash('contact','Email Enviado com sucesso !');
+                                } else {
+                                     Yii::app()->user->setFlash('contact','Não foi possível enviar o e-mail ! Informações do erro: '.'<b>'.$mail->ErrorInfo.' !');
+                                    echo "Não foi possível enviar o e-mail.".'<br />';
+                                    echo "Informações do erro: " . $mail->ErrorInfo;
+                                }
+                                $mail->send();
+                            }
+                }
+		
+		$this->render('contact',array('model'=>$model));
 	}
+       
 
 	/**
 	 * Displays the login page
@@ -144,9 +192,4 @@ class SiteController extends Controller
                 $this->render('register',array('model'=>$model));
         }
 
-        
-        
-        
-        
-        
 }

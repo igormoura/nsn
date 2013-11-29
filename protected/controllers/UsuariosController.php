@@ -13,13 +13,13 @@ class UsuariosController extends RController
 	 */
 	public function filters()
 	{
-            return array( 'rights' );
+            return array('rights');
 	}
         
         public function allowedActions() { 
             return 'index, suggestedTags'; 
         }
-
+        
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
@@ -150,6 +150,38 @@ class UsuariosController extends RController
 			Yii::app()->end();
 		}
 	}
+        
+         public function actionDashboard(){
+            		
+		$usage_data1 = array (
+			array (
+				'id' => 0,
+				'event' => 'Total',
+				'channels' => rand(10,100),
+			),
+			array (
+				'id' => 0,
+				'event' => 'Dial In',
+				'channels' => rand(10,100),
+			),
+			array (
+				'id' => 0,
+				'event' => 'Dial Out',
+				'channels' =>rand(10,100),	
+			),
+			array (
+				'id' => 0,
+				'event' => 'Idle',
+				'channels' => rand(10,100),
+			),
+		);
+		
+		$usageDataProvider1 = new CArrayDataProvider($usage_data1, array (
+			'pagination' => false
+		));
+		
+		$this->render('/dashboard/index', array('usageDataProvider1' => $usageDataProvider1));
+        }
       
 
 

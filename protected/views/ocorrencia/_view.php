@@ -10,33 +10,33 @@
                 'sort'=>array('defaultOrder'=>'DataOcorrencia DESC')
             )),
     
-        'columns' =>  array_merge(array(
-            array(
-                'name' => Yii::t('main', 'ocorrencia.NoOcorrencia'),
-                'value' => '$data->NoOcorrencia',
-            ),
-           array(
-                'name' => Yii::t('main', 'ocorrencia.DataOcorrencia'),
-                'value' => '$data->DataOcorrencia', 
-                'value'=>'date("d/m/Y h:m:s",strtotime($data->DataOcorrencia))',
-            ),
-            array(
-                'name' => Yii::t('main', 'ocorrencia.NomeContactado'),
-                'value' => '$data->NomeContactado',
-            ),
-            array(
-                'name' => Yii::t('main', 'ocorrencia.Ocorrencia'),
-                'value' => '$data->Ocorrencia', 
-            ),
-            array(
-                'name' => Yii::t('main', 'ocorrencia.StatusOcorrencia'),
-                'value' => '$data->StatusOcorrencia', 
-            ),
-            array(
-                'name' => Yii::t('main', 'ocorrencia.NomeUsuario'),
-                'value' => '$data->NomeUsuario', 
-            ),
-        )),    
+            'columns' =>  array_merge(array(
+                array(
+                    'name' => Yii::t('main', 'ocorrencia.NoOcorrencia'),
+                    'value' => '$data->NoOcorrencia',
+                ),
+               array(
+                    'name' => Yii::t('main', 'ocorrencia.DataOcorrencia'),
+                    'value' => '$data->DataOcorrencia', 
+                    'value'=>'date("d/m/Y h:m:s",strtotime($data->DataOcorrencia))',
+                ),
+                array(
+                    'name' => Yii::t('main', 'ocorrencia.NomeContactado'),
+                    'value' => '$data->NomeContactado',
+                ),
+                array(
+                    'name' => Yii::t('main', 'ocorrencia.Ocorrencia'),
+                    'value' => '$data->Ocorrencia', 
+                ),
+                array(
+                    'name' => Yii::t('main', 'ocorrencia.StatusOcorrencia'),
+                    'value' => '$data->StatusOcorrencia', 
+                ),
+                array(
+                    'name' => Yii::t('main', 'ocorrencia.NomeUsuario'),
+                    'value' => '$data->NomeUsuario', 
+                ),
+            )),    
     
    
 )); ?>

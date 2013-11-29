@@ -1,63 +1,59 @@
 <?php
-/* @var $this ContratoController */
-/* @var $model Contrato */
+/* @var $this ProspectServicosController */
+/* @var $model ProspectServicos */
 /* @var $form CActiveForm */
 ?>
-  
+
 <div class="wide form">
-    
-    <?php $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
+
+<?php $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
         'action'=>Yii::app()->createUrl($this->route),
         'method'=>'get',
-        'id'=>'searchForm',
         'type'=>'search',
     )); ?>
+	
+<div class="row">
+    <div class="span2">
+     <?php echo $form->dateRangeRow(
+        $model,
+        'DataCancContr',
+        array(
+            'prepend' => '<i class="icon-calendar"></i>',
+            'options' => array('format' => 'dd/MM/yyyy'),
+            'style'=>'width: 177px',
+        )
+     ); ?>
+      <?php echo $form->error($model,'DataCancContr'); ?>
+        
+        <?php echo CHtml::activeCheckBox($model,'totalChart', array('style'=>'margin-top: -3px; margin-right: 5px;')); ?>
+        <?php echo CHtml::activeLabel($model, Yii::t('main','prospectServicos.totalChart'), array('style'=>'margin:15px 0')); ?>
+        
+        <?php echo $form->label($model, Yii::t('main','prospectServicos.sizeChart')); ?>
+        <?php echo $form->textFieldRow($model, 'sizeChart'); ?>
+    </div>
+</div>
     
-    <div class="row">
-        <div class="span2">
-            <?php echo $form->label($model,'Nº Contrato'); ?>
-            <?php echo $form->textFieldRow($model,'NoContrato',array('style'=>'width:207px')); ?>
-            
-            <?php /*echo $form->label($model->Cliente->NomeCliente, 'NomeCliente');*/ ?>
-            <?php /*echo $form->textFieldRow($model->Cliente->NomeCliente, 'NomeCliente', array('class' => 'span7'))*/ ?>
-  
-            <?php echo $form->dateRangeRow($model, 'DataInicioContr',
-                array('prepend'=>'<i class="icon-calendar"></i>',
-                      'style'=>'width:180px', 
-                      'options' => array('callback'=>'js:function(start, end){console.log(start.toString("MMMM d, yyyy") + " - " + end.toString("MMMM d, yyyy"));}')
-                )); ?>
-                
-            <?php echo $form->dropDownListRow($model, 'Localizacao',
-               array('Selecione Localização'=>Contrato::model()->OptionsLocalizacao(),
-            )); ?>
-            
-
-            <?php echo $form->dropDownListRow($model, 'Empresa',
-               array('Selecione Empresa'=>Contrato::model()->NomeEmpresa(), )
-            ); ?>
-            
-
-            <?php echo $form->label($model,'DiaVencimento'); ?>
-             <?php echo $form->datepickerRow($model, 'DiaVencimento',
-            array('prepend'=>'<i class="icon-calendar"></i>','style'=>'width:180px')); ?>
-
-            </div>
-        </div>
-           
-        <?php $this->widget('bootstrap.widgets.TbButton', 
-            array(
-                'buttonType'=>'submit', 
-                'label'=>Yii::t('main','helper.search'),
-                'type' => 'primary',
-                'htmlOptions' => array(
-                    'style'=>'margin-top:10px'),
-        )); ?>
-    
-    
-    <?php $this->endWidget(); ?>
+<div>
+    <?php $this->widget('bootstrap.widgets.TbButton', 
+        array(
+            'buttonType'=>'submit', 
+            'label'=>Yii::t('main','helper.search'),
+            'type' => 'primary',
+            'htmlOptions' => array('style'=>'margin-top:10px'),
+    )); ?>
+</div>
+<?php $this->endWidget(); ?>
 
 </div><!-- search-form -->
 
-<!--
-    
--->
+
+<?php Yii::app()->clientScript->registerScript(
+    'disabledSizeChart',
+    '$("#Contrato_totalChart" ).click(function() {
+        if($("#Contrato_totalChart").is(":checked") == true){
+           $("#Contrato_sizeChart").attr("disabled", "disabled")
+        }else{
+           $("#Contrato_sizeChart").removeAttr("disabled", "disabled")
+        };
+    });'
+); ?>

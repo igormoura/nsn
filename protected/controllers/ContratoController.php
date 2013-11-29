@@ -138,6 +138,18 @@ class ContratoController extends RController
 			'model'=>$model,
 		));
 	}
+        
+	public function actionDashboard()
+	{
+		$model=new Contrato('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['Contrato']))
+			$model->attributes=$_GET['Contrato'];
+
+		$this->render('dashboard/dashboard',array(
+			'model'=>$model,
+		));
+	}
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.

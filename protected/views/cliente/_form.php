@@ -44,10 +44,11 @@
             </div>
 
             <div class="span3">
-                <?php
-                echo $form->dropDownListRow($model, 'PF_PJ', array('Tipo Pessoa' => Cliente::model()->tipoPessoa()), array('style' => 'width: 220px')
-                );
-                ?>
+                <?php echo $form->dropDownListRow($model, 
+                        'PF_PJ', 
+                        array('Tipo Pessoa' => Cliente::model()->tipoPessoa()), 
+                        array('style' => 'width: 220px')
+                );?>
 
                 <div id="pj"> 
                     <?php echo $form->labelEx($model, 'CGC'); ?>

@@ -16,7 +16,7 @@ echo '<div id="item-assignments">';
 echo CHtml::tag('h2', array(), Yii::t('RbamModule.rbam','Assignments'));
 $this->widget('bootstrap.widgets.TbExtendedGridView', array(
 	'id'=>'assignments',
-      //  'sortableAttribute'=> 'itemName',
+      //'sortableAttribute'=> 'itemName',
         'fixedHeader' => true,
         'type'=>'striped bordered',
         'responsiveTable' => true,
