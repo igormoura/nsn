@@ -188,7 +188,7 @@ return array(
             'errorAction'=>'site/error',
         ),
     
-        /*'log'=>array(
+        'log'=>array(
             'class'=>'CLogRouter',
             'routes'=>array(
                 array(
@@ -211,18 +211,29 @@ return array(
                 ),
  
                 // uncomment the following to show log messages on web pages
- 
-                array(
+                
+               /* array(
                     'class'=>'CWebLogRoute',
                     //'categories'=>'system.web.filters.CFilterChain, exception.CException',
                     'categories'=>'system.web.*',
                     'levels' => 'trace, error',
+                ),*/
+                
+                // LOG DE TUDO - DESENVOLVIMENTO 
+                array(
+                        'class'=>'CFileLogRoute',
+                        'levels'=>'error, warning',
+                ),
+                // uncomment the following to show log messages on web pages
+                array(
+                        'class'=>'CWebLogRoute',
                 ),
                 
+                
             ),
-        ),*/
+        ),
         
-        'log'=>array(
+        /*'log'=>array(
             'class'=>'CLogRouter',
             'routes'=>array(
                 array(
@@ -234,7 +245,7 @@ return array(
                         'class'=>'CWebLogRoute',
                 ),
             ),
-        ),
+        ),*/
                 
     ),
 

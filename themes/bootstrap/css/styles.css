@@ -576,3 +576,17 @@ input[type="submit"].btn.btn-mini {
      -moz-border-radius: 0;
           border-radius: 0;
 }
+
+
+table + .collapse.in {
+    height: auto !important;
+}
+
+.accordion-group {
+margin-bottom: 2px;
+border: none !important;
+-webkit-border-radius: 0px !important;
+-moz-border-radius: 0px !important;
+border-radius: 0px !important;
+background: #F8F8F8 !important;
+}

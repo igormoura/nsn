@@ -1,4 +1,5 @@
 <?php $model = Duplicatas::model()->findByPk($id) ?>
+
 <?php $this->widget('bootstrap.widgets.TbDetailView', array(
         'data' => $model,
         'attributes'=>array(
@@ -63,5 +64,4 @@
                 'visible'=>$model->NFEmitida == null || '' ? false : true,
             ),
        ),
-    
-    )) ?>
+)) ?>

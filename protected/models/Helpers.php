@@ -34,6 +34,45 @@ class Helpers
                 }
              return $selectTop;
         }
+
+
+
+        // TEMPO DE CARREGAMENTO DA PÁGINA 
+
+
+
+        function calcElapsedTime($time) 
+        { 
+          $mtime=microtime(); 
+          $mtime=explode(' ',$mtime); 
+          $mtime=$mtime[1]+$mtime[0];  
+
+          $smtime=$time; 
+          $smtime=explode(' ',$smtime); 
+          $smtime=$smtime[1]+$smtime[0]; 
+
+          $diff = $mtime-$smtime; 
+
+          $daysDiff = floor($diff/60/60/24); 
+          $diff -= $daysDiff*60*60*24; 
+          $hrsDiff = floor($diff/60/60); 
+          $diff -= $hrsDiff*60*60/1000; 
+          $minsDiff = floor($diff/60); 
+          $diff -= $minsDiff*60; 
+          $secsDiff = floor($diff); 
+          $diff-=$secsDiff; 
+          $msDiff=round($diff*1000); 
+          return ($daysDiff.'d '.$hrsDiff.'h '.$minsDiff.'m '.$secsDiff.'s ' . $msDiff .'ms'); 
+
+        } 
+
+        /*$starttime=microtime(); 
+        //Do some work.. 
+        usleep(2555000); //idle for 2.55 secs. 
+        $elapsed=calcElapsedTime($starttime); 
+        printf("Elapsed: %s",$elapsed); */
+
+
         
 	
         

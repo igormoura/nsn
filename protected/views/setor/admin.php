@@ -40,21 +40,29 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
     )); ?>    </div><!-- search-form -->
 </div>
 
+<?php
+    $rawData=Yii::app()->db->createCommand('SELECT * FROM Setor')->queryAll();
+    $setores = Array();
+    foreach ($rawData as $setor) {
+        $setor = (object)$setor;
+        $setores[] = array('id' => $setor->id_setor, 'Setor' =>  $setor->ds_setor, 'Ativo' =>  $setor->ativo);
+    }
+    
+    $gridColumns = array(
+        array('name'=>'id', 'header'=>'ID'),
+        array('name'=>'Setor', 'header'=>'Setor'),
+        array('name'=>'Ativo', 'header'=>'Ativo'),
+    );
+
+    $dataProvider=new CArrayDataProvider($setores);
+   
+?>
+
 <?php $this->widget('bootstrap.widgets.TbExtendedGridView', array(
 	'id'=>'setor-grid',
         'fixedHeader' => true,
         'type'=>'striped bordered',
         'responsiveTable' => true,
-	'dataProvider'=>$model->search(),
-	//'filter'=>$model,
-	'columns'=>array(
-		'id_setor',
-		'ds_setor',
-		'ativo',
-		array(
-                    'header'=>Yii::t('main','helper.action'), 
-                    'class'=>'bootstrap.widgets.TbButtonColumn',
-                    'template' => '{view}{update}{delete}',
-                    )
-                ),
+	'dataProvider'=>$dataProvider,
+	'columns'=> $gridColumns,
 	)); ?>

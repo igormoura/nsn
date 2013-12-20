@@ -205,7 +205,7 @@ class Cliente extends CActiveRecord
 			'criteria'=>$criteria,
 			'pagination'=>array('pageSize'=>10),
 		 	'sort'=>array(
-		 		//'defaultOrder'=>'NomeCliente ASC',
+		 		//'defaultOrder'=>'NoCliente desc',
                             'attributes'=>array(
                                 /* 'Contrato.NoContrato'=>array(
                                      'asc'=>'Contrato.NoContrato',

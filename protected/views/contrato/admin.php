@@ -43,8 +43,7 @@ $('.search-form form').submit(function(){
         'type'=>'striped bordered',
         'responsiveTable' => true,
 	'dataProvider'=>$model->search(),
-        'filter' => $model,
-        //'ajaxUrl'=>Yii::app()->createUrl('/module/controller/action'),
+        //'filter' => $model,,
 	'columns'=>array(
 		array('name'=>'NoContrato', 'htmlOptions'=>array('style'=>'width: 13%')),
 

@@ -53,7 +53,7 @@ class ContratoController extends RController
 	 */
 	public function actionView($id)
 	{   
-			 $this->redirect(array('/cliente/view','id' =>$id));
+                $this->redirect(array('/cliente/view','id' =>$id));
 	}
 		
 	/**
@@ -139,18 +139,6 @@ class ContratoController extends RController
 		));
 	}
         
-	public function actionDashboard()
-	{
-		$model=new Contrato('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Contrato']))
-			$model->attributes=$_GET['Contrato'];
-
-		$this->render('dashboard/dashboard',array(
-			'model'=>$model,
-		));
-	}
-
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.

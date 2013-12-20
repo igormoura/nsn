@@ -17,10 +17,9 @@ class m130823_175001_duplicatas extends CDbMigration
             
 	}
 
-
 	public function down()
 	{
-		$this->dropTable('Duplicatas');
+            $this->dropTable('Duplicatas');
 	}
 
 	/*

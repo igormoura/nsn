@@ -72,11 +72,7 @@ class Contrato extends CActiveRecord
 	 * @param string $className active record class name.
 	 * @return Contrato the static model class
 	 */
-    
-   public $sizeChart;
-   public $totalChart;
-    
-   public $nomeCliente;
+        public $nomeCliente;
   
   
          
@@ -122,8 +118,6 @@ class Contrato extends CActiveRecord
 			array('cvv, Localizacao, Fil', 'length', 'max'=>3),
 			array('ContrAtualizado', 'length', 'max'=>25),
 			array('DataInicioContr, DataEntregDistrib, DataDigitacao, DataPrimeiroAcesso, DataUltimoAcesso, DataCancContr, PrimCobr, DataImprWE, TmpWEDataInit, DataImpWP, TMPWPDataInit', 'safe'),
-			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
 			array('totalChart, sizeChart, NoContrato, CodigoEstadoContr, CodigoGrupo, CodigoColegio, CodigoMotivoCanc, CondicoesAcesso, DataInicioContr, CodigoDistr, DiaVencimento, DataEntregDistrib, DataDigitacao, CodigoTipoCobr, DataPrimeiroAcesso, DataUltimoAcesso, NoCliente, Agencia, Conta, DataCancContr, Comentario, Matricula, Verba, LoginOriginal, CartaoCredito, ValidCartCredito, cvv, PrimContat, DataLimPovo, CodigoPovo, TipoCartCred, Localizacao, DataLimiteApuramento, PrimCobr, dv, ContrAtualizado, CandidatoWebcabo, DataImprWE, TransWE, TmpWEDataInit, TmpWECondicoesAcesso, TmpWECondicoesAcAnterior, Condo, grupo_autent, qtsimult, QtSimultPLogin, StatusWP, DataImpWP, TMPWPDataInit, TMPWPCondicoesAcesso, TMPWPCondicoesAcAnterior, DescPont, TipoEntrega, QtContas, Empresa, Fil, limiteemail, ClienteCorporativo, FlagCarta', 'safe', 'on'=>'search'),
 		);
 	}
@@ -136,7 +130,7 @@ class Contrato extends CActiveRecord
             return array(
                 'Distribuidor' => array(self::BELONGS_TO, 'Distribuidor', 'CodigoDistr'),
                 'EstadoContr' => array(self::BELONGS_TO, 'EstadoContr', 'CodigoEstadoContr'),
-                //'MotivoCancelamento' => array(self::BELONGS_TO, 'MotivoCancelamento', 'CodigoMotivoCanc'),
+                'MotivoCancelamento' => array(self::BELONGS_TO, 'MotivoCancelamento', 'CodigoMotivoCanc'),
                 'TipoCobranca' => array(self::BELONGS_TO, 'TipoCobranca', 'CodigoTipoCobr'),
                 'NomesEmpresas' => array(self::BELONGS_TO, 'NomesEmpresas', 'Empresa'),
                 'Cliente' => array(self::BELONGS_TO, 'Cliente', 'NoCliente'),
@@ -229,85 +223,15 @@ class Contrato extends CActiveRecord
 
                 //$criteria->addSearchCondition('NomeCliente',$this->Cliente->NomeCliente);
                 $criteria->compare('Cliente.NoCliente',$this->NoCliente, true);
-                
-                $helper = new Helpers();
-                $aux = $helper->buscarPorPeriodo($this->DataCancContr);
-                $criteria->addBetweenCondition('DataCancContr', $aux['0'] , $aux['1'], true);  
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+                        'pagination'=>array('pageSize'=>10),
+                            'sort'=>array(
+                                    'defaultOrder'=>'DataUltimoAcesso desc',
+                                ),
 		));     
 	}
-
-        public function dashboardCancelamentos($valor){
-            $helper = new Helpers();
-            $aux = $helper->buscarPorPeriodo($this->DataCancContr);
-            $selectTop = $helper->selectTop($this->sizeChart,$this->totalChart);
-            
-            $grupoServicos = Yii::app()->thirdb->createCommand()
-            ->select($selectTop.'CdGrupoServ,NmGrupoServ,sum(Valor) Valor')
-            ->from('dashboardServicosCanceladosView')
-            ->where("dtCanc >= '".$aux['0']."' and dtcanc < '".$aux['1']."' ")
-            ->group('CdGrupoServ,NmGrupoServ')
-            ->order('Valor desc')
-            ->queryAll();
-            
-            $grupoServico = array();
-            $grupoServicoBar = array();
-            
-             foreach ($grupoServicos as $aux) { 
-                $aux = (object) $aux;
-                //Pizza
-                $grupoServico[] = array($aux->NmGrupoServ, intval($aux->Valor));
-                // Barra
-                $grupoServicoBar[] = array('name' => $aux->NmGrupoServ, 'type' => 'column', 'data' => array(intval($aux->Valor)));
-            }
-
-            $motivos = Yii::app()->thirdb->createCommand()
-            ->select($selectTop." isnull(DescrMotivo,'Não Cadastrado') MotivoCanc,sum(Valor) Valor")
-            ->from('dashboardServicosCanceladosView')
-            ->where("dtCanc >= '2013-01-01' and dtcanc < '2013-01-03' ")
-            ->group("isnull(DescrMotivo,'Não Cadastrado')")
-            ->order('Valor desc')
-            ->queryAll();
-            
-            $motivo = array();
-            $motivoBar = array();
-            
-            foreach ($motivos as $aux) { 
-                // $motivo = (object) $motivo;
-                // Pizza
-                $motivo[] = array($aux['MotivoCanc'], intval($aux['Valor']));
-                // Barra
-                $motivoBar[] = array('name' => $aux['MotivoCanc'], 'type' => 'column', 'data' => array(intval($aux['Valor'])));
-            }
-                   
-            if($valor == 'grupoServico'){
-                return $grupoServico;
-            }elseif($valor == 'grupoServicoBar'){
-                return $grupoServicoBar;
-            }elseif($valor == 'motivo'){
-                return $motivo;
-            }elseif($valor == 'motivoBar'){
-                return $motivoBar;
-            }
-
-        }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         public function locFil()
         {
@@ -334,7 +258,8 @@ class Contrato extends CActiveRecord
             );
         }
         
-        function diaVencimento(){
+        function diaVencimento()
+        {
             $rows = array();
             for($i=1;$i<=31;$i++){
                 $rows[] = $i;
@@ -359,7 +284,7 @@ class Contrato extends CActiveRecord
         
         public function behaviors()
         { 
-            return array( 'LoggableBehavior'=> 'application.modules.auditTrail.behaviors.LoggableBehavior', );
+            return array( 'LoggableBehavior'=> 'application.modules.auditTrail.behaviors.LoggableBehavior' );
         }
 
 }

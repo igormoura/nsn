@@ -29,18 +29,22 @@ return array (
     'helper.create' => 'Criar',
     'helper.search' => 'Buscar',
     'helper.fieldsRequired' => 'Os campos com '.'<span class="required">*</span>'.' são obrigatórios.',
-    'helper.dashboard' => 'Dashboard',
     
     
     /* TRADUÇÕES DASHBOARD */ 
+    'dashboard.title' => "Dashboard",
     'dashboard.pie' => "Pizza",
     'dashboard.bar' => "Barra",
-    
+    'dashboard.sizeChart' => 'Quantidade Análise',
+    'dashboard.totalChart' => 'Valor Total Análise',
+    'dashboard.dataGrafico' => 'Data Gráficos',
+    'dashboard.corporativo' => 'Corporativo',
     
     // DASHBOARD OCORRENCIAS
     'dashboard.ocorrencias' => "Dashboard Ocorrências",
     'dashboard.ocorrencias.tipoServicos' => "Tipo Serviços",
     'dashboard.ocorrencias.tipoProblema' => "Tipo Problema",
+    'dashboard.ocorrencias.tipoSetor' => "Tipo Setor",
     'dashboard.ocorrencias.maiorMenor' => "Maior Menor",
     'dashboard.ocorrencias.total' => "Total",
     'dashboard.ocorrencias.menor72Horas' => "Menor 72Horas",
@@ -73,8 +77,12 @@ return array (
     'dashboard.cancelamento' => "Dashboard Cancelamento",
     'dashboard.cancelamento.motivos.title' => "Motivos",
     'dashboard.cancelamento.motivos' => "Motivos de Cancelamentos",
-    'dashboard.cancelamento.grupoServicos.title' => "Grupo Serviços",
-    'dashboard.cancelamento.grupoServicos' => "Cancelamento por Grupo Serviços",
+    'dashboard.cancelamento.grupoServicos' => "Grupo Serviços",
+    
+    // DASHBOARD PREDIAL
+    
+    'dashboard.predialFibra' => "Dashboard Predial Fibra",
+    'dashboard.condominioPredial' => "Condomínio",
     
 
     /*TRADUÇÃO SITE*/
@@ -89,7 +97,7 @@ return array (
     'contrato.create' => 'Novo Contrato',
     'contrato.delete' => 'Deletar Contrato',
     'contrato.update' => 'Atualizar Contrato',
-    'contrato.dashBoardCancelamento' => 'Dashboar Cancelamentos',
+    'contrato.dashBoardCancelamento' => 'Dashboard Cancelamentos',
 
     // Labels  
     'contrato.NoContrato' => 'Nº Contrato',
@@ -125,6 +133,7 @@ return array (
     'contrato.CodigoTipoCobr' => 'Tipo de Cobrança',
     'contrato.DescrTipoCobr' => 'Tipo de Cobrança',
     'contrato.MotivoCancelamento' => 'Motivo Cancelamento',
+    'contrato.NomeCliente' => 'Nome Cliente',
 
     // FUNCÕES CONTRATO
 
@@ -167,6 +176,7 @@ return array (
     'cliente.InscricaoMunicipal' => 'Inscrição Municipal',
     'cliente.EmailFinanceiro' => 'Email Financeiro',
     'cliente.EnderecoCobranca' => 'Endereço de Cobrança',
+    'cliente.DadosBancario' => 'Dados Bancário',
 
     // FUNÇÕES CLINTES
    'cliente.tipoPessoa.fisica' => 'Física',
@@ -230,12 +240,10 @@ return array (
     'cobrAdic.IdentificaOper' => 'Identifica Oper',
     'cobrAdic.SeqPai' => 'Seq Pai',
 
-
     /* TRADUÇÃO NETACESSOS */
     'netAcessos.title' => 'Login',
     'netAcessos.manager' => 'Gerenciar Logins',
 
-    
     'netAcessos.LoginUsuario' => 'Login',
     'netAcessos.Campo_S' => 'Campo S',
     'netAcessos.CodigoMotivoCanc' => 'Codigo Motivo Canc',

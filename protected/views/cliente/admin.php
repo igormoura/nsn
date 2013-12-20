@@ -50,6 +50,7 @@ $('.search-form form').submit(function(){
     </div><!-- search-form -->
 </div>
 
+
 <?php $this->widget('bootstrap.widgets.TbExtendedGridView', array(
 	'id'=>'cliente-grid',
         'headerOffset' => 42,
@@ -57,6 +58,8 @@ $('.search-form form').submit(function(){
         'type'=>'striped bordered',
         'responsiveTable' => true,
         'dataProvider'=>$model->search(),
+    
+      
         //'filter'=>$model,
         'columns'=>array(
                 array(

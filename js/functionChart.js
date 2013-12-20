@@ -1,5 +1,4 @@
 // FUNÇÃO GERAR GRID RELÁTORIO GRÁFICOS
-
 function gerarRelatorio(chave, dados)
 {
     var table_html = '<table class="table table-striped table-bordered"><thead><tr>';
@@ -19,3 +18,14 @@ function gerarRelatorio(chave, dados)
    $("#modal-body").html(table_html);
    $("#modal-header").html('<h4>Relatório: '+ chave +'</h4>');
 } 
+
+// RELATÓRIO GRÁFICOS POR CANCELAMENTO
+function gerarRelatorioCanc(chave)
+{ 
+    $("#modal-header").html('<h4>Relatório: '+ chave +'</h4>');
+    $( ".relatorio" ).addClass("hide");    
+    chave = chave.replace(/\ /g, '');
+    var div = '#'+chave;
+    if ($(div).length){$(div).removeClass("hide")}
+}
+

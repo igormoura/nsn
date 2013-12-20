@@ -121,7 +121,6 @@ class TbRelationalColumn extends TbDataColumn
 			return is_object($data) ? $data->{$this->grid->dataProvider->keyField}
 				: $data[$this->grid->dataProvider->keyField];
 		}
-
 		return null;
 	}
 

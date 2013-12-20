@@ -88,14 +88,9 @@
                     'label'=> Yii::t('main', 'cliente.EmailCobr'),
                     'value'=>$model->EmailCobr,
                     'visible'=>$model->EmailCobr == null || '' ? false : true,
-                ),
-            
-                /*Endereço Cobrança*/       
-          
-        )
-   ));
-            
-?>
+                ),       
+        ),
+));?>
 
 <?php $collapse = $this->beginWidget('bootstrap.widgets.TbCollapse');?>
 <div class="accordion-group in">
@@ -139,15 +134,12 @@
                             'value'=>$model->ECCEP,
                             'visible'=>$model->ECCEP == null || '' ? false : true,
                         ),
-                  )
-              )
-            )?>
-                
+                  ),
+          ))?>
         </div>
     </div>
 </div>
 <?php $this->endWidget();?>
-
 
 <?php $this->widget('bootstrap.widgets.TbButton', array(
         'label'=>Yii::t('main','helper.edit'),
@@ -155,10 +147,10 @@
         'icon'=>'icon-edit',
         'type' => '',
 	    'htmlOptions' => array(
-        'style' => 'margin-top:20px;',
+                'style' => 'margin-top:20px;',
 		'data-toggle' => 'modal',
 		'data-target' => '#editCliente',
-        'class' => 'pull-right',
-        'style' => 'z-index: 1053'        
+                'class' => 'pull-right',
+                'style' => 'z-index: 1053'        
 	   ),
 ));?> 

@@ -60,7 +60,7 @@ class MotivoCancelamento extends CActiveRecord
             // NOTE: you may need to adjust the relation name and the related
             // class name for the relations automatically generated below.
             return array(
-                 'Contrato' => array(self::HAS_MANY, 'Contrato', 'NoContrato'),
+                 //'Contrato' => array(self::HAS_MANY, 'Contrato', 'NoContrato'),
             );
 	}
 

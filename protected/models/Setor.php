@@ -71,6 +71,7 @@ class Setor extends CActiveRecord
 			'id_setor' => Yii::t('main','setor.id_setor'),
 			'ds_setor' => Yii::t('main','setor.ds_setor'),
 			'ativo' => Yii::t('main','setor.ativo'),
+                        'ativo.nome' => Yii::t('main','setor.ativo'),
 		);
 	}
 

@@ -7,12 +7,10 @@ $this->breadcrumbs=array(
 	'Manage',
 );
 
-/*$this->menu=array(
+$this->menu=array(
 	array('label'=>'List ProspectServicos', 'url'=>array('index')),
 	array('label'=>'Create ProspectServicos', 'url'=>array('create')),
-);*/
-
-Yii::app()->getClientScript()->registerScriptFile(Yii::app()->baseUrl.'/js/functionChart.js');
+);
 
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
@@ -28,55 +26,49 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Dashboard Vendas</h1>
+<h1>Manage Prospect Servicoses</h1>
+
+<p>
+You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
+or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
+</p>
 
 <div class="advanced-search">
-    <?php echo CHtml::link(Yii::t('main','helper.advancedSearch'),'#',array('class'=>'search-button')); ?>    
-    <div class="search-form well" style="display:block">
+    <?php echo CHtml::link(Yii::t('main','helper.advancedSearch'),'#',array('class'=>'search-button')); ?>    <div class="search-form well" style="display:block">
     <?php $this->renderPartial('_search',array(
             'model'=>$model,
-    )); ?>
-    </div><!-- search-form -->
+    )); ?>    </div><!-- search-form -->
 </div>
 
-<div class="span9 margin-left-none">
-<?php $this->widget(
-    'bootstrap.widgets.TbTabs',
-    array(
-        'id' => 'dashboard-vendas',
-        'type' => 'tabs',
-        'tabs' => array(
-          /*  array(
-                'label'=>Yii::t('main','ocorrencia.listaOcorrencias'),
-                'content' => $this->renderPartial('_listProspectServicos',array('model'=>$model),true),
-                'active' => true,
-            ),*/
-            array(
-                'label'=>'Tipos Clientes',
-                'content' => $this->renderPartial('graficosVendas/_total',array('model'=>$model),true),  
-                'active' => true,
-            ),
-            array(
-                'label'=>'Grupo Serviços',
-                'content' => $this->renderPartial('graficosVendas/_grupoServicos',array('model'=>$model),true),  
-            ),
-            array(
-                'label'=>'Serviços',
-                'content' => $this->renderPartial('graficosVendas/_servicos',array('model'=>$model),true),  
-            ),
-            array(
-                'label'=>'Clientes',
-                'content' => $this->renderPartial('graficosVendas/_prospect',array('model'=>$model),true),  
-            ),
-            array(
-                'label'=>'Tipos Alunos',
-                'content' => $this->renderPartial('graficosVendas/_geralProspectCurso',array('model'=>$model),true),  
-            ),
-            array(
-                'label'=>'Cursos',
-                'content' => $this->renderPartial('graficosVendas/_cursosTurmas',array('model'=>$model),true),  
-            ),
-        ),
-    )
-);?>
-</div>
+<?php $this->widget('bootstrap.widgets.TbExtendedGridView', array(
+	'id'=>'prospect-servicos-grid',
+        'fixedHeader' => true,
+        'type'=>'striped bordered',
+        'responsiveTable' => true,
+	'dataProvider'=>$model->search(),
+	//'filter'=>$model,
+	'columns'=>array(
+		'cdservico',
+		'NoProspect',
+		'Servico',
+		'Valor',
+		'Freq',
+		'historico',
+		/*
+		'vencimento',
+		'IdVend',
+		'IdIndic',
+		'DtVend',
+		'DtIndic',
+		'status',
+		'FidelidadePredial',
+		'DtFidelidadePredial',
+		'PlanoFidelidadePredial',
+		*/
+		array(
+                    'header'=>Yii::t('main','helper.action'), 
+                    'class'=>'bootstrap.widgets.TbButtonColumn',
+                    'template' => '{view}{update}{delete}',
+                    )
+                ),
+	)); ?>

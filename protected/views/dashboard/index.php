@@ -1,44 +1,85 @@
-<?php $this->pageTitle=Yii::app()->name; ?>
-
 <?php
-$basePath = Yii::app()->basePath . DIRECTORY_SEPARATOR . 'extensions' . DIRECTORY_SEPARATOR . 'jqplot';
-$baseUrl = Yii::app()->getAssetManager()->publish($basePath, false, 1, YII_DEBUG);
+/* @var $this DashboardController */
+/* @var $model Dashboard */
 
-$cs = Yii::app()->clientScript;
-$cs->registerScriptFile($baseUrl . '/jquery.jqplot.min.js');
-$cs->registerCssFile($baseUrl . '/jquery.jqplot.min.css');
-$cs->registerScriptFile($baseUrl . '/plugins/jqplot.barRenderer.min.js');
-$cs->registerScriptFile($baseUrl . '/plugins/jqplot.categoryAxisRenderer.min.js');
-$cs->registerScriptFile($baseUrl . '/plugins/jqplot.canvasAxisTickRenderer.min.js');
-$cs->registerScriptFile($baseUrl . '/plugins/jqplot.canvasAxisLabelRenderer.min.js');
-$cs->registerScriptFile($baseUrl . '/plugins/jqplot.canvasTextRenderer.min.js');
-$cs->registerScriptFile($baseUrl . '/plugins/jqplot.meterGaugeRenderer.min.js');
-$cs->registerScriptFile($baseUrl . '/plugins/jqplot.pointLabels.min.js');
+$this->breadcrumbs=array(
+	Yii::t('main', 'dashboard.title')
+);
+
+Yii::app()->clientScript->registerScript('search', "
+$('.search-button').click(function(){
+	$('.search-form').toggle();
+	return false;
+});
+$('.search-form form').submit(function(){
+	$('#contrato-grid').yiiGridView('update', {
+		data: $(this).serialize()
+	});
+	return false;
+});
+");
 ?>
 
-<?php 
-	$obj = $this->widget('application.extensions.dashboard.dashboard', array(
-    	'divColumns' => array('column1', 'column2', 'column3', 'dash-sing-col-content'),
-    	'dashHeader' => array('show'=>true, 'title'=>'Dashboard')
-	)); 
-?>
 
-<div class="column1">      
-	<?php $obj->addPortlet('feeds', 'Feeds', 'FEEDS PORTAL');?>
-	<?php $obj->addPortlet('news', 'News', $this->renderPartial('/dashboard/_news',false,true));?>
-</div>
-<div class="column2">
-	<?php $obj->addPortlet('shopping', 'Shopping', $this->renderPartial('/dashboard/_chart',false,true));?> 
-	<?php $obj->addPortlet('hits', 'Hits', $this->renderPartial('/dashboard/_grid_view',array('dataProvider' => $usageDataProvider1),true));?> 
-</div>
-<div class="column3">
-	<?php $obj->addPortlet('weather', 'Weather', '28 C Colombo');?>
-	<?php $obj->addPortlet('traffic', 'Traffic', $this->renderPartial('/dashboard/_meter',false,true));?>
-</div>
+<div class="span12 margin-left-none">
+    
+    <h1><?php echo Yii::t('main','dashboard.title')?></h1>
+    
+    <?php
+
+$this->Widget('ext.highcharts.HighchartsWidget', array(
+    'options' => array(
+        'gradient' => array('enabled'=> true),
+        'credits' => array('enabled' => false),
+        'exporting' => array('enabled' => false),
+        'chart' => array(
+            'plotBackgroundColor' => null,
+            'plotBorderWidth' => null,
+            'plotShadow' => false,
+            'height' => 530,
+            'width' => 870,
+        ),
+        'legend' => array(
+            'enabled' => true,
+        ),
+        'title' => array(
+            'text' => Yii::t('main','dashboard.ocorrencias.tempoFechamento').'<br><br>'.$model->dataGrafico
+        ),
+        'xAxis' => array(
+         'categories' => array('Quantidade'),
+        ),
+        'yAxis' => array(
+           'title' => array('text' => 'Ocorrências')
+        ),
+        'tooltip' => array(
+            'pointFormat' => '{series.name}: <b>{point.y}</b>',
+            'percentageDecimals' => 2,
+        ),
+        'plotOptions' => array(
+            'pie' => array(
+                'allowPointSelect' => true,
+                'cursor' => 'pointer',
+                'dataLabels' => array(
+                'enabled' => true,
+                'color' => '#000000',
+                'connectorColor' => '#000000',
+                'formatter' => "js:function(){return '<b>'+ this.point.name +'</b>: '+ this.percentage.toFixed(2) +' %';}",
+                ),
+            )
+        ),
+       'series' => $model->menorMaior('menorMaiorBar'),
+       /* 'series' => array(
+            array(
+                'type' => 'column', //line, spline, area, areaspline, column, bar, pie, scatter, angular gauges, arearange, areasplinerange, columnrange, bubble, box plot, error bars, funnel, 
+                'name' => 'Quantidade',
+                'data' => $model->menorMaior('menorMaior'),
+            ),
+        ),*/
+    ),
+    'htmlOptions' => array('style'=>'margin-bottom: 50px;'),
+    ));?>
 
 
-<div class="dash-sing-col-content">
-	<?php $obj->addPortlet('big_chart', 'Big Chart', $this->renderPartial('/dashboard/_chart_big',false,true));?>
+    
 </div>
 
-<?php $obj->end()?>

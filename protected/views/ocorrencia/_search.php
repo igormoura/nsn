@@ -24,7 +24,7 @@
                 ); ?>
                  <?php echo $form->error($model,'DataOcorrencia'); ?>
                 
-                <?php /* echo $form->label($model, Yii::t('main','ocorrencia.NomeUsuario')); ?>
+                <?php echo $form->label($model, Yii::t('main','ocorrencia.NomeUsuario')); ?>
                 <?php echo $form->textFieldRow($model,'NomeUsuario'); ?>
                 
                 <?php echo $form->dropDownListRow($model,'cdServico', 
@@ -37,13 +37,8 @@
                            CHtml::listData(OcorrenciaStatus::model()->findAll(
                                    array('order' => 'nmStatus ASC')), 'cdStatus', 'nmStatus'), 
                            array('empty'=>'Status')) ?>
-                <?php echo $form->error($model,'StatusOcorrencia'); */ ?>
+                <?php echo $form->error($model,'StatusOcorrencia'); ?>
 
-                <?php echo CHtml::activeCheckBox($model,'totalChart', array('style'=>'margin-top: -3px; margin-right: 5px;')); ?>
-                <?php echo CHtml::activeLabel($model, Yii::t('main','ocorrencia.totalChart'), array('style'=>'margin:15px 0')); ?>
-                
-                <?php echo $form->label($model, Yii::t('main','ocorrencia.sizeChart')); ?>
-                <?php echo $form->textFieldRow($model, 'sizeChart'); ?>
             </div> 
 	</div>
     <div>
